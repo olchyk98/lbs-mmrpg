@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_.19.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Program.cs" t="Include" />
+      <e p="README.md" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="classes" t="Include">
+        <e p="gui" t="Include">
+          <e p="components" t="Include">
+            <e p="FastGuiUtils.cs" t="Include" />
+            <e p="Menu.cs" t="Include" />
+            <e p="ResolutionHandler.cs" t="Include" />
+            <e p="Stats.cs" t="Include" />
+            <e p="colorize" t="Include">
+              <e p="Colorize.cs" t="Include" />
+              <e p="HardColor.cs" t="Include" />
+            </e>
+          </e>
+          <e p="templates" t="Include">
+            <e p="GameMenu.cs" t="Include" />
+            <e p="WelcomeScreen.cs" t="Include" />
+          </e>
+        </e>
+        <e p="instances" t="Include">
+          <e p="items" t="Include" />
+          <e p="player" t="Include">
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerBuffs.cs" t="Include" />
+            <e p="PlayerInventory.cs" t="Include" />
+          </e>
+        </e>
+        <e p="utils" t="Include">
+          <e p="FastLinq.cs" t="Include" />
+          <e p="ListRandomExtension.cs" t="Include" />
+        </e>
+      </e>
+      <e p="contracts" t="Include">
+        <e p="IMenu.cs" t="Include" />
+      </e>
+      <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="lbs-mmrpg.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="start.sh" t="Include" />
+    </e>
+  </component>
+</project>

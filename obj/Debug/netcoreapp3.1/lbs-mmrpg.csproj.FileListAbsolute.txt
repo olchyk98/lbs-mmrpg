@@ -1,0 +1,13 @@
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-mmrpg
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-mmrpg.deps.json
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-mmrpg.runtimeconfig.json
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-mmrpg.runtimeconfig.dev.json
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-mmrpg.dll
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-mmrpg.pdb
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.csprojAssemblyReference.cache
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.AssemblyInfoInputs.cache
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.AssemblyInfo.cs
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.csproj.CoreCompileInputs.cache
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.dll
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.pdb
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.genruntimeconfig.cache
