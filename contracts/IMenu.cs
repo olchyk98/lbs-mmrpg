@@ -25,7 +25,7 @@ namespace lbs_rpg.contracts
         /// <warnings>
         ///  * Method is recursive
         /// </warnings>
-        void Display(bool clearScreen);
+        void Display();
 
         void ExecuteSelectedItem();
     }

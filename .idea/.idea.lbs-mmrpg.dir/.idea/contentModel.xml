@@ -14,8 +14,8 @@
             <e p="FastGuiUtils.cs" t="Include" />
             <e p="FastGuiUtilsAnimatedPrint.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
+            <e p="PlayerStatsBar.cs" t="Include" />
             <e p="ResolutionHandler.cs" t="Include" />
-            <e p="StatsBar.cs" t="Include" />
             <e p="colorize" t="Include">
               <e p="Colorize.cs" t="Include" />
               <e p="HardColor.cs" t="Include" />
@@ -23,6 +23,7 @@
           </e>
           <e p="templates" t="Include">
             <e p="ActionGroupsMenu.cs" t="Include" />
+            <e p="TravelToVillageMenu.cs" t="Include" />
             <e p="WelcomeMessage.cs" t="Include" />
           </e>
         </e>
@@ -47,6 +48,7 @@
         <e p="IEntity.cs" t="Include" />
         <e p="IEntityBot.cs" t="Include" />
         <e p="IMenu.cs" t="Include" />
+        <e p="IRenderable.cs" t="Include" />
       </e>
       <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">

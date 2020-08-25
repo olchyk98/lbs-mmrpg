@@ -7,7 +7,7 @@ namespace lbs_rpg.classes.gui.components
 {
     public static class ConstantProgress
     {
-        public static void Start(int tickDelay, Action onProgress)
+        public static void Start(string title, int tickDelay, Action onProgress)
         {
             var tokenSource = new CancellationTokenSource();
             var cancellationToken = tokenSource.Token;
@@ -15,7 +15,10 @@ namespace lbs_rpg.classes.gui.components
             Task.Run(() =>
             {
                 // Declare the output variable (cache)
-                string[] content = {"SLEEPING", "", default, default};
+                string[] content =
+                {
+                    title, "", default, default, "", "Press any key to stop"
+                };
 
                 // Declare progress line length
                 int progressWidth = 10;
@@ -26,6 +29,11 @@ namespace lbs_rpg.classes.gui.components
                 // Start drawing
                 while (true)
                 {
+                    // Check if the task was cancelled
+                    cancellationToken.ThrowIfCancellationRequested();
+                    
+                    FastGuiUtils.ClearConsole();
+
                     // Create progress string
                     StringBuilder progressBuilder = new StringBuilder();
                     for (int ma = 0; ma < progressWidth; ++ma)
@@ -45,16 +53,22 @@ namespace lbs_rpg.classes.gui.components
 
                     // Update progress value
                     if (++progressValue > progressWidth) progressValue = 0;
-
-                    // Tick delay
-                    Thread.Sleep(tickDelay);
-
+                    
                     // Invoke callback 
                     onProgress();
+
+                    // Tick delay
+                    Task.Delay(tickDelay, cancellationToken).Wait(cancellationToken);
                 }
             }, cancellationToken);
 
+            // Listen for any input to kill the task
             Console.ReadKey(true);
+            
+            // Cancel the task after the input
+            tokenSource.Cancel();
+            
+            // ...
             Console.WriteLine("a");
         }
     }

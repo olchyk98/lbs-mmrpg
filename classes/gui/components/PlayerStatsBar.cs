@@ -1,15 +1,24 @@
 using System;
+using System.Text;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.classes.instances.player;
+using lbs_rpg.contracts;
 
 namespace lbs_rpg.classes.gui.components
 {
-    public static class StatsBar
+    public class PlayerStatsBar : IRenderable
     {
+        private Player _targetPlayer = default;
+
+        public PlayerStatsBar(Player player)
+        {
+            _targetPlayer = player;
+        }
+        
         /// <summary>
         /// Renders a stats bar on the last and pre-last y positions
         /// </summary>
-        public static void Display(Player player)
+        public void Display()
         {
             // Health Bar
             DisplayHealthBar();
@@ -19,7 +28,7 @@ namespace lbs_rpg.classes.gui.components
         }
 
         // Sequential Method
-        private static void DisplayHealthBar()
+        private void DisplayHealthBar()
         {
             // HealthBar Y position
             int posY = ResolutionHandler.GetResolution(1) - 1;
@@ -27,34 +36,50 @@ namespace lbs_rpg.classes.gui.components
             // Line width
             int width = ResolutionHandler.GetResolution(0);
             
-            // Player current health in %
-            string health = Program.Player.GetHealthProcentString();
+            // Get player health in %, outputable form
+            int playerHealthProcent = Program.Player.GetHealthProcent();
+            string health = Program.Player.HealthToString();
             
             // Health text position X
             int healthX = width / 2 - health.Length / 2;
             
             // Health bar (rectangle and the text)
-            string barText = "";
+            StringBuilder barTextBuilder = new StringBuilder();
             
             // Content the barText (rectangles and text)
             for (var ma = 0; ma < width; ma++)
             {
-                if (ma >= healthX && ma < healthX + health.Length) barText += health[ma - healthX];
-                else barText += ' ';
+                // Chat that will be added during this iteration
+                string current = " ";
+
+                // Place text char when at the right position
+                if (ma >= healthX && ma < healthX + health.Length)
+                {
+                    current = health[ma - healthX].ToString();
+                }
+
+                // Checks if this position in the healthbar should be filled (health)
+                if (ma < Math.Floor(playerHealthProcent / 100f * width))
+                {
+                    current = current.Colorize("bgred");
+                }
+
+                // Append char to the output
+                barTextBuilder.Append(current);
             }
 
             // Place cursor at the position
             Console.SetCursorPosition(0, posY);
             
             // Display the health bar rectangle
-            Console.WriteLine(barText.Colorize("bgred"));
+            string barText = barTextBuilder.ToString();
+            Console.WriteLine(barText);
         }
 
-        private static void DisplayStats()
+        private void DisplayStats()
         {
             /*
-             * Money, Protection, Social Level
-             * [] 100       [] 200       100 []
+             * [] 100       [] 200       [] 100
              */
             
             // Stats Y position
@@ -64,7 +89,7 @@ namespace lbs_rpg.classes.gui.components
             string elementsGap = new string(' ', 4);
             
             // Output content
-            string elements =  String.Join("", $"💵 4.6k", elementsGap, $"🛡️ 4.1%", elementsGap, $"🧑 35/1500");
+            string elements =  String.Join(string.Empty, $"💵 4.6k", elementsGap, $"🛡️ 4.1%", elementsGap, $"🧑 35/1500");
             
             // Calculate position (center)
             int posX = ResolutionHandler.GetResolution(0) / 2 - elements.Length / 2;

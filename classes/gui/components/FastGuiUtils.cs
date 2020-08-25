@@ -1,5 +1,6 @@
 using System;
 using lbs_rpg.classes.gui.components.colorize;
+using lbs_rpg.contracts;
 
 namespace lbs_rpg.classes.gui.components
 {
@@ -40,10 +41,19 @@ namespace lbs_rpg.classes.gui.components
         /// Erases the console window.
         /// This is an external extension method, since I'm planing to make a static render pipeline.
         /// </summary>
-        public static void ClearConsole()
+        public static void ClearConsole(bool ignorePipeline = false)
         {
             // Erase current output
             Console.Clear();
+            
+            // Render items from the pipeline
+            if (!ignorePipeline)
+            {
+                foreach(IRenderable item in Program.RenderPipeline)
+                {
+                    item.Display();
+                }
+            }
         }
     }
 }

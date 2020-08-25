@@ -16,7 +16,7 @@ namespace lbs_rpg.classes.gui.templates
         public static void Display()
         {
             // Clear the console
-            FastGuiUtils.ClearConsole();
+            FastGuiUtils.ClearConsole(true);
 
             // Create the breakline pipe
             // Initialize the string builder. We need a direct access to the char[]

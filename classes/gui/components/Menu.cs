@@ -10,7 +10,7 @@ namespace lbs_rpg.classes.gui.components
     {
         private int _selectedIndex = 0;
         private readonly Dictionary<string, Action> _items = null;
-        private string _label = null;
+        private readonly string _label = null;
 
         /*
             [string, function]
@@ -116,13 +116,9 @@ namespace lbs_rpg.classes.gui.components
         /// <warnings>
         ///  * Method is recursive
         /// </warnings>
-        public void Display(bool clearScreen = true)
+        public void Display()
         {
-            if (clearScreen)
-            {
-                // Clear the console
-                FastGuiUtils.ClearConsole();
-            }
+            FastGuiUtils.ClearConsole();
 
             // Declare print output array
             string[] items = _items.Keys.ToArray();
@@ -145,7 +141,7 @@ namespace lbs_rpg.classes.gui.components
             }
 
             // Push label to the output without any stylization
-            items = items.Prepend(_label).ToArray();
+            items = items.Prepend(string.Empty).Prepend(_label).ToArray();
 
             // Display the options
             FastGuiUtils.PrintCenteredText(items);
@@ -182,7 +178,7 @@ namespace lbs_rpg.classes.gui.components
 
             // Since the method didn't return anything yet, we refresh the menu by displaying it again
             // DEVNOTE[olesodynets]: "can be replaced with a loop, but i dont want to nest the whole function"
-            Display(clearScreen);
+            Display();
         }
 
         public void ExecuteSelectedItem()

@@ -6,14 +6,12 @@ namespace lbs_rpg.classes.gui.templates
 {
     public static class ActionGroupsMenu
     {
-        // Inefficient.
-        // In theory, the Program class can contain a static list/dictionary of IMenu [REFACTOR]
-        public static void Display(bool clearConsole = true)
+        public static void Display()
         {
             Dictionary<string, Action> items = new Dictionary<string, Action>()
             {
                 {
-                    "> Shop <", () =>
+                    "> Go to shop <", () =>
                     {
                         Console.WriteLine("a");
                         return;
@@ -27,7 +25,7 @@ namespace lbs_rpg.classes.gui.templates
                     }
                 },
                 {
-                    "> Go to the dungeonc <", () =>
+                    "> Go to the dungeon <", () =>
                     {
                         Console.WriteLine("a");
                         return;
@@ -40,9 +38,16 @@ namespace lbs_rpg.classes.gui.templates
                         return;
                     }
                 },
+                {
+                    "> Move to another village <", () =>
+                    {
+                        TravelToVillageMenu.Display();
+                        return;
+                    }
+                },
             };
 
-            (new Menu(items, "ACTIONS:")).Display(clearConsole);
+            (new Menu(items, "ACTIONS:")).Display();
         }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace lbs_rpg.classes.utils
 {
@@ -52,16 +53,16 @@ namespace lbs_rpg.classes.utils
             for (int my = 0; my < sizeY; my++)
             {
                 // Create the string container
-                string line = "";
+                StringBuilder line = new StringBuilder();
                 
                 // Iterate through the array and compile all chars into a string
                 for (int mx = 0; mx < sizeX; mx++)
                 {
-                    line += aChars[my, mx];
+                    line.Append(aChars[my, mx]);
                 }
                 
                 // Add compiled string to array
-                strings[my] = line;
+                strings[my] = line.ToString();
             }
 
             return strings;
