@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace lbs_mmrpg.classes.utils
+namespace lbs_rpg.classes.utils
 {
     public static class FastLinq
     {

@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using lbs_mrpg.classes.gui.components.colorize;
 
 // Colorize implementation by Oles Odynets
 // @2020
 
-namespace lbs_mrpg.classes.gui.components
+namespace lbs_rpg.classes.gui.components.colorize
 {
     public static class ColorizeString
     {
@@ -29,7 +28,9 @@ namespace lbs_mrpg.classes.gui.components
         #region Constructor
 
         static ColorizeString()
-        {
+        {            
+
+            // REFACTOR: Move a separate JSON file.
             // ANSI CODES
             AnsiCodes.Add(HardColor.FORE_COLOR_RED, "\u001b[31m");
             AnsiCodes.Add(HardColor.FORE_COLOR_BLACK, "\u001b[30m");
@@ -40,7 +41,7 @@ namespace lbs_mrpg.classes.gui.components
             AnsiCodes.Add(HardColor.FORE_COLOR_CYAN, "\u001b[36m");
             AnsiCodes.Add(HardColor.FORE_COLOR_WHITE, "\u001b[37m");
             
-            AnsiCodes.Add(HardColor.BACK_COLOR_RED, "\u001b[401");
+            AnsiCodes.Add(HardColor.BACK_COLOR_RED, "\u001b[41m");
             AnsiCodes.Add(HardColor.BACK_COLOR_BLACK, "\u001b[40m");
             AnsiCodes.Add(HardColor.BACK_COLOR_GREEN, "\u001b[42m");
             AnsiCodes.Add(HardColor.BACK_COLOR_YELLOW, "\u001b[43m");

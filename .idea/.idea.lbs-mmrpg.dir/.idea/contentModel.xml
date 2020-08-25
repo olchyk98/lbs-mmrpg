@@ -10,34 +10,42 @@
       <e p="classes" t="Include">
         <e p="gui" t="Include">
           <e p="components" t="Include">
+            <e p="ConstantProgress.cs" t="Include" />
             <e p="FastGuiUtils.cs" t="Include" />
+            <e p="FastGuiUtilsAnimatedPrint.cs" t="Include" />
             <e p="Menu.cs" t="Include" />
             <e p="ResolutionHandler.cs" t="Include" />
-            <e p="Stats.cs" t="Include" />
+            <e p="StatsBar.cs" t="Include" />
             <e p="colorize" t="Include">
               <e p="Colorize.cs" t="Include" />
               <e p="HardColor.cs" t="Include" />
             </e>
           </e>
           <e p="templates" t="Include">
-            <e p="GameMenu.cs" t="Include" />
-            <e p="WelcomeScreen.cs" t="Include" />
+            <e p="ActionGroupsMenu.cs" t="Include" />
+            <e p="WelcomeMessage.cs" t="Include" />
           </e>
         </e>
         <e p="instances" t="Include">
           <e p="items" t="Include" />
+          <e p="monsters" t="Include">
+            <e p="Monster.cs" t="Include" />
+            <e p="MonsterType.cs" t="Include" />
+          </e>
           <e p="player" t="Include">
             <e p="Player.cs" t="Include" />
             <e p="PlayerBuffs.cs" t="Include" />
+            <e p="PlayerHeadsStorage.cs" t="Include" />
             <e p="PlayerInventory.cs" t="Include" />
           </e>
         </e>
         <e p="utils" t="Include">
           <e p="FastLinq.cs" t="Include" />
-          <e p="ListRandomExtension.cs" t="Include" />
         </e>
       </e>
       <e p="contracts" t="Include">
+        <e p="IEntity.cs" t="Include" />
+        <e p="IEntityBot.cs" t="Include" />
         <e p="IMenu.cs" t="Include" />
       </e>
       <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />

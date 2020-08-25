@@ -1,4 +1,4 @@
-namespace lbs_mrpg.classes.gui.components.colorize
+namespace lbs_rpg.classes.gui.components.colorize
 {
     public enum HardColor
     {

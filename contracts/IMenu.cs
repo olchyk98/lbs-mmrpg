@@ -1,4 +1,4 @@
-namespace lbs_mmrpg.contracts
+namespace lbs_rpg.contracts
 {
     public interface IMenu
     {
@@ -19,10 +19,13 @@ namespace lbs_mmrpg.contracts
         /// the input.
         /// Once the ENTER button is pressed (and the user input is valid) the paused thread wlb released.
         /// </summary>
+        /// <clearScreen>
+        /// Boolean that represents if the console should be cleared before interaction.
+        /// </clearScreen>
         /// <warnings>
         ///  * Method is recursive
         /// </warnings>
-        void Display();
+        void Display(bool clearScreen);
 
         void ExecuteSelectedItem();
     }

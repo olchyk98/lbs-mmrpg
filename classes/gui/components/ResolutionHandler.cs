@@ -1,13 +1,14 @@
 using System;
 
-namespace lbs_mrpg.classes.gui.components
+namespace lbs_rpg.classes.gui.components
 {
-    internal enum MinimalScreenResolution
+    // REFACTORED [4.5b]: ENUM -> CLASS
+    internal static class MinimalScreenResolution
     {
-        SCREEN_WIDTH = 100,
-        SCREEN_HEIGHT = 25,
+        public static readonly int SCREEN_WIDTH = 100;
+        public static readonly int SCREEN_HEIGHT = 25;
     }
-    
+
     public static class ResolutionHandler
     {
         /// <summary>
@@ -22,7 +23,30 @@ namespace lbs_mrpg.classes.gui.components
                 Console.WindowHeight
             };
         }
-        
+
+        /// <summary>
+        /// Returns width or height of the console container
+        /// </summary>
+        /// <returns></returns>
+        public static int GetResolution(int index)
+        {
+            // Get resolution %> resolution
+            // REFACTOR: Not readable
+            int resolution = (index == 0 || index == 1)
+                ? (
+                    (index == 1) ? Console.WindowHeight : Console.WindowWidth
+                )
+                : default;
+
+            // Validate resolution
+            if (resolution == default)
+            {
+                throw new ArgumentException("Invalid argument. The value can be only 0 or 1");
+            }
+
+            return resolution;
+        }
+
         /// <summary>
         /// Checks if the console container is not too small.
         /// </summary>
@@ -30,9 +54,8 @@ namespace lbs_mrpg.classes.gui.components
         public static bool IsSupportedResolution()
         {
             int[] resolution = GetResolution();
-
-            return resolution[0] >= (int) MinimalScreenResolution.SCREEN_WIDTH &&
-                   resolution[1] >= (int) MinimalScreenResolution.SCREEN_HEIGHT;
+            return resolution[0] >= MinimalScreenResolution.SCREEN_WIDTH &&
+                   resolution[1] >= MinimalScreenResolution.SCREEN_HEIGHT;
         }
     }
 }

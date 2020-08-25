@@ -1,30 +1,34 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using lbs_mmrpg.classes.gui.components;
-using lbs_mrpg.classes.gui.components;
+using lbs_rpg.classes.gui.components;
 
-namespace lbs_mmrpg.classes.gui.templates
+namespace lbs_rpg.classes.gui.templates
 {
+    /// <summary>
+    /// The method displays the welcome message,
+    /// and waits for an input to continue.
+    /// </summary>
     public static class WelcomeScreen
     {
-        public static async Task Display()
+        public static void Display()
         {
             // Clear the console
             FastGuiUtils.ClearConsole();
-            
+
             // Create the breakline pipe
-                // Initialize the string builder. We use it since we'll direct access to the char[]
+            // Initialize the string builder. We need a direct access to the char[]
             var breakLineBuilder = new StringBuilder(new string('═', Console.WindowWidth));
 
-                // Change first and last char to the '*', for style purposes.
+            // Change first and last char to the '*', for style purposes.
             breakLineBuilder[0] = '╠';
-            breakLineBuilder[breakLineBuilder.Length - 1] = '╣';
-            
-                // Cache the stringBuilder output, since we will use this string more than once.
+            breakLineBuilder[^1] = '╣';
+
+            // Cache the stringBuilder output, since we will use this string more than once.
             string breakLine = breakLineBuilder.ToString();
-            
+
             // Initialize array with the message
             string[] welcomeMessage =
             {
@@ -38,7 +42,7 @@ namespace lbs_mmrpg.classes.gui.templates
                 breakLine,
                 "Press X to start"
             };
-            
+
             //
             var breakLineIndexes = new SortedSet<int>
             {
@@ -46,8 +50,32 @@ namespace lbs_mmrpg.classes.gui.templates
                 welcomeMessage.Length - 2
             };
 
+            // Declare a cancellationSource
+            CancellationTokenSource cancellationSource = new CancellationTokenSource();
+
             // Output the welcome text using FastGuiUtils tool.
-            await FastGuiUtils.PrintCenteredTextWithAnimation(welcomeMessage, 10, breakLineIndexes);
+            // Put in a separate thread to be able to listen to the keyboard input in the current thread
+            Task.Run(() =>
+            {
+                FastGuiUtils.PrintCenteredTextWithAnimation(cancellationSource, welcomeMessage, 10,
+                    breakLineIndexes);
+            });
+
+            // boolean, that represents if the X (continue) button was pressed
+            bool skipped = false;
+
+            // Listen for input
+            while (!skipped)
+            {
+                // Listen & Get the pressed key
+                ConsoleKeyInfo keyPressed = Console.ReadKey(true);
+
+                // Check if the key is X
+                if (keyPressed.Key == ConsoleKey.X) skipped = true;
+            }
+
+            // Cancel the drawing task after the 
+            cancellationSource.Cancel();
         }
     }
 }

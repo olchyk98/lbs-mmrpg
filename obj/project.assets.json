@@ -14,7 +14,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "/home/oles/Documents/Coding/htdocs/lbs-mmrpg/lbs-mmrpg.csproj",
-      "projectName": "lbs-mmrpg",
+      "projectName": "lbs-rpg",
       "projectPath": "/home/oles/Documents/Coding/htdocs/lbs-mmrpg/lbs-mmrpg.csproj",
       "packagesPath": "/home/oles/.nuget/packages/",
       "outputPath": "/home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/",

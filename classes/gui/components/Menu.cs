@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using lbs_mmrpg.classes.gui.components;
-using lbs_mmrpg.contracts;
+using lbs_rpg.classes.gui.components.colorize;
+using lbs_rpg.contracts;
 
-namespace lbs_mrpg.classes.gui.components
+namespace lbs_rpg.classes.gui.components
 {
     public class Menu : IMenu
     {
         private int _selectedIndex = 0;
         private readonly Dictionary<string, Action> _items = null;
+        private string _label = null;
 
         /*
             [string, function]
         */
-        public Menu(Dictionary<string, Action> items)
+        public Menu(Dictionary<string, Action> items, string label = null)
         {
             _items = items;
+            _label = label;
         }
 
         /// <summary>
@@ -33,10 +35,10 @@ namespace lbs_mrpg.classes.gui.components
 
             // Skip if 
             if (itemLabel == null) return false;
-            
+
             // Get and invoke the action
             _items[itemLabel].Invoke();
-            
+
             // Return the success
             return true;
         }
@@ -61,13 +63,13 @@ namespace lbs_mrpg.classes.gui.components
         {
             // Get the input (ReadKey)
             ConsoleKeyInfo pressedKeyInfo = Console.ReadKey(true);
-            
+
             // Get information about the pressed key
             ConsoleKey pressedKey = pressedKeyInfo.Key;
 
             // Process input
             int? returnValue = null;
-            
+
             switch (pressedKey)
             {
                 case ConsoleKey.Enter:
@@ -78,9 +80,9 @@ namespace lbs_mrpg.classes.gui.components
                     break;
                 case ConsoleKey.UpArrow:
                     returnValue = -1;
-                    break; 
+                    break;
             }
-            
+
             // Return the action
             return returnValue;
         }
@@ -88,16 +90,17 @@ namespace lbs_mrpg.classes.gui.components
         public void ChangeIndex(int direction)
         {
             // 1 - down, -1 - up
-            
+
             // Validate if dirrection is valid
-            if(direction != 1 && direction != -1)
+            if (direction != 1 && direction != -1)
             {
-                throw new Exception($"Fired [changeIndex] method with an invalid argument value -> direction:{direction}");
+                throw new Exception(
+                    $"Fired [changeIndex] method with an invalid argument value -> direction:{direction}");
             }
-            
+
             // Validate if next position is not of the boundaries
             int nextIndex = _selectedIndex + direction;
-            
+
             // Just skip if it's true
             if (nextIndex < 0 || nextIndex > _items.Count - 1) return;
 
@@ -113,43 +116,51 @@ namespace lbs_mrpg.classes.gui.components
         /// <warnings>
         ///  * Method is recursive
         /// </warnings>
-        public void Display()
+        public void Display(bool clearScreen = true)
         {
-            // Clear the console
-            FastGuiUtils.ClearConsole();
-            
-            // Construct styled items list
+            if (clearScreen)
+            {
+                // Clear the console
+                FastGuiUtils.ClearConsole();
+            }
+
+            // Declare print output array
             string[] items = _items.Keys.ToArray();
 
+            // Stylize items
             for (var ma = 0; ma < items.Length; ma++)
             {
+                // Reference the array item
                 ref string item = ref items[ma];
-                
+
+                // Highlight if currently selected
                 if (ma == _selectedIndex)
                 {
                     item = item.Colorize("bgyellow").Colorize("bgwhite");
-                    continue;
+                    continue; // if yes, go to the next item
                 }
 
+                // Otherwise set the default color
                 item = item.Colorize("red");
             }
 
+            // Push label to the output without any stylization
+            items = items.Prepend(_label).ToArray();
+
             // Display the options
             FastGuiUtils.PrintCenteredText(items);
-            
-            // Wait for user input (code->event)
-            int? pressCodeNullable = null;
 
             // Using while loop to prevent redundant menu redrawing
             // [RIDER]: Message "Expression is always true" should be ignored,
             // since the program works fine and this message is caused by some kind of IDE bug.
-            while (pressCodeNullable == null)
+            while (true)
             {
-                pressCodeNullable = GetKeyboardInput();
-                
+                // Wait for user input (code->event)
+                int? pressCodeNullable = GetKeyboardInput();
+
                 // Continue input listening if no event returned
                 if (pressCodeNullable == null) continue;
-                
+
                 // Convert pressCode to int if an event was returned
                 int pressCode = (int) pressCodeNullable;
 
@@ -159,19 +170,19 @@ namespace lbs_mrpg.classes.gui.components
                     ExecuteSelectedItem();
                     return;
                 }
-                
+
                 // Process MOVE_ACTION
                 // FIXME<[delayed]: Really bad implementation
                 ChangeIndex(pressCode);
-                
+
                 // Break the while loop, because we've got an valid input
                 // and the menu state has been updated
                 break;
             }
-            
+
             // Since the method didn't return anything yet, we refresh the menu by displaying it again
             // DEVNOTE[olesodynets]: "can be replaced with a loop, but i dont want to nest the whole function"
-            Display();
+            Display(clearScreen);
         }
 
         public void ExecuteSelectedItem()

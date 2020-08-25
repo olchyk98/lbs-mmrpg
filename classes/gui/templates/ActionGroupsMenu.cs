@@ -1,47 +1,48 @@
 using System;
 using System.Collections.Generic;
-using lbs_mrpg.classes.gui.components;
+using lbs_rpg.classes.gui.components;
 
-namespace lbs_mmrpg.classes.gui.templates
+namespace lbs_rpg.classes.gui.templates
 {
-    public class GameMenu : Menu
+    public static class ActionGroupsMenu
     {
-        public GameMenu() : base(ConfigureMenu())
-        { }
-
-        private static Dictionary<string, Action> ConfigureMenu()
+        // Inefficient.
+        // In theory, the Program class can contain a static list/dictionary of IMenu [REFACTOR]
+        public static void Display(bool clearConsole = true)
         {
-            return new Dictionary<string, Action>()
+            Dictionary<string, Action> items = new Dictionary<string, Action>()
             {
                 {
-                    "hello", () =>
+                    "> Shop <", () =>
                     {
                         Console.WriteLine("a");
                         return;
                     }
                 },
                 {
-                    "h3ello", () =>
+                    "> Sleep <", () =>
                     {
                         Console.WriteLine("a");
                         return;
                     }
                 },
                 {
-                    "h4ello", () =>
+                    "> Go to the dungeonc <", () =>
                     {
                         Console.WriteLine("a");
                         return;
                     }
                 },
                 {
-                    "h5ello", () =>
+                    "> Socialize <", () =>
                     {
                         Console.WriteLine("a");
                         return;
                     }
                 },
             };
+
+            (new Menu(items, "ACTIONS:")).Display(clearConsole);
         }
     }
 }

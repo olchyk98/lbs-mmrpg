@@ -6,15 +6,15 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "lbs-mmrpg/1.0.0": {
+      "lbs-rpg/1.0.0": {
         "runtime": {
-          "lbs-mmrpg.dll": {}
+          "lbs-rpg.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "lbs-mmrpg/1.0.0": {
+    "lbs-rpg/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

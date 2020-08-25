@@ -1,4 +1,4 @@
-namespace lbs_mmrpg.classes.instances
+namespace lbs_rpg.classes.instances.player
 {
     public class PlayerInventory
     {

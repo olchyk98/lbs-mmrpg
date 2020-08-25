@@ -3,7 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>lbs_mmrpg</RootNamespace>
+    <RootNamespace>lbs_rpg</RootNamespace>
+    <AssemblyName>lbs-rpg</AssemblyName>
+    <LangVersion>9</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
