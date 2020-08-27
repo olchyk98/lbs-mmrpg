@@ -8,8 +8,4 @@
     <LangVersion>8</LangVersion>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Json.Net" Version="1.0.23" />
-  </ItemGroup>
-
 </Project>

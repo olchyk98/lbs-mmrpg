@@ -1,21 +1,19 @@
 using System;
 using System.Collections.Generic;
 using lbs_rpg.classes.gui.components;
+using lbs_rpg.classes.gui.templates.progress;
 
-namespace lbs_rpg.classes.gui.templates
+namespace lbs_rpg.classes.gui.templates.menus
 {
     public static class ActionGroupsMenu
     {
         public static void Display()
         {
+            // Declare menu items
             Dictionary<string, Action> items = new Dictionary<string, Action>()
             {
                 {
-                    "> Go to shop <", () =>
-                    {
-                        Console.WriteLine("a");
-                        return;
-                    }
+                    "> Go to shop <", ShopMenu.Display
                 },
                 {
                     "> Sleep <", PlayerSleepProgress.Display
@@ -35,14 +33,11 @@ namespace lbs_rpg.classes.gui.templates
                     }
                 },
                 {
-                    "> Move to another village <", () =>
-                    {
-                        TravelToVillageMenu.Display();
-                        return;
-                    }
+                    "> Move to another village <", TravelToVillageMenu.Display
                 },
             };
 
+            // Display
             (new Menu(items, "ACTIONS:")).Display();
         }
     }

@@ -2,14 +2,13 @@ using System;
 using System.Collections.Generic;
 using lbs_rpg.classes.gui.components;
 
-namespace lbs_rpg.classes.gui.templates
+namespace lbs_rpg.classes.gui.templates.menus
 {
-    public class TravelToVillageMenu
+    public static class TravelToVillageMenu
     {
-        public static void Display(bool clearConsole = true)
+        public static void Display()
         {
             // Show only nearest villages to the player
-            
             Dictionary<string, Action> items = new Dictionary<string, Action>()
             {
                 {
@@ -26,10 +25,13 @@ namespace lbs_rpg.classes.gui.templates
                         return;
                     }
                 },
+                {
+                    "> Go to menu <", ActionGroupsMenu.Display
+                }
             };
-
-            // Create a renderpipeline (better), or put RenderStats in the menu's display method (bad)
-            (new Menu(items, "ACTIONS:")).Display();
+            
+            // Display
+            (new Menu(items, "TRAVEL TO:")).Display();
         }
     }
 }

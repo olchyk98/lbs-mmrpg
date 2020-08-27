@@ -146,7 +146,7 @@ namespace lbs_rpg.classes.instances.villages
         }
 
         /// <summary>
-        /// Check if the stock should be refreshed and refreshes it if yes.
+        /// Returns available items in the shop.
         /// </summary>
         /// <returns>
         /// Current items in the stock as List
@@ -186,20 +186,21 @@ namespace lbs_rpg.classes.instances.villages
 
             // Invoke type constructor
             var item = (IItem) Activator.CreateInstance(itemType);
-            
+
             // Check if Activator was successfully able to invoke the constructor
             // If it couldn't invoke a constructor (in case if it exist), it will return NULL.
             if (item == null)
             {
-                throw new ApplicationException($"Activator couldn't successfully invoke item's constructor: { itemType.Name }");
+                throw new ApplicationException(
+                    $"Activator couldn't successfully invoke item's constructor: {itemType.Name}");
             }
-            
+
             // Randomize amount
             int amount = Random.Next(12);
-            
+
             // Update item's amount value
             item.Amount = amount;
-            
+
             // Return the generated item
             return item;
         }
@@ -228,30 +229,18 @@ namespace lbs_rpg.classes.instances.villages
             // Stack items (remove duplications and increase their amount value)
             foreach (IItem item in randomizedItems)
             {
-                // Declare occurence variable
-                IItem occurrence = default;
-
                 // Try find occurence
-                // Linq::List<T>.Single throws an exception if no item found.
-                // Since we need an access to the found item we cannot use Linq::List<T>.Any,
-                // so we should catch the exception and just ignore it.
-                try
-                {
-                    occurrence = stock.Single(io => item.Name == io.Name);
+                IItem occurrence = stock.SingleOrDefault(io => item.Name == io.Name);
+                ;
 
-                }
-                catch
-                {
-                    // pass
-                }
-                
                 // Check if an occurence found. Update the amount, but don't a new element (duplication) to the list
                 if (occurrence != default)
-                { // Update known item amount
+                {
+                    // Update known item amount
                     occurrence.UpdateAmount(1);
                     continue;
                 }
-                
+
                 // Add a new item to the stock
                 stock.Add(item);
             }
@@ -267,7 +256,9 @@ namespace lbs_rpg.classes.instances.villages
             else item.UpdateAmount(-1); // reduce amount if it won't
 
             // Return item
-            return item;
+            IItem soldItem = ObjectCopier.Clone(item);
+            soldItem.Amount = 1;
+            return soldItem;
         }
 
         /// <summary>

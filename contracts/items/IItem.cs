@@ -2,9 +2,10 @@ using System;
 
 namespace lbs_rpg.contracts.items
 {
-    public interface IItem
+    public interface IItem 
     {
         public int Amount { get; set; }
+        public float Price { get; }
         public string Name { get; }
 
         /// <summary>

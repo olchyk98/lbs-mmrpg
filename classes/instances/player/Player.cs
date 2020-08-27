@@ -2,6 +2,7 @@ using System;
 using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts;
 using lbs_rpg.contracts.entity;
+using lbs_rpg.contracts.items;
 
 namespace lbs_rpg.classes.instances.player
 {
@@ -13,7 +14,8 @@ namespace lbs_rpg.classes.instances.player
         public float MaxHealth { get; private set; }
         public float MoneyBalance { get; private set; }
         public readonly PlayerProperties Properties;
-        public PlayerVillage Villages;
+        public readonly PlayerVillage VillagesManager;
+        public readonly PlayerInventory Inventory;
         private PlayerProperties _headsStorage = new PlayerProperties();
 
         // Reference to entity that the players is trying to kill right now
@@ -24,7 +26,8 @@ namespace lbs_rpg.classes.instances.player
             MaxHealth = Health = 100;
             MoneyBalance = 0;
             Properties = new PlayerProperties();
-            Villages = new PlayerVillage(village);
+            VillagesManager = new PlayerVillage(village);
+            Inventory = new PlayerInventory();
         }
 
         /// <summary>
@@ -69,6 +72,25 @@ namespace lbs_rpg.classes.instances.player
 
             // Return Status
             return instanceEntity.IsAlive();
+        }
+
+        /// <summary>
+        /// Takes money from the balance
+        /// </summary>
+        /// <returns>
+        /// Boolean, that represents if player has enough money.
+        /// If player doesn't have enough money, then balance won't be changed and the method will return false.
+        /// </returns>
+        private bool ReduceMoney(float amount)
+        {
+            // Check if player has enough money
+            if (MoneyBalance - amount < 0) return false;
+            
+            // Update money value
+            MoneyBalance -= amount;
+            
+            // Return success
+            return true;
         }
         
         /// <summary>
@@ -161,9 +183,27 @@ namespace lbs_rpg.classes.instances.player
             MoneyBalance += amount;
         }
 
+        /// <summary>
+        /// Regenerate HP by sleeping
+        /// </summary>
+        /// <param name="iterations">
+        /// Number of sleeping iterations (ticks)
+        /// </param>
         public void GainSleep(int iterations = 1)
         {
             HealHealth(iterations * Properties.HealthRegeneration);
+        }
+
+        /// <summary>
+        /// Reduces balance money and adds item to the inventory
+        /// </summary>
+        /// <param name="item"></param>
+        public void BuyItem(IItem item)
+        {
+            bool isCouldBuy = ReduceMoney(item.Price);
+            if (!isCouldBuy) return;
+            
+            Inventory.AddItem(item);
         }
     }
 }

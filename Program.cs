@@ -1,4 +1,6 @@
-﻿// TODO: Villages
+﻿// TODO: Fix BuyItem -> Object.Cloner
+// TODO: PlayerInventory list menu (GUI.menus)
+// TODO: Make menu scrollable
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]
@@ -35,10 +37,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using lbs_rpg.classes.gui.components;
-using lbs_rpg.classes.gui.templates;
+using lbs_rpg.classes.gui.templates.menus;
+using lbs_rpg.classes.gui.templates.messages;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
-using lbs_rpg.contracts;
 using lbs_rpg.contracts.gui;
 
 namespace lbs_rpg
@@ -53,7 +55,7 @@ namespace lbs_rpg
 
         // Declare RenderPipeline that includes renderable items (such as player stats) that will
         // be redrawn after each console.clear invocation.
-        public static IList<IRenderable> RenderPipeline = new List<IRenderable>();
+        public static readonly IList<IRenderable> RenderPipeline = new List<IRenderable>();
         
         public static void Main(string[] args)
         {
@@ -71,7 +73,7 @@ namespace lbs_rpg
             // Initialize player/villages instances
             Villages = new GameVillages();
             Player = new Player(Villages.GetRandomVillage());
-            
+
             // Initialize render pipeline
                 // Player stats bar
             RenderPipeline.Add(new PlayerStatsBar(Player));

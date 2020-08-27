@@ -5,7 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using lbs_rpg.classes.gui.components;
 
-namespace lbs_rpg.classes.gui.templates
+namespace lbs_rpg.classes.gui.templates.messages
 {
     /// <summary>
     /// The method displays the welcome message,

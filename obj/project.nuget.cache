@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kZEJrm5kAEUZLfo653NcO/VgF/c0cPGsjZAgEmjIjPXXk7INhEWSOVjpmLYSp5epj/Pv/PPArwD5GthF1kzIhw==",
+  "dgSpecHash": "D/O6AXzs3WVOECyqypYqGUwL2cd3jzF4YAWt+w2cr+xyNB8YICOB4YqEw8mWFQMZsRj/CD3mGlh89Lem1MR2wA==",
   "success": true,
   "projectFilePath": "/home/oles/Documents/Coding/htdocs/lbs-mmrpg/lbs-mmrpg.csproj",
-  "expectedPackageFiles": [
-    "/home/oles/.nuget/packages/json.net/1.0.23/json.net.1.0.23.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

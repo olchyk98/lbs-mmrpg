@@ -18,22 +18,16 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ACA4EEDC-D5B2-41AA-94BF-3D4A002CF683/6/Console.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/34/String.Comparison.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/AF/ParamsArray.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/807DF784-9199-494D-8C79-DE710BCE2A40/62/17c0b056/ICloneable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/35/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/45/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/140/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/44/DateTime.Unix.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/2D/Object.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerBuffs.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/WelcomeScreen.cs" />
-        <option value="$PROJECT_DIR$/classes/utils/ListRandomExtension.cs" />
-        <option value="$PROJECT_DIR$/classes/utils/Utils.cs" />
-        <option value="$PROJECT_DIR$/classes/utils/GlobalUtils.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/GameMenu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/colorize/Colorize.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerHeadsStorage.cs" />
         <option value="$PROJECT_DIR$/contracts/IEntity.cs" />
         <option value="$PROJECT_DIR$/contracts/IEntityBot.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Monster.cs" />
@@ -56,14 +50,11 @@
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerProperties.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/ActionGroupsMenu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/PlayerSleepProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
         <option value="$PROJECT_DIR$/classes/utils/FastLinq.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
         <option value="$PROJECT_DIR$/resources/villages/names.txt" />
         <option value="$PROJECT_DIR$/classes/utils/FastExtensions.cs" />
         <option value="$PROJECT_DIR$/classes/utils/FSTools.cs" />
         <option value="$PROJECT_DIR$/contracts/IMonsterHead.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/_VillageShop.cs" />
         <option value="$PROJECT_DIR$/contracts/IItem.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IAmor.cs" />
@@ -72,11 +63,22 @@
         <option value="$PROJECT_DIR$/classes/instances/villages/___VillageShop.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/GameVillages.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
-        <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IArmor.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/items/NagaArmor.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/MonsterType.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerInventory.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/items/NagaArmor.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventory.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/utils/ObjectCloner.cs" />
+        <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
+        <option value="$PROJECT_DIR$/classes/utils/NumberPrinter.cs" />
+        <option value="$PROJECT_DIR$/classes/utils/NumberConvertor.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ShopMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/TravelToVillageMenu.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/VillageShop.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
       </list>
     </option>
   </component>

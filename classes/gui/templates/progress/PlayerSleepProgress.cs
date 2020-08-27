@@ -1,7 +1,7 @@
 using lbs_rpg.classes.gui.components;
-using lbs_rpg.classes.instances.player;
+using lbs_rpg.classes.gui.templates.menus;
 
-namespace lbs_rpg.classes.gui.templates
+namespace lbs_rpg.classes.gui.templates.progress
 {
     public static class PlayerSleepProgress
     {
