@@ -5,7 +5,7 @@ using System.Text;
 
 namespace lbs_rpg.classes.utils
 {
-    public static class FastLinq
+    public static class FastExtensions
     {
         private static readonly Random Random = new Random();
         
@@ -14,7 +14,7 @@ namespace lbs_rpg.classes.utils
             // [x,y]
             var sizes = new int[2];
             //
-            sizes[0] = FastLinq.GetLongestArrayString(content).Length;
+            sizes[0] = FastExtensions.GetLongestArrayString(content).Length;
             sizes[1] = content.Length;
             //
             return sizes;
@@ -32,7 +32,7 @@ namespace lbs_rpg.classes.utils
             return array[index / array.GetLength(0), index % array.GetLength(0)];
         }
         
-        public static void Shuffle<T>(this IList<T> list)  
+        public static IList<T> Shuffle<T>(this IList<T> list)  
         {  
             int listLength = list.Count;  
             while (listLength > 1) {  
@@ -41,7 +41,21 @@ namespace lbs_rpg.classes.utils
                 T randomizedValue = list[randomizedIndex];  
                 list[randomizedIndex] = list[listLength];  
                 list[listLength] = randomizedValue;  
-            }  
+            }
+
+            return list;
+        }
+
+        public static T RandomElement<T>(this IList<T> list)
+        {
+            // Get list length
+            int length = list.Count;
+            
+            // Randomize element index
+            int randPosition = Random.Next(length);
+            
+            // Return an item on that position
+            return list[randPosition];
         }
 
         public static string[] Convert2DCharToString(char[,] aChars)

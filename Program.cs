@@ -34,17 +34,22 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.templates;
 using lbs_rpg.classes.instances.player;
+using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts;
 
 namespace lbs_rpg
 {
     public static class Program
     {
-        // Declare fast player instance reference, so that it can be accessed from any class in the program.
+        // Declare few game important instances. They can be accessed from any class in the program.
         public static Player Player = default;
+        
+        // Declare fast villages instance reference
+        public static GameVillages Villages = default;
 
         // Declare RenderPipeline that includes renderable items (such as player stats) that will
         // be redrawn after each console.clear invocation.
@@ -52,6 +57,10 @@ namespace lbs_rpg
         
         public static void Main(string[] args)
         {
+            // Explicitly set console output encoding to allow the program display emojis.
+            Console.OutputEncoding = Encoding.UTF8;
+            // Console.Write(" ");
+            
             // Check if terminal container is not too small
             if (!ResolutionHandler.IsSupportedResolution())
             {
@@ -59,8 +68,9 @@ namespace lbs_rpg
                     "The terminal window is too small. Please change window to the fullscreen mode.");
             }
             
-            // Initialize player instance
-            Player = new Player();
+            // Initialize player/villages instances
+            Villages = new GameVillages();
+            Player = new Player(Villages.GetRandomVillage());
             
             // Initialize render pipeline
                 // Player stats bar
@@ -68,13 +78,7 @@ namespace lbs_rpg
             
             // Display the welcome message (game introduction)
             WelcomeScreen.Display();
-            
-            ConstantProgress.Start("SLEEPING", 250,  () =>
-            {
-                // Update player's stats
-                Player.ApplyDamage(-.1f);
-            });
-            
+
             // Display the stats (before the menu, since the menu method will block the thread)
             // TODO: Stats should also display the enemy damage (not in the Program.Main)
             // TODO: Stats should accept an argument [isAttackReloadShown] and replace the money field with the attack reload

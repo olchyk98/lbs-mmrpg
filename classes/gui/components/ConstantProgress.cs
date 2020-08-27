@@ -23,7 +23,7 @@ namespace lbs_rpg.classes.gui.components
                 // Declare progress line length
                 int progressWidth = 10;
 
-                // Progress value
+                // Current progress (chars)
                 int progressValue = 0; // 0/progressWidth
 
                 // Start drawing
@@ -67,9 +67,6 @@ namespace lbs_rpg.classes.gui.components
             
             // Cancel the task after the input
             tokenSource.Cancel();
-            
-            // ...
-            Console.WriteLine("a");
         }
     }
 }

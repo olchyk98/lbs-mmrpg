@@ -18,11 +18,7 @@ namespace lbs_rpg.classes.gui.templates
                     }
                 },
                 {
-                    "> Sleep <", () =>
-                    {
-                        Console.WriteLine("a");
-                        return;
-                    }
+                    "> Sleep <", PlayerSleepProgress.Display
                 },
                 {
                     "> Go to the dungeon <", () =>

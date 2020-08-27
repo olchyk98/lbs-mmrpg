@@ -23,6 +23,7 @@
           </e>
           <e p="templates" t="Include">
             <e p="ActionGroupsMenu.cs" t="Include" />
+            <e p="PlayerSleepProgress.cs" t="Include" />
             <e p="TravelToVillageMenu.cs" t="Include" />
             <e p="WelcomeMessage.cs" t="Include" />
           </e>
@@ -36,17 +37,25 @@
           <e p="player" t="Include">
             <e p="Player.cs" t="Include" />
             <e p="PlayerBuffs.cs" t="Include" />
-            <e p="PlayerHeadsStorage.cs" t="Include" />
             <e p="PlayerInventory.cs" t="Include" />
+            <e p="PlayerProperties.cs" t="Include" />
+            <e p="PlayerVillage.cs" t="Include" />
+          </e>
+          <e p="villages" t="Include">
+            <e p="GameVillages.cs" t="Include" />
+            <e p="Village.cs" t="Include" />
+            <e p="VillageShop.cs" t="Include" />
           </e>
         </e>
         <e p="utils" t="Include">
-          <e p="FastLinq.cs" t="Include" />
+          <e p="FSTools.cs" t="Include" />
+          <e p="FastExtensions.cs" t="Include" />
         </e>
       </e>
       <e p="contracts" t="Include">
         <e p="IEntity.cs" t="Include" />
         <e p="IEntityBot.cs" t="Include" />
+        <e p="IItem.cs" t="Include" />
         <e p="IMenu.cs" t="Include" />
         <e p="IRenderable.cs" t="Include" />
       </e>
@@ -59,6 +68,11 @@
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
+      <e p="resources" t="Include">
+        <e p="villages" t="Include">
+          <e p="names.txt" t="Include" />
+        </e>
+      </e>
       <e p="start.sh" t="Include" />
     </e>
   </component>

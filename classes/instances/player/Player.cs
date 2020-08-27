@@ -1,4 +1,5 @@
 using System;
+using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts;
 
 namespace lbs_rpg.classes.instances.player
@@ -9,55 +10,105 @@ namespace lbs_rpg.classes.instances.player
         public float Health { get; private set; }
 
         public float MaxHealth { get; private set; }
-        public float DefenseProcent { get; private set; }
         public float MoneyBalance { get; private set; }
+        public readonly PlayerProperties Properties;
+        public PlayerVillage Villages;
+        private PlayerProperties _headsStorage = new PlayerProperties();
 
         // Reference to entity that the players is trying to kill right now
         private IEntity _currentTarget = default;
-        private PlayerHeadsStorage _headsStorage = new PlayerHeadsStorage();
 
-        public Player()
+        public Player(Village village)
         {
             MaxHealth = Health = 100;
-            DefenseProcent = 0;
             MoneyBalance = 0;
+            Properties = new PlayerProperties();
+            Villages = new PlayerVillage(village);
         }
 
         /// <summary>
         /// Can be used to apply damage to the entity.
         /// Can be also used to heal the entity.
         /// </summary>
-        /// <param name="damage">
+        /// <param name="health">
         /// A value that is not 0.
         ///
-        /// You can heal the entity by passing a negative value.
+        /// You can heal the entity by passing a positive value,
+        /// and apply damage to it by passing a negative value.
         /// </param>
-        /// <returns></returns>
+        /// <returns>
+        /// Boolean, that represents if player is still alive.
+        /// </returns>
         /// <exception cref="ArgumentException">
         /// Thrown if the damage value equals zero.
         /// </exception>
-        public bool ApplyDamage(float damage)
+        private bool ChangeHealth(float health)
         {
-            // TODO: Check if dead
-
-            // Validate argument
-            if (damage == 0)
+            // Convert class to its interface to use some methods that are implemented in the interface
+            IEntity instanceEntity = this;
+            
+            // Check if player is alive
+            if (!instanceEntity.IsAlive())
             {
-                throw new ArgumentException("Damage value cannot be 0!");
+                throw new Exception("Tried to apply damage to a dead player!");
             }
 
-            // Make damage calculations
-            float appliedDamage = damage * (1 - DefenseProcent);
+            // Validate argument
+            if (health == 0)
+            {
+                throw new ArgumentException("Health value cannot be zero!");
+            }
 
-            // Reduce health
-            Health -= appliedDamage;
+            // Update health
+            Health += health;
 
             // Keep the health value between 0 and MaxHealth
             if (Health < 0) Health = 0;
             else if (Health > MaxHealth) Health = MaxHealth;
 
             // Return Status
-            return ((IEntity) this).IsAlive();
+            return instanceEntity.IsAlive();
+        }
+        
+        /// <summary>
+        /// Applies damage to the entity.
+        /// </summary>
+        /// <param name="damage">
+        /// Value that is higher than zero.
+        /// </param>
+        /// <returns>
+        /// Boolean that represents if entity is still alive.
+        /// </returns>
+        public bool ApplyDamage(float damage)
+        {
+            if (damage <= 0)
+            {
+                throw new ArgumentException("Damage value should be higher than zero!");
+            }
+            
+            // Make damage calculations
+            float appliedDamage = damage * (1 - Properties.DefenseProcent);
+            
+            // Apply damage
+            return ChangeHealth(-appliedDamage);
+        }
+
+        /// <summary>
+        /// Heals the entity.
+        /// </summary>
+        /// <param name="health">
+        /// Health points that will be added to the entity's health.
+        /// </param>
+        /// <exception cref="ArgumentException"></exception>
+        public void HealHealth(float health)
+        {
+            if (health <= 0)
+            {
+                throw new ArgumentException("Health value should be higher than zero!");
+            }
+            
+            // Apply healing
+            ChangeHealth(health);
         }
 
         /// <summary>
@@ -84,7 +135,7 @@ namespace lbs_rpg.classes.instances.player
         /// <returns></returns>
         public string GetDefenseProcentString()
         {
-            return DefenseProcent.ToString("0.00");
+            return Properties.DefenseProcent.ToString("0.00");
         }
 
         /// <summary>
@@ -102,11 +153,16 @@ namespace lbs_rpg.classes.instances.player
             // Validate amount
             if (amount == 0)
             {
-                throw new ArgumentException("Amount value cannot be 0!");
+                throw new ArgumentException("Amount value cannot be zero!");
             }
             
             // Update the balance
             MoneyBalance += amount;
+        }
+
+        public void GainSleep(int iterations = 1)
+        {
+            HealHealth(iterations * Properties.HealthRegeneration);
         }
     }
 }
