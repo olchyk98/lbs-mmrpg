@@ -1,4 +1,4 @@
-namespace lbs_rpg.contracts
+namespace lbs_rpg.contracts.entity
 {
     public interface IEntityBot : IEntity
     {

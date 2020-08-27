@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="classes\instances\items" />
+    <PackageReference Include="Json.Net" Version="1.0.23" />
   </ItemGroup>
 
 </Project>

@@ -29,16 +29,17 @@
           </e>
         </e>
         <e p="instances" t="Include">
-          <e p="items" t="Include" />
+          <e p="items" t="Include">
+            <e p="NagaArmor.cs" t="Include" />
+          </e>
           <e p="monsters" t="Include">
             <e p="Monster.cs" t="Include" />
             <e p="MonsterType.cs" t="Include" />
           </e>
           <e p="player" t="Include">
             <e p="Player.cs" t="Include" />
-            <e p="PlayerBuffs.cs" t="Include" />
-            <e p="PlayerInventory.cs" t="Include" />
             <e p="PlayerProperties.cs" t="Include" />
+            <e p="PlayerStats.cs" t="Include" />
             <e p="PlayerVillage.cs" t="Include" />
           </e>
           <e p="villages" t="Include">
@@ -53,11 +54,18 @@
         </e>
       </e>
       <e p="contracts" t="Include">
-        <e p="IEntity.cs" t="Include" />
-        <e p="IEntityBot.cs" t="Include" />
-        <e p="IItem.cs" t="Include" />
-        <e p="IMenu.cs" t="Include" />
-        <e p="IRenderable.cs" t="Include" />
+        <e p="entity" t="Include">
+          <e p="IEntity.cs" t="Include" />
+          <e p="IEntityBot.cs" t="Include" />
+        </e>
+        <e p="gui" t="Include">
+          <e p="IMenu.cs" t="Include" />
+          <e p="IRenderable.cs" t="Include" />
+        </e>
+        <e p="items" t="Include">
+          <e p="IArmor.cs" t="Include" />
+          <e p="IItem.cs" t="Include" />
+        </e>
       </e>
       <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive">

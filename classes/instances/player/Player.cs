@@ -1,6 +1,7 @@
 using System;
 using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts;
+using lbs_rpg.contracts.entity;
 
 namespace lbs_rpg.classes.instances.player
 {

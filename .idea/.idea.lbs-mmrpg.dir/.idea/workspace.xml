@@ -26,9 +26,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/gui/components/Stats.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/Player.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/PlayerInventory.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerBuffs.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/WelcomeScreen.cs" />
         <option value="$PROJECT_DIR$/classes/utils/ListRandomExtension.cs" />
@@ -39,7 +36,6 @@
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerHeadsStorage.cs" />
         <option value="$PROJECT_DIR$/contracts/IEntity.cs" />
         <option value="$PROJECT_DIR$/contracts/IEntityBot.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/monsters/MonsterType.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Monster.cs" />
         <option value="$PROJECT_DIR$/contracts/IRenderPipelineItem.cs" />
         <option value="$PROJECT_DIR$/classes/gui/FastGuiUtilsAnimatedPrint.cs" />
@@ -66,11 +62,20 @@
         <option value="$PROJECT_DIR$/resources/villages/names.txt" />
         <option value="$PROJECT_DIR$/classes/utils/FastExtensions.cs" />
         <option value="$PROJECT_DIR$/classes/utils/FSTools.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/GameVillages.cs" />
-        <option value="$PROJECT_DIR$/contracts/IItem.cs" />
         <option value="$PROJECT_DIR$/contracts/IMonsterHead.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/_VillageShop.cs" />
+        <option value="$PROJECT_DIR$/contracts/IItem.cs" />
+        <option value="$PROJECT_DIR$/contracts/items/IAmor.cs" />
+        <option value="$PROJECT_DIR$/contracts/gui/IRenderable.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/___VillageShop.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/GameVillages.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
+        <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
+        <option value="$PROJECT_DIR$/contracts/items/IArmor.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/items/NagaArmor.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/MonsterType.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/VillageShop.cs" />
       </list>
     </option>
@@ -82,7 +87,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunManager">
     <configuration name="lbs-mmrpg" type="DotNetProject" factoryName=".NET Project">
@@ -125,15 +130,19 @@
       <screen x="72" y="27" width="2808" height="873" />
     </state>
     <state width="1322" height="216" key="GridCell.Tab.0.right/72.27.2808.873@72.27.2808.873" timestamp="1598378039044" />
-    <state x="245" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1598378899636">
+    <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog" timestamp="1598551833406">
       <screen x="72" y="27" width="2808" height="873" />
     </state>
-    <state x="245" y="98" width="1022" height="737" key="SettingsEditor/72.27.2808.873@72.27.2808.873" timestamp="1598378899636" />
-    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup" timestamp="1598429102099">
-      <screen x="72" y="27" width="1368" height="873" />
+    <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.2808.873@72.27.2808.873" timestamp="1598551833406" />
+    <state x="245" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1598549878722">
+      <screen x="72" y="27" width="2808" height="873" />
+    </state>
+    <state x="245" y="98" width="1022" height="737" key="SettingsEditor/72.27.2808.873@72.27.2808.873" timestamp="1598549878722" />
+    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup" timestamp="1598552655027">
+      <screen x="72" y="27" width="2808" height="873" />
     </state>
     <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598265612804" />
     <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1598429102099" />
-    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598377441208" />
+    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598552655027" />
   </component>
 </project>

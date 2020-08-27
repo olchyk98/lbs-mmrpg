@@ -1,4 +1,5 @@
 using lbs_rpg.contracts;
+using lbs_rpg.contracts.entity;
 
 namespace lbs_rpg.classes.instances.monsters
 {

@@ -13,7 +13,6 @@
  * The better reputation the player has in a village the lower prices are in [a] village shop.
  *
  * Player can buy:
- *     Special Artifacts (Buffs, like potions in Minecraft)
  *     Books (to be able to gain more social points during the socializing process)
  *     Armor (to get more defense points, defense procent)
  *     Attack range (increases the attack wave range)
@@ -40,6 +39,7 @@ using lbs_rpg.classes.gui.templates;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts;
+using lbs_rpg.contracts.gui;
 
 namespace lbs_rpg
 {

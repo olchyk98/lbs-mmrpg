@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.contracts;
+using lbs_rpg.contracts.gui;
 
 namespace lbs_rpg.classes.gui.components
 {

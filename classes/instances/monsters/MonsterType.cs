@@ -2,6 +2,8 @@ namespace lbs_rpg.classes.instances.monsters
 {
     // Thanks for a great pattern,
     // https://stackoverflow.com/questions/630803/associating-enums-with-strings-in-c-sharp
+    // DEVNOTE [olesodynets]: BUT THIS SHIT SHOULD BE REFACTORED, BECAUSE PEOPLE INVENTED CLASSES FOR
+    // THESE TYPES OF THINGS.
     public class MonsterType
     {
         private MonsterType(string name, float defaultHealth, int ticksPerMove)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using lbs_rpg.classes.utils;
+using lbs_rpg.contracts.items;
 
 namespace lbs_rpg.classes.instances.villages
 {
@@ -31,23 +32,12 @@ namespace lbs_rpg.classes.instances.villages
             // Generate villages
             foreach (string name in villageNames)
             {
-                generatedVillages.Add(GenerateVillage(name));
+                var village = new Village(name);
+                generatedVillages.Add(village);
             }
          
             // Return generated villages
             return generatedVillages;
-        }
-
-        private Village GenerateVillage(string name)
-        {
-            // Define village properties
-            VillageShop shop = new VillageShop(VillageShop.GenerateStock());
-            
-            // Define village
-            var village = new Village(name, shop);
-
-            // Return generated village
-            return village;
         }
 
         public Village GetRandomVillage()
