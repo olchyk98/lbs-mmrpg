@@ -18,9 +18,6 @@ namespace lbs_rpg.classes.gui.components.colorize
         BACK_COLOR_MAGENTA,
         BACK_COLOR_CYAN,
         BACK_COLOR_WHITE,
-        STYLE_BOLD,
-        STYLE_UNDERLINE,
-        STYLE_MARKED,
         SYS_RESET,
     }
 }

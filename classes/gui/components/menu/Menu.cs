@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.contracts.gui;
+using Pastel;
 
 namespace lbs_rpg.classes.gui.components.menu
 {
@@ -165,9 +167,6 @@ namespace lbs_rpg.classes.gui.components.menu
             // Take all menu options -> output array
             string[] items = _items.Keys.ToArray();
             
-            // TODO: Display only ten items, don't move cursor on first position when moves down, but stay on the last position.
-            // TODO: Configure for-loop variables using offset variables
-
             // Stylize items
             for (var ma = 0; ma < items.Length; ma++)
             {
@@ -177,12 +176,12 @@ namespace lbs_rpg.classes.gui.components.menu
                 // Highlight if currently selected
                 if (ma == _selectedIndex)
                 {
-                    item = item.Colorize("bgyellow").Colorize("bgwhite");
+                    item = item.Pastel(Color.White).PastelBg(Color.OrangeRed);
                     continue; // if yes, go to the next item
                 }
 
                 // Otherwise set the default color
-                item = item.Colorize("red");
+                item = item.Pastel(Color.Red);
             }
 
             // Push label to the output without any stylization

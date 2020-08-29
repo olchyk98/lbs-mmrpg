@@ -1,10 +1,12 @@
 using System;
+using System.Drawing;
 using System.Text;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.utils;
 using lbs_rpg.contracts;
 using lbs_rpg.contracts.gui;
+using Pastel;
 
 namespace lbs_rpg.classes.gui.components
 {
@@ -71,7 +73,7 @@ namespace lbs_rpg.classes.gui.components
                 // Checks if this position in the healthbar should be filled (health)
                 if (ma < Math.Floor(playerHealthProcent / 100f * width))
                 {
-                    current = current.Colorize("bgred");
+                    current = current.PastelBg(Color.Red);
                 }
 
                 // Append char to the output
@@ -95,7 +97,7 @@ namespace lbs_rpg.classes.gui.components
             int width = ResolutionHandler.GetResolution(0);
             
             // Declare output content
-            string content = $"Village \"{_targetPlayer.VillagesManager.CurrentVillage.Name}\"".Colorize("white");
+            string content = $"Village \"{_targetPlayer.VillagesManager.CurrentVillage.Name}\"".Pastel(Color.White);
             
             // Set print cursor
             Console.SetCursorPosition(width / 2 - content.Decolorize().Length / 2, posY);

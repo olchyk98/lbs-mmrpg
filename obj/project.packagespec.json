@@ -29,6 +29,10 @@
         "DeepCloner": {
           "target": "Package",
           "version": "[0.10.2, )"
+        },
+        "Pastel": {
+          "target": "Package",
+          "version": "[1.3.2, )"
         }
       },
       "imports": [

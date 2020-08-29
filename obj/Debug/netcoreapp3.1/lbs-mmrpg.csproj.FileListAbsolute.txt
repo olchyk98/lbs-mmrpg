@@ -13,3 +13,4 @@
 /home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-rpg.pdb
 /home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/DeepCloner.dll
 /home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.csproj.CopyComplete
+/home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/Pastel.dll

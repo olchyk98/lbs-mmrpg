@@ -1,5 +1,4 @@
-﻿// TODO: Make menu scrollable
-// TODO: Switch to Pastel
+﻿// TODO: Switch to Pastel
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]
