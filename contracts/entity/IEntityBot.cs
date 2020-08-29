@@ -1,7 +1,7 @@
 namespace lbs_rpg.contracts.entity
 {
-    public interface IEntityBot : IEntity
+    public interface IEntityBot
     {
-        public int TicksPerMove { get; }
+        int TicksPerMove { get; }
     }
 }

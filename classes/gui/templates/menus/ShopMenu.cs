@@ -11,7 +11,7 @@ namespace lbs_rpg.classes.gui.templates.menus
 {
     public static class ShopMenu
     {
-        public static void Display(string shopMessage = default)
+        public static void Display(int cursorIndex = 0, string shopMessage = default)
         {
             // Get Player & Shop & Shop assortment
             Player player = Program.Player;
@@ -34,7 +34,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                     // Break if moreMoney > 0, because it means that player has not enough money
                     if (moreMoney > 0)
                     {
-                        Display($"You need { NumberConvertor.ShortenNumber(moreMoney) } more to buy \"{ item.Name }\"");
+                        Display(selectedIndex, $"You need { NumberConvertor.ShortenNumber(moreMoney) } more to buy \"{ item.Name }\"");
                     }
                     
                     // Remove item from the shop
@@ -44,7 +44,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                     player.BuyItem(soldItem);
 
                     // Refresh the menu by redrawing -> nonlinear recursion
-                    ShopMenu.Display();
+                    ShopMenu.Display(selectedIndex);
                 });
 
                 if(!added) throw new ApplicationException("Item duplication >> VillageShop");
@@ -60,7 +60,7 @@ namespace lbs_rpg.classes.gui.templates.menus
             }
 
             // Display
-            (new Menu(menuItems, "BUY IN THE SHOP:")).Display();
+            (new Menu(menuItems, "BUY IN THE SHOP:", cursorIndex)).Display();
         }
     }
 }

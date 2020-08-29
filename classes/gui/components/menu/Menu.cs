@@ -145,8 +145,14 @@ namespace lbs_rpg.classes.gui.components.menu
             // Validate if next position is not of the boundaries
             int nextIndex = _selectedIndex + direction;
 
-            // Just skip if it's true
-            if (nextIndex < 0 || nextIndex > _items.Count - 1) return;
+            // Skip to the first/last item if index doesn't exist
+            if (nextIndex < 0)
+            {
+                nextIndex = _items.Count - 1;
+            } else if (nextIndex > _items.Count - 1)
+            {
+                nextIndex = 0;
+            }
 
             // Update the position cursor
             _selectedIndex = nextIndex;

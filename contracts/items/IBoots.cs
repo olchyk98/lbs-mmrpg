@@ -7,7 +7,7 @@ namespace lbs_rpg.contracts.items
     /// </summary>
     public interface IBoots : IEquipable
     {
-        public float SpeedProcent { get; }
+        public float CustomSpeed { get; }
         
         /// <summary>
         /// Checks if item equiped (placed) on any inventory slots

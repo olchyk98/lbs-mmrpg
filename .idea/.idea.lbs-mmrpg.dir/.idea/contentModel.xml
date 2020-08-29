@@ -43,6 +43,7 @@
           <e p="entity" t="Include" />
           <e p="items" t="Include">
             <e p="NagaArmor.cs" t="Include" />
+            <e p="PermanentHealthBooster.cs" t="Include" />
           </e>
           <e p="monsters" t="Include">
             <e p="Monster.cs" t="Include" />
@@ -80,8 +81,10 @@
         <e p="items" t="Include">
           <e p="IArmor.cs" t="Include" />
           <e p="IBoots.cs" t="Include" />
+          <e p="IBuff.cs" t="Include" />
           <e p="IEquipable.cs" t="Include" />
           <e p="IItem.cs" t="Include" />
+          <e p="IUseable.cs" t="Include" />
           <e p="IWeapon.cs" t="Include" />
         </e>
       </e>

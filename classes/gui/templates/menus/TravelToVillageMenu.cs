@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.components.menu;
+using lbs_rpg.classes.instances.player;
+using lbs_rpg.classes.instances.villages;
 
 namespace lbs_rpg.classes.gui.templates.menus
 {
@@ -9,35 +11,27 @@ namespace lbs_rpg.classes.gui.templates.menus
     {
         public static void Display()
         {
+            // Ref player & currentVillage
+            Player player = Program.Player;
+            Village currentVillage = player.VillagesManager.CurrentVillage;
+            
             // Show only nearest villages to the player
-            Dictionary<string, Action<int>> items = new Dictionary<string, Action<int>>()
-            {
-                {
-                    "> Rovino (41.6km) <", (selectedIndex) =>
-                    {
-                        Console.WriteLine("a");
-                        return;
-                    }
-                },
-                {
-                    "> Setup (21.4km) <", (selectedIndex) =>
-                    {
-                        Console.WriteLine("a");
-                        return;
-                    }
-                },
-                {
-                    "> Go to menu <", (selectedIndex) => ActionGroupsMenu.Display()
-                }
-            };
+            var menuItems = new Dictionary<string, Action<int>>();
 
-            for (var ma = 0; ma < 100; ++ma)
+            // Add nearest villages to the menu
+            foreach (Village village in player.GetNearestVillages(5))
             {
-                items.Add($"> DO HELLO: {ma}", (selectedIndex) => { });
+                menuItems.Add($"\"{ village.Name }\" ({ village.GetDistanceToAsKm(currentVillage) :0.0}km)", (selectedIndex) =>
+                {
+                    Console.WriteLine("a");
+                });
             }
             
+            // Add "back to menu" button
+            menuItems.Add("> Go to menu <", (selectedIndex) => ActionGroupsMenu.Display());
+            
             // Display
-            (new Menu(items, "TRAVEL TO:")).Display();
+            (new Menu(menuItems, "TRAVEL TO:")).Display();
         }
     }
 }

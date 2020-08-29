@@ -1,4 +1,5 @@
-﻿// TODO: Switch to Pastel
+﻿// CONTINUE: Travel to another village menu -> ConstantProgress by limit ticks without key interruption 
+// TODO: Display reputation in the travel to village menu (current / max)
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]

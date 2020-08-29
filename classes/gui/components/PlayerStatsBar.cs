@@ -64,7 +64,7 @@ namespace lbs_rpg.classes.gui.components
                 // Chat that will be added during this iteration
                 string current = " ";
 
-                // Place text char when at the right position
+                // Place text char when in the text container area
                 if (ma >= healthX && ma < healthX + health.Length)
                 {
                     current = health[ma - healthX].ToString();
