@@ -6,16 +6,16 @@ namespace lbs_rpg.classes.instances.monsters
     // THESE TYPES OF THINGS.
     public class MonsterType
     {
+        public readonly string Name;
+        public readonly float DefaultHealth;
+        public readonly int TicksPerMove;
+        
         private MonsterType(string name, float defaultHealth, int ticksPerMove)
         {
             Name = name; // Unique
             DefaultHealth = defaultHealth;
             TicksPerMove = ticksPerMove;
         }
-
-        public readonly string Name;
-        public readonly float DefaultHealth;
-        public readonly int TicksPerMove;
 
 #nullable enable
         public override bool Equals(object? obj)

@@ -8,6 +8,6 @@ namespace lbs_rpg.classes.instances.items
         public int Amount { get; set; }
         public string Name { get; } = "Naga Armor";
         public float ProtectionProcent { get; } = 50f;
-        public float Price { get; } = 1600000;
+        public double Price { get; } = 1600000;
     }
 }

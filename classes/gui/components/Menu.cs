@@ -18,8 +18,33 @@ namespace lbs_rpg.classes.gui.components
         */
         public Menu(Dictionary<string, Action> items, string label = null)
         {
-            _items = items;
+            _items = ValidateListOptions(items);
             _label = label;
+        }
+
+        /// <summary>
+        /// Validates menu options that are passed in the items param and casts an exception if something is wrong.
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns>
+        /// The original items array
+        /// </returns>
+        /// <exception cref="ApplicationException">
+        /// Throwed if any of items in the items dictionary initialized with mistakes.
+        /// </exception>
+        private Dictionary<string, Action> ValidateListOptions(Dictionary<string, Action> items)
+        {
+            foreach (KeyValuePair<string, Action> keyValue in items)
+            {
+                if (keyValue.Value == null)
+                {
+                    throw new ApplicationException(
+                        $"Tried to pass an invalid menu option. The option {keyValue.Key} lacks action processor!");
+                }
+            }
+
+            // Return items
+            return items;
         }
 
         /// <summary>
@@ -38,7 +63,7 @@ namespace lbs_rpg.classes.gui.components
             if (itemLabel == null) return false;
 
             // Get and invoke the action
-            _items[itemLabel].Invoke();
+            _items[itemLabel]?.Invoke();
 
             // Return the success
             return true;

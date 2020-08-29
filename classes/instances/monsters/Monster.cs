@@ -6,8 +6,8 @@ namespace lbs_rpg.classes.instances.monsters
     public class Monster : IEntityBot
     {
         public MonsterType Type;
-        public float Health { get; private set; }
-        public float MaxHealth { get; private set; }
+        public float Health { get; }
+        public float MaxHealth { get; }
         public int TicksPerMove { get; }
 
         public Monster(MonsterType type)

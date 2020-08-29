@@ -8,4 +8,12 @@
     <LangVersion>8</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="classes\instances\entity" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DeepCloner" Version="0.10.2" />
+  </ItemGroup>
+
 </Project>

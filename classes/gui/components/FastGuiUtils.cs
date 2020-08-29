@@ -16,9 +16,6 @@ namespace lbs_rpg.classes.gui.components
         ///
         /// NOTICE: This project has its own built-in class called Colorize. Use it to change the string style.
         /// </param>
-        /// <param name="overrideScreen">
-        /// Override screen content instead of erasing it.
-        /// </param>
         public static void PrintCenteredText(string[] text)
         {
             int textLines = text.Length;

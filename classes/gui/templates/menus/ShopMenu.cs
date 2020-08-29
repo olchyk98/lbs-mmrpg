@@ -10,7 +10,7 @@ namespace lbs_rpg.classes.gui.templates.menus
 {
     public static class ShopMenu
     {
-        public static void Display()
+        public static void Display(string shopMessage = default)
         {
             // Get Player & Shop & Shop assortment
             Player player = Program.Player;
@@ -23,19 +23,40 @@ namespace lbs_rpg.classes.gui.templates.menus
             // Declare menu items
             foreach (IItem item in shopItems)
             {
-                string label = $"\"{item.Name}\" for ${NumberConvertor.ShortenNumber( (int) item.Price )} | { item.Amount } left";
+                string label = $"\"{item.Name}\" for ${NumberConvertor.ShortenNumber(item.PriceForPlayer)} | { item.Amount } left";
                 
                 bool added = menuItems.TryAdd(label, () =>
                 {
+                    // Check if player has enough money to afford this item
+                    double moreMoney = player.MoneyManager.CanAfford(item.PriceForPlayer);
+                    
+                    // Break if moreMoney > 0, because it means that player has not enough money
+                    if (moreMoney > 0)
+                    {
+                        Display($"You need { NumberConvertor.ShortenNumber(moreMoney) } more to buy \"{ item.Name }\"");
+                    }
+                    
+                    // Remove item from the shop
                     IItem soldItem = shop.SellItem(item);
+                    
+                    // Add item to the player's inventory (take money from player)
                     player.BuyItem(soldItem);
+
+                    // Refresh the menu by redrawing -> nonlinear recursion
+                    ShopMenu.Display();
                 });
 
                 if(!added) throw new ApplicationException("Item duplication >> VillageShop");
             }
-            
+
             // Add go to menu menu itme
             menuItems.Add("> Go to menu <", ActionGroupsMenu.Display);
+            
+            // Process shop message if valid
+            if (shopMessage != default)
+            {
+                menuItems.Add(shopMessage, () => Display());
+            }
 
             // Display
             (new Menu(menuItems, "BUY IN THE SHOP:")).Display();

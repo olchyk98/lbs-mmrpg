@@ -10,20 +10,24 @@ namespace lbs_rpg.classes.gui.templates.menus
         public static void Display()
         {
             // Declare menu items
-            Dictionary<string, Action> items = new Dictionary<string, Action>()
+            var items = new Dictionary<string, Action>()
             {
                 {
-                    "> Go to shop <", ShopMenu.Display
+                    "> Go to Shop <", () => ShopMenu.Display()
                 },
                 {
                     "> Sleep <", PlayerSleepProgress.Display
                 },
                 {
-                    "> Go to the dungeon <", () =>
+                    "> Fight Monsters <", () =>
                     {
+                        // TODO: Monsters menu
                         Console.WriteLine("a");
                         return;
                     }
+                },
+                {
+                    "> Open Inventory <", PlayerInventoryMenu.Display
                 },
                 {
                     "> Socialize <", () =>
@@ -33,7 +37,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                     }
                 },
                 {
-                    "> Move to another village <", TravelToVillageMenu.Display
+                    "> Move to Anoher Village <", TravelToVillageMenu.Display
                 },
             };
 

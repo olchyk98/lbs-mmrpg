@@ -9,28 +9,33 @@ namespace lbs_rpg.classes.instances.player
     // [Headhunter]
     public class Player : IEntity
     {
+        #region Fields
         public float Health { get; private set; }
 
         public float MaxHealth { get; private set; }
-        public float MoneyBalance { get; private set; }
-        public readonly PlayerProperties Properties;
+        public readonly PlayerStats Stats;
         public readonly PlayerVillage VillagesManager;
+        public readonly PlayerMoney MoneyManager;
         public readonly PlayerInventory Inventory;
-        private PlayerProperties _headsStorage = new PlayerProperties();
 
         // Reference to entity that the players is trying to kill right now
         private IEntity _currentTarget = default;
+        #endregion
 
+        #region Constructor
         public Player(Village village)
         {
             MaxHealth = Health = 100;
-            MoneyBalance = 0;
-            Properties = new PlayerProperties();
-            VillagesManager = new PlayerVillage(village);
-            Inventory = new PlayerInventory();
+            MoneyManager = new PlayerMoney(this);
+            Stats = new PlayerStats(this);
+            VillagesManager = new PlayerVillage(this, village);
+            Inventory = new PlayerInventory(this);
         }
+        #endregion
 
+        #region Methods
         /// <summary>
+        /// Internal method.
         /// Can be used to apply damage to the entity.
         /// Can be also used to heal the entity.
         /// </summary>
@@ -75,25 +80,6 @@ namespace lbs_rpg.classes.instances.player
         }
 
         /// <summary>
-        /// Takes money from the balance
-        /// </summary>
-        /// <returns>
-        /// Boolean, that represents if player has enough money.
-        /// If player doesn't have enough money, then balance won't be changed and the method will return false.
-        /// </returns>
-        private bool ReduceMoney(float amount)
-        {
-            // Check if player has enough money
-            if (MoneyBalance - amount < 0) return false;
-            
-            // Update money value
-            MoneyBalance -= amount;
-            
-            // Return success
-            return true;
-        }
-        
-        /// <summary>
         /// Applies damage to the entity.
         /// </summary>
         /// <param name="damage">
@@ -110,7 +96,7 @@ namespace lbs_rpg.classes.instances.player
             }
             
             // Make damage calculations
-            float appliedDamage = damage * (1 - Properties.DefenseProcent);
+            float appliedDamage = damage * (1 - Stats.DefenseProcent);
             
             // Apply damage
             return ChangeHealth(-appliedDamage);
@@ -158,29 +144,7 @@ namespace lbs_rpg.classes.instances.player
         /// <returns></returns>
         public string GetDefenseProcentString()
         {
-            return Properties.DefenseProcent.ToString("0.00");
-        }
-
-        /// <summary>
-        /// Adds money to the player's balance.
-        /// Method can be also used to take money from the player.
-        /// </summary>
-        /// <param name="amount">
-        /// Takes money from the player if the value is negative.
-        /// </param>
-        /// <exception cref="ArgumentException">
-        /// Casts an ArgumentException if the amount value equals zero.
-        /// </exception>
-        public void AddMoney(int amount)
-        {
-            // Validate amount
-            if (amount == 0)
-            {
-                throw new ArgumentException("Amount value cannot be zero!");
-            }
-            
-            // Update the balance
-            MoneyBalance += amount;
+            return Stats.DefenseProcent.ToString("0.00");
         }
 
         /// <summary>
@@ -191,19 +155,35 @@ namespace lbs_rpg.classes.instances.player
         /// </param>
         public void GainSleep(int iterations = 1)
         {
-            HealHealth(iterations * Properties.HealthRegeneration);
+            HealHealth(iterations * Stats.HealthRegeneration);
         }
 
         /// <summary>
         /// Reduces balance money and adds item to the inventory
+        /// (or just increments amount of the existing item in inventory)
         /// </summary>
         /// <param name="item"></param>
         public void BuyItem(IItem item)
         {
-            bool isCouldBuy = ReduceMoney(item.Price);
+            bool isCouldBuy = MoneyManager.TakeMoney(item.PriceForPlayer);
             if (!isCouldBuy) return;
             
+            // Add item to the inventory
             Inventory.AddItem(item);
+            
+            // Add village reputation
+            VillagesManager.AddCurrentVillageReputation(ActionReputation.BUY_SHOP_ITEM.Reputation);
         }
+
+        /// <summary>
+        /// Increases balance money and removes item from the inventory
+        /// (or just decrements amount of the existing item in inventory)
+        /// </summary>
+        public void SellItem(IItem item)
+        {
+            Inventory.RemoveItem(item, false);
+            MoneyManager.IncreaseMoney(item.SellPriceForPlayer);
+        }
+        #endregion
     }
 }

@@ -3,12 +3,12 @@ using lbs_rpg.classes.instances.player;
 namespace lbs_rpg.contracts.items
 {
     /// <summary>
-    /// Better armor will help you survive monsters.
-    /// The better armor you have the less damage you will get.
+    /// Better weapon will allow you kill monsters faster.
+    /// It also increases your attack shockwave range.
     /// </summary>
-    public interface IArmor : IEquipable
+    public interface IWeapon : IEquipable
     {
-        public float ProtectionProcent { get; }
+        public float Damage { get; }
         
         /// <summary>
         /// Checks if item equiped (placed) on any inventory slots
@@ -21,7 +21,7 @@ namespace lbs_rpg.contracts.items
         /// </returns>
         bool IEquipable.IsEquipedOn(PlayerInventory inventory)
         {
-            return inventory.Armor?.Name == Name;
+            return inventory.Weapon?.Name == Name;
         }
         
         /// <summary>
@@ -32,7 +32,7 @@ namespace lbs_rpg.contracts.items
         /// </param>
         void IEquipable.EquipOn(PlayerInventory inventory)
         {
-            inventory.EquipArmor(this);
+            inventory.EquipWeapon(this);
         }
         
         /// <summary>
@@ -43,7 +43,7 @@ namespace lbs_rpg.contracts.items
         /// </param>
         void IEquipable.UnequipOn(PlayerInventory inventory)
         {
-            inventory.EquipArmor(this, true);
+            inventory.EquipWeapon(this, true);
         }
     }
 }

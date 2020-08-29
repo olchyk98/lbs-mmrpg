@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using Force.DeepCloner;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.utils;
 using lbs_rpg.contracts;
@@ -43,16 +45,60 @@ namespace lbs_rpg.classes.instances.villages
         public VillageShop(IList<IItem> items)
         {
             _stock = items;
+            UpdatePopularity();
         }
 
         public VillageShop()
         {
             _stock = GenerateStock();
+            UpdatePopularity();
         }
 
         #endregion
 
         #region Methods
+
+        /// <summary>
+        /// Generates (Randomizes) single item
+        /// </summary>
+        /// <returns>
+        /// Generated item.
+        /// </returns>
+        private static IItem GenerateItem()
+        {
+            // Get all implementations of Item interface.
+            var itemInterface = typeof(IItem);
+            List<Type> classes = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(s => s.GetTypes())
+                .Where(ma => itemInterface.IsAssignableFrom(ma) && ma.IsClass)
+                .ToList();
+
+            // Randomize item index
+            int randomIndex = Random.Next(classes.Count);
+
+            // Get type at that index
+            Type itemType = classes.ElementAt(randomIndex);
+
+            // Invoke type constructor
+            var item = (IItem) Activator.CreateInstance(itemType);
+
+            // Check if Activator was successfully able to invoke the constructor
+            // If it couldn't invoke a constructor (in case if it exist), it will return NULL.
+            if (item == null)
+            {
+                throw new ApplicationException(
+                    $"Activator couldn't successfully invoke item's constructor: {itemType.Name}");
+            }
+
+            // Randomize amount
+            int amount = Random.Next(12);
+
+            // Update item's amount value
+            item.Amount = amount;
+
+            // Return the generated item
+            return item;
+        }
 
         /// <summary>
         /// Randomly changes shop popularity value.
@@ -81,9 +127,11 @@ namespace lbs_rpg.classes.instances.villages
         ///
         ///  * shopMultiplier (1 - shopMultiplier) - Village's sell price multiplier. Changes with time.
         ///    The value is different for every village and represented as a decimal value between 0 and 1.
-        ///    The value should be 0, when the place is very popular, since when value equals 1 the price should be highest.
+        ///    The value should be 0, when the place is very popular, therefore when value equals 1 the price should be highest.
         ///    To achive this effect we divide the value with 1:
         ///         (1 - shopMultiplier)
+        ///    The more popular shop is the more money item will cost.
+        ///    The less popular shop is the less money item will cost.
         ///
         ///  * "/2" - Max possible sum of playerReputation and shopMultiplier.
         ///
@@ -95,19 +143,32 @@ namespace lbs_rpg.classes.instances.villages
         /// <returns>
         /// Optimal price
         /// </returns>
-        private float CalculateItemPrice(int itemPrice, int buyerReputation)
+        public double CalculateItemPrice(double itemPrice, float buyerReputation)
         {
+            // Validate buyerReputation
+            if (buyerReputation < 0f || buyerReputation > 1f)
+            {
+                throw new Exception(
+                    $"BuyerReputation cannot be less than 0 or higher than 1! Current value: {buyerReputation}");
+            }
+
+            // Validate itemPrice
+            if (itemPrice <= 0)
+            {
+                throw new Exception($"ItemPrice should be higher than zero! Current value: {itemPrice}");
+            }
+
             if (DateTime.Now > _popularityUpdatedTime.AddMilliseconds(POPULARITY_REFRESH_TIME))
             {
                 UpdatePopularity();
             }
 
-            return (PRICE_MULTIPLIER - (buyerReputation + (1 - _currentPopularity)) / 2f) * itemPrice;
+            return (PRICE_MULTIPLIER - (buyerReputation + (1 - _currentPopularity)) / 2) * itemPrice;
         }
 
         /// <summary>
         /// Regenerates stock state by randomizing some values,
-        /// such as amount of different items, new items in the stock.
+        /// such as amount of different items and number of new items in the stock.
         /// </summary>
         public void RegenerateStock()
         {
@@ -164,48 +225,6 @@ namespace lbs_rpg.classes.instances.villages
         }
 
         /// <summary>
-        /// Generates (Randomizes) single item
-        /// </summary>
-        /// <returns>
-        /// Generated item.
-        /// </returns>
-        private static IItem GenerateItem()
-        {
-            // Get all implementations of Item interface.
-            var itemInterface = typeof(IItem);
-            List<Type> classes = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(s => s.GetTypes())
-                .Where(ma => itemInterface.IsAssignableFrom(ma) && ma.IsClass)
-                .ToList();
-
-            // Randomize item index
-            int randomIndex = Random.Next(classes.Count);
-
-            // Get type at that index
-            Type itemType = classes.ElementAt(randomIndex);
-
-            // Invoke type constructor
-            var item = (IItem) Activator.CreateInstance(itemType);
-
-            // Check if Activator was successfully able to invoke the constructor
-            // If it couldn't invoke a constructor (in case if it exist), it will return NULL.
-            if (item == null)
-            {
-                throw new ApplicationException(
-                    $"Activator couldn't successfully invoke item's constructor: {itemType.Name}");
-            }
-
-            // Randomize amount
-            int amount = Random.Next(12);
-
-            // Update item's amount value
-            item.Amount = amount;
-
-            // Return the generated item
-            return item;
-        }
-
-        /// <summary>
         /// Generates init state for a shop.
         /// </summary>
         /// <returns>
@@ -231,7 +250,6 @@ namespace lbs_rpg.classes.instances.villages
             {
                 // Try find occurence
                 IItem occurrence = stock.SingleOrDefault(io => item.Name == io.Name);
-                ;
 
                 // Check if an occurence found. Update the amount, but don't a new element (duplication) to the list
                 if (occurrence != default)
@@ -256,7 +274,7 @@ namespace lbs_rpg.classes.instances.villages
             else item.UpdateAmount(-1); // reduce amount if it won't
 
             // Return item
-            IItem soldItem = ObjectCopier.Clone(item);
+            IItem soldItem = item.DeepClone();
             soldItem.Amount = 1;
             return soldItem;
         }
@@ -274,9 +292,8 @@ namespace lbs_rpg.classes.instances.villages
         /// </flags>
         private bool RemoveItem(IItem item)
         {
-            int deletedElements = _stock.ToList().RemoveAll(ma => item == ma);
-
-            return deletedElements > 0;
+            bool didDelete = _stock.Remove(item);
+            return didDelete;
         }
 
         #endregion

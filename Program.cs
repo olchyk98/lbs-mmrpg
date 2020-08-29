@@ -1,6 +1,5 @@
-﻿// TODO: Fix BuyItem -> Object.Cloner
-// TODO: PlayerInventory list menu (GUI.menus)
-// TODO: Make menu scrollable
+﻿// TODO: Make menu scrollable
+// TODO: Switch to Pastel
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]
@@ -79,7 +78,7 @@ namespace lbs_rpg
             RenderPipeline.Add(new PlayerStatsBar(Player));
             
             // Display the welcome message (game introduction)
-            WelcomeScreen.Display();
+            // WelcomeScreen.Display();
 
             // Display the stats (before the menu, since the menu method will block the thread)
             // TODO: Stats should also display the enemy damage (not in the Program.Main)

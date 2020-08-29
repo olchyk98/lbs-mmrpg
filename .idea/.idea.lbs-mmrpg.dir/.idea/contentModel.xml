@@ -24,7 +24,7 @@
           <e p="templates" t="Include">
             <e p="menus" t="Include">
               <e p="ActionGroupsMenu.cs" t="Include" />
-              <e p="PlayerInventory.cs" t="Include" />
+              <e p="PlayerInventoryMenu.cs" t="Include" />
               <e p="ShopMenu.cs" t="Include" />
               <e p="TravelToVillageMenu.cs" t="Include" />
             </e>
@@ -37,6 +37,7 @@
           </e>
         </e>
         <e p="instances" t="Include">
+          <e p="entity" t="Include" />
           <e p="items" t="Include">
             <e p="NagaArmor.cs" t="Include" />
           </e>
@@ -47,11 +48,12 @@
           <e p="player" t="Include">
             <e p="Player.cs" t="Include" />
             <e p="PlayerInventory.cs" t="Include" />
-            <e p="PlayerProperties.cs" t="Include" />
+            <e p="PlayerMoney.cs" t="Include" />
             <e p="PlayerStats.cs" t="Include" />
             <e p="PlayerVillage.cs" t="Include" />
           </e>
           <e p="villages" t="Include">
+            <e p="ActionReputation.cs" t="Include" />
             <e p="GameVillages.cs" t="Include" />
             <e p="Village.cs" t="Include" />
             <e p="VillageShop.cs" t="Include" />
@@ -61,7 +63,6 @@
           <e p="FSTools.cs" t="Include" />
           <e p="FastExtensions.cs" t="Include" />
           <e p="NumberConvertor.cs" t="Include" />
-          <e p="ObjectCloner.cs" t="Include" />
         </e>
       </e>
       <e p="contracts" t="Include">
@@ -75,7 +76,10 @@
         </e>
         <e p="items" t="Include">
           <e p="IArmor.cs" t="Include" />
+          <e p="IBoots.cs" t="Include" />
+          <e p="IEquipable.cs" t="Include" />
           <e p="IItem.cs" t="Include" />
+          <e p="IWeapon.cs" t="Include" />
         </e>
       </e>
       <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />

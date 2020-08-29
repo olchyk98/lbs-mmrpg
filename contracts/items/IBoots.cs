@@ -3,12 +3,11 @@ using lbs_rpg.classes.instances.player;
 namespace lbs_rpg.contracts.items
 {
     /// <summary>
-    /// Better armor will help you survive monsters.
-    /// The better armor you have the less damage you will get.
+    /// Better boots increases your speed, so that you can travel between villages faster
     /// </summary>
-    public interface IArmor : IEquipable
+    public interface IBoots : IEquipable
     {
-        public float ProtectionProcent { get; }
+        public float SpeedProcent { get; }
         
         /// <summary>
         /// Checks if item equiped (placed) on any inventory slots
@@ -21,7 +20,7 @@ namespace lbs_rpg.contracts.items
         /// </returns>
         bool IEquipable.IsEquipedOn(PlayerInventory inventory)
         {
-            return inventory.Armor?.Name == Name;
+            return inventory.Boots?.Name == Name;
         }
         
         /// <summary>
@@ -32,7 +31,7 @@ namespace lbs_rpg.contracts.items
         /// </param>
         void IEquipable.EquipOn(PlayerInventory inventory)
         {
-            inventory.EquipArmor(this);
+            inventory.EquipBoots(this);
         }
         
         /// <summary>
@@ -43,7 +42,7 @@ namespace lbs_rpg.contracts.items
         /// </param>
         void IEquipable.UnequipOn(PlayerInventory inventory)
         {
-            inventory.EquipArmor(this, true);
+            inventory.EquipBoots(this, true);
         }
     }
 }
