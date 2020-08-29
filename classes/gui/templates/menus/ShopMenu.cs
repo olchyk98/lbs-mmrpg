@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using lbs_rpg.classes.gui.components;
+using lbs_rpg.classes.gui.components.menu;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
 using lbs_rpg.classes.utils;
@@ -18,14 +19,14 @@ namespace lbs_rpg.classes.gui.templates.menus
             IList<IItem> shopItems = shop.GetAvailableItems();
 
             // Define menu items
-            var menuItems = new Dictionary<string, Action>();
+            var menuItems = new Dictionary<string, Action<int>>();
             
             // Declare menu items
             foreach (IItem item in shopItems)
             {
                 string label = $"\"{item.Name}\" for ${NumberConvertor.ShortenNumber(item.PriceForPlayer)} | { item.Amount } left";
                 
-                bool added = menuItems.TryAdd(label, () =>
+                bool added = menuItems.TryAdd(label, (selectedIndex) =>
                 {
                     // Check if player has enough money to afford this item
                     double moreMoney = player.MoneyManager.CanAfford(item.PriceForPlayer);
@@ -50,12 +51,12 @@ namespace lbs_rpg.classes.gui.templates.menus
             }
 
             // Add go to menu menu itme
-            menuItems.Add("> Go to menu <", ActionGroupsMenu.Display);
+            menuItems.Add("> Go to menu <", (selectedIndex) => ActionGroupsMenu.Display());
             
             // Process shop message if valid
             if (shopMessage != default)
             {
-                menuItems.Add(shopMessage, () => Display());
+                menuItems.Add(shopMessage, (selectedIndex) => Display());
             }
 
             // Display

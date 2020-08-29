@@ -2,24 +2,40 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using lbs_rpg.classes.gui.components.colorize;
-using lbs_rpg.contracts;
 using lbs_rpg.contracts.gui;
 
-namespace lbs_rpg.classes.gui.components
+namespace lbs_rpg.classes.gui.components.menu
 {
     public class Menu : IMenu
     {
         private int _selectedIndex = 0;
-        private readonly Dictionary<string, Action> _items = null;
+        private readonly Dictionary<string, Action<int>> _items = null;
         private readonly string _label = null;
-
-        /*
-            [string, function]
-        */
-        public Menu(Dictionary<string, Action> items, string label = null)
+        
+        /// <summary>
+        /// Menu Constructor
+        /// </summary>
+        /// <param name="items">
+        /// Menu options
+        /// </param>
+        /// <param name="label">
+        /// Menu title
+        /// </param>
+        /// <param name="selectedIndex">
+        /// Very useful if you don't want cursor to be reseted after refresh, allows you
+        /// natively set cursor at the previous position.
+        /// </param>
+        public Menu(Dictionary<string, Action<int>> items, string label = null, int selectedIndex = default)
         {
             _items = ValidateListOptions(items);
             _label = label;
+
+            // Process selected index
+            // Ignore selectedIndex if out of the range
+            if (selectedIndex != default && selectedIndex >= 0 && selectedIndex <= _items.Count)
+            {
+                _selectedIndex = selectedIndex;
+            }
         }
 
         /// <summary>
@@ -32,9 +48,9 @@ namespace lbs_rpg.classes.gui.components
         /// <exception cref="ApplicationException">
         /// Throwed if any of items in the items dictionary initialized with mistakes.
         /// </exception>
-        private Dictionary<string, Action> ValidateListOptions(Dictionary<string, Action> items)
+        private Dictionary<string, Action<int>> ValidateListOptions(Dictionary<string, Action<int>> items)
         {
-            foreach (KeyValuePair<string, Action> keyValue in items)
+            foreach (KeyValuePair<string, Action<int>> keyValue in items)
             {
                 if (keyValue.Value == null)
                 {
@@ -63,7 +79,7 @@ namespace lbs_rpg.classes.gui.components
             if (itemLabel == null) return false;
 
             // Get and invoke the action
-            _items[itemLabel]?.Invoke();
+            _items[itemLabel]?.Invoke(_selectedIndex);
 
             // Return the success
             return true;
@@ -85,7 +101,7 @@ namespace lbs_rpg.classes.gui.components
         /// The Display method checks if the return value equals 0 and uses
         /// that value to control the input if it's not.
         /// </warning>
-        private static int? GetKeyboardInput()
+        private static MenuKeyboardEvent GetKeyboardInput()
         {
             // Get the input (ReadKey)
             ConsoleKeyInfo pressedKeyInfo = Console.ReadKey(true);
@@ -94,18 +110,18 @@ namespace lbs_rpg.classes.gui.components
             ConsoleKey pressedKey = pressedKeyInfo.Key;
 
             // Process input
-            int? returnValue = null;
+            MenuKeyboardEvent returnValue = MenuKeyboardEvent.INVALID_KEY;
 
             switch (pressedKey)
             {
                 case ConsoleKey.Enter:
-                    returnValue = 0;
+                    returnValue = MenuKeyboardEvent.SUBMIT;
                     break;
                 case ConsoleKey.DownArrow:
-                    returnValue = 1;
+                    returnValue = MenuKeyboardEvent.MOVE_DOWN;
                     break;
                 case ConsoleKey.UpArrow:
-                    returnValue = -1;
+                    returnValue = MenuKeyboardEvent.MOVE_UP;
                     break;
             }
 
@@ -146,8 +162,11 @@ namespace lbs_rpg.classes.gui.components
         {
             FastGuiUtils.ClearConsole();
 
-            // Declare print output array
+            // Take all menu options -> output array
             string[] items = _items.Keys.ToArray();
+            
+            // TODO: Display only ten items, don't move cursor on first position when moves down, but stay on the last position.
+            // TODO: Configure for-loop variables using offset variables
 
             // Stylize items
             for (var ma = 0; ma < items.Length; ma++)
@@ -178,26 +197,28 @@ namespace lbs_rpg.classes.gui.components
             while (true)
             {
                 // Wait for user input (code->event)
-                int? pressCodeNullable = GetKeyboardInput();
+                MenuKeyboardEvent pressedEvent = GetKeyboardInput();
 
-                // Continue input listening if no event returned
-                if (pressCodeNullable == null) continue;
+                // Continue input listening if no valid action returned
+                if (pressedEvent == MenuKeyboardEvent.INVALID_KEY) continue;
 
-                // Convert pressCode to int if an event was returned
-                int pressCode = (int) pressCodeNullable;
-
-                // Process SUBMIT_ACTION
-                if (pressCode == 0)
+                // Process action
+                switch (pressedEvent)
                 {
-                    ExecuteSelectedItem();
-                    return;
+                    case MenuKeyboardEvent.SUBMIT:
+                        ExecuteSelectedItem();
+                        return;
+                    case MenuKeyboardEvent.MOVE_UP:
+                        ChangeIndex(-1);
+                        break;
+                    case MenuKeyboardEvent.MOVE_DOWN:
+                        ChangeIndex(1);
+                        break;
+                    default: // Invalid event
+                        throw new Exception($"Received an unexpected input event: { pressedEvent.ToString() }");
                 }
 
-                // Process MOVE_ACTION
-                // FIXME<[delayed]: Really bad implementation
-                ChangeIndex(pressCode);
-
-                // Break the while loop, because we've got an valid input
+                // Break the while loop, because we've got a valid input
                 // and the menu state has been updated
                 break;
             }
