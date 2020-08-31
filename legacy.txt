@@ -1,0 +1,6 @@
+This project is not supported on:
+    - Windows Command Line
+    - Linux UXTerm Native
+
+For Windows you should use "Terminal".
+For Linux you should use any other terminal that support Runlevel 5. 

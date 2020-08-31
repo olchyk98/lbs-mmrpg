@@ -9,9 +9,9 @@ namespace lbs_rpg.classes.instances.villages
         public string Name { get; }
         public VillageShop Shop { get; }
         public int MaxReputation { get; }
-        // Village position is represented as a X value (m)
+        // Village position is represented as a X value (km)
         public double Position { get; }
-        private const int MAX_REPUTATION_LIMIT = 4000;
+        private const int MaxReputationLimit = 4000;
 
         public Village(string name, double position)
         {
@@ -19,22 +19,8 @@ namespace lbs_rpg.classes.instances.villages
             
             Name = name;
             Shop = new VillageShop();
-            MaxReputation = random.Next(100, MAX_REPUTATION_LIMIT);
+            MaxReputation = random.Next(100, MaxReputationLimit);
             Position = position;
-        }
-
-        /// <summary>
-        /// Returns distance between this village and target village in m.
-        /// </summary>
-        /// <param name="village">
-        /// Target village.
-        /// </param>
-        /// <returns>
-        /// Distance in m.
-        /// </returns>
-        public double GetDistanceTo(Village village)
-        {
-            return Math.Abs(village.Position - Position);
         }
 
         /// <summary>
@@ -46,9 +32,9 @@ namespace lbs_rpg.classes.instances.villages
         /// <returns>
         /// Distance in km.
         /// </returns>
-        public double GetDistanceToAsKm(Village village)
+        public double GetDistanceTo(Village village)
         {
-            return GetDistanceTo(village) / 1000;
+            return Math.Abs(village.Position - Position);
         }
     }
 }

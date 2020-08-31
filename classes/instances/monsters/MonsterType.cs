@@ -31,12 +31,12 @@ namespace lbs_rpg.classes.instances.monsters
         }
 #nullable disable
 
-        public static MonsterType ZOMBIE => new MonsterType("Zombie", 50, 8);
-        public static MonsterType ONYX => new MonsterType("Onyx", 80, 8);
-        public static MonsterType SPIDER => new MonsterType("Spider", 30, 7);
-        public static MonsterType GUTPOD => new MonsterType("Gutpod", 50, 6);
-        public static MonsterType COBRA => new MonsterType("Cobra", 110, 4);
-        public static MonsterType HAWK => new MonsterType("Hawk", 200, 10);
-        public static MonsterType SELESTIAL_SNAKE => new MonsterType("Selestial Snake", 800, 8);
+        public static MonsterType Zombie => new MonsterType("Zombie", 50, 8);
+        public static MonsterType Onyx => new MonsterType("Onyx", 80, 8);
+        public static MonsterType Spider => new MonsterType("Spider", 30, 7);
+        public static MonsterType Gutpod => new MonsterType("Gutpod", 50, 6);
+        public static MonsterType Cobra => new MonsterType("Cobra", 110, 4);
+        public static MonsterType Hawk => new MonsterType("Hawk", 200, 10);
+        public static MonsterType SelestialSnake => new MonsterType("Selestial Snake", 800, 8);
     }
 }

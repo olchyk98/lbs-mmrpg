@@ -41,6 +41,6 @@ namespace lbs_rpg.classes.instances.villages
         }
 #nullable disable
         
-        public static ActionReputation BUY_SHOP_ITEM => new ActionReputation("BUY_SHOP_ITEM", new[] { 2, 18 });
+        public static ActionReputation BuyShopItem => new ActionReputation("BUY_SHOP_ITEM", new[] { 2, 18 });
     }
 }

@@ -13,6 +13,7 @@ namespace lbs_rpg.classes.instances.player
     public class Player : IEntity
     {
         #region Fields
+
         public float Health { get; private set; }
 
         public float MaxHealth { get; set; }
@@ -23,9 +24,11 @@ namespace lbs_rpg.classes.instances.player
 
         // Reference to entity that the players is trying to kill right now
         private IEntity _currentTarget = default;
+
         #endregion
 
         #region Constructor
+
         public Player(Village village)
         {
             MaxHealth = Health = 100;
@@ -34,9 +37,11 @@ namespace lbs_rpg.classes.instances.player
             VillagesManager = new PlayerVillage(this, village);
             Inventory = new PlayerInventory(this);
         }
+
         #endregion
 
         #region Methods
+
         /// <summary>
         /// Internal method.
         /// Can be used to apply damage to the entity.
@@ -58,7 +63,7 @@ namespace lbs_rpg.classes.instances.player
         {
             // Convert class to its interface to use some methods that are implemented in the interface
             IEntity instanceEntity = this;
-            
+
             // Check if player is alive
             if (!instanceEntity.IsAlive())
             {
@@ -97,10 +102,10 @@ namespace lbs_rpg.classes.instances.player
             {
                 throw new ArgumentException("Damage value should be higher than zero!");
             }
-            
+
             // Make damage calculations
             float appliedDamage = damage * (1 - Stats.DefenseProcent);
-            
+
             // Apply damage
             return ChangeHealth(-appliedDamage);
         }
@@ -118,7 +123,7 @@ namespace lbs_rpg.classes.instances.player
             {
                 throw new ArgumentException("Health value should be higher than zero!");
             }
-            
+
             // Apply healing
             ChangeHealth(health);
         }
@@ -160,12 +165,12 @@ namespace lbs_rpg.classes.instances.player
         {
             // Initialize random instance
             Random random = new Random();
-            
+
             // Apply sleep iterations
             for (var ma = 0; ma < iterations; ++ma)
             {
                 float regeneratedHealth = (float) random.NextDouble() * Stats.HealthRegeneration;
-                HealHealth(iterations * regeneratedHealth);   
+                HealHealth(iterations * regeneratedHealth);
             }
         }
 
@@ -178,12 +183,12 @@ namespace lbs_rpg.classes.instances.player
         {
             bool isCouldBuy = MoneyManager.TakeMoney(item.PriceForPlayer);
             if (!isCouldBuy) return;
-            
+
             // Add item to the inventory
             Inventory.AddItem(item);
-            
+
             // Add village reputation
-            VillagesManager.AddCurrentVillageReputation(ActionReputation.BUY_SHOP_ITEM.Reputation);
+            VillagesManager.AddCurrentVillageReputation(ActionReputation.BuyShopItem.Reputation);
         }
 
         /// <summary>
@@ -196,70 +201,6 @@ namespace lbs_rpg.classes.instances.player
             MoneyManager.IncreaseMoney(item.SellPriceForPlayer);
         }
 
-        /// <summary>
-        /// Returns nearest villages to the player
-        /// </summary>
-        /// <param name="villagesCount">
-        /// Limiter for the output
-        /// </param>
-        /// <param name="onlyAllowed">
-        /// Boolean that represents if function won't return the villages that
-        /// player cannot visit yet, since it's too far.
-        /// </param>
-        /// <returns>
-        /// List of the nearest villages
-        /// </returns>
-        public IList<Village> GetNearestVillages(int villagesCount, bool onlyAllowed = false)
-        {
-            // Cache current village
-            Village currentVillage = VillagesManager.CurrentVillage;
-            
-            // Ref list of all villages
-            IList<Village> allVillages = Program.Villages.Villages;
-            
-            // Sort villages by distance
-            List<Village> sortedVillages = allVillages
-                .OrderByDescending(ma => ma.GetDistanceTo(currentVillage))
-                .ToList();
-            
-            // Remove current village
-            // Always on the first position, so can use .Skip, but this is safer.
-            sortedVillages.Remove(currentVillage);
-
-            // Process only allowed villages
-            if (onlyAllowed)
-            {
-                for (var ma = 0; ma < sortedVillages.Count; ++ma)
-                {
-                    // Access village
-                    Village village = sortedVillages.ElementAt(ma);
-                    
-                    // Check if player can travel
-                    if (!CanTravelTo(village))
-                    {
-                        sortedVillages.RemoveAt(ma);
-                    }
-                }
-            }
-            
-            // Return [villagesCount] villages
-            return sortedVillages.Take(villagesCount).ToList();
-        }
-
-        /// <summary>
-        /// Checks if player has enough health to travel to another village.
-        /// </summary>
-        /// <param name="village">
-        /// Target village
-        /// </param>
-        /// <returns>
-        /// Boolean that represents if player can travel to the target village.
-        /// </returns>
-        public bool CanTravelTo(Village village)
-        {
-            return Health - village.GetDistanceTo(VillagesManager.CurrentVillage) *
-                PlayerStats.HEALTH_AMOUNT_PER_TRAVEL > 0;
-        }
         #endregion
     }
 }

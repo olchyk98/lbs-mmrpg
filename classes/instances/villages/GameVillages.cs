@@ -14,9 +14,9 @@ namespace lbs_rpg.classes.instances.villages
     /// </summary>
     public class GameVillages
     {
-        private const int NUMBER_OF_VILLAGES = 10;
-        private const int MIN_VILLAGE_POSITION_GAP = 3000;
-        private const int MAX_VILLAGE_POSITION_GAP = 12000; // m
+        private const int NumberOfVillages = 10;
+        private const float MinVillagePositionGap = 3f;
+        private const float MaxVillagePositionGap = 12f; // km
         
         public IList<Village> Villages { get; }
 
@@ -28,20 +28,22 @@ namespace lbs_rpg.classes.instances.villages
         private IList<Village> GenerateVillages()
         {
             // Load (and randomize) village names using IO & Take only [NUMBER_OF_VILLAGES] villages from the array.
-            string[] villageNames = FSTools.ReadListRandomized("./resources/villages/names.txt", NUMBER_OF_VILLAGES);
+            string[] villageNames = FsTools.ReadListRandomized("./resources/villages/names.txt", NumberOfVillages);
             
             // Declare list of generated villages
             IList<Village> generatedVillages = new List<Village>();
             
             // Define position generator cursor & Instantiate random
-            int positionCursor = 0;
+            float positionCursor = 0;
             Random random = new Random();
             
             // Generate villages
             foreach (string name in villageNames)
             {
                 // Randomize position
-                positionCursor = random.Next(positionCursor + MIN_VILLAGE_POSITION_GAP, positionCursor + MAX_VILLAGE_POSITION_GAP);
+                float minPos = positionCursor + MinVillagePositionGap;
+                float maxPos = positionCursor + MaxVillagePositionGap;
+                positionCursor = Convert.ToSingle(random.NextDouble() * (maxPos - minPos) + minPos);
 
                 // Instantiate instance
                 var village = new Village(name, positionCursor);

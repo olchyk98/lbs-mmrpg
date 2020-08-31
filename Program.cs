@@ -1,4 +1,4 @@
-﻿// CONTINUE: Travel to another village menu -> ConstantProgress by limit ticks without key interruption 
+﻿// CONTINUE: Travel to another village menu -> ConstantProgress by limit ticks without key interruption
 // TODO: Display reputation in the travel to village menu (current / max)
 
 // TODO: Refactor -> IDE Style
@@ -60,7 +60,7 @@ namespace lbs_rpg
         {
             // Explicitly set console output encoding to allow the program display emojis.
             Console.OutputEncoding = Encoding.UTF8;
-            // Console.Write(" ");
+            Console.Write("\xfeff"); // Print byte order mark (needed to change the encoding)
             
             // Check if terminal container is not too small
             if (!ResolutionHandler.IsSupportedResolution())

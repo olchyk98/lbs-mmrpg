@@ -31,12 +31,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/villages/names.txt" />
-        <option value="$PROJECT_DIR$/classes/utils/FastExtensions.cs" />
-        <option value="$PROJECT_DIR$/classes/utils/FSTools.cs" />
-        <option value="$PROJECT_DIR$/contracts/IMonsterHead.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/_VillageShop.cs" />
-        <option value="$PROJECT_DIR$/contracts/IItem.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IAmor.cs" />
         <option value="$PROJECT_DIR$/contracts/gui/IRenderable.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/___VillageShop.cs" />
@@ -50,7 +44,6 @@
         <option value="$PROJECT_DIR$/classes/instances/monsters/MonsterType.cs" />
         <option value="$PROJECT_DIR$/classes/utils/NumberConvertor.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerSleepProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/ActionReputation.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IEquipable.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IWeapon.cs" />
@@ -66,11 +59,8 @@
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/ColorizePastel.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/HardColor.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/Colorize.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/TravelToVillageMenu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IBoots.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IUseableBuff.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IBuff.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/PermanentHealthBooster.cs" />
@@ -78,10 +68,20 @@
         <option value="$PROJECT_DIR$/classes/gui/templates/menus/ShopMenu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventoryMenu.cs" />
         <option value="$PROJECT_DIR$/contracts/entity/IEntityBot.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
+        <option value="$PROJECT_DIR$/legacy.txt" />
         <option value="$PROJECT_DIR$/classes/instances/villages/GameVillages.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTas.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTask.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTasks.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerTravelProgress.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/ConstantProgress.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/TravelToVillageMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
       </list>
     </option>
   </component>
@@ -140,21 +140,22 @@
     </state>
     <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.1368.873@72.27.1368.873" timestamp="1598624950013" />
     <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.2808.873@72.27.2808.873" timestamp="1598551833406" />
-    <state x="156" y="98" width="900" height="779" key="SettingsEditor" timestamp="1598704219895">
+    <state x="156" y="98" width="900" height="779" key="SettingsEditor" timestamp="1598798589931">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
+    <state x="156" y="98" key="SettingsEditor/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598798589931" />
     <state x="156" y="98" width="900" height="779" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1598704219895" />
     <state x="245" y="98" width="1022" height="737" key="SettingsEditor/72.27.2808.873@72.27.2808.873" timestamp="1598549878722" />
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1598601500374">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/72.27.1368.873@72.27.1368.873" timestamp="1598601500374" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1598741626155">
+    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup" timestamp="1598865942333">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="1805" y="193" width="709" height="699" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@1440.0.1440.900" timestamp="1598730520536" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598741626155" />
-    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1598704233555" />
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598798034377" />
+    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1598865942333" />
     <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598552655027" />
   </component>
 </project>

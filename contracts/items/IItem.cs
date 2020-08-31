@@ -9,13 +9,13 @@ namespace lbs_rpg.contracts.items
         // Float that represents procent of the price that the item should be sold for.
         // For example, real price is 800 and SELL_EXPONENT is 85% (.85). That means that item
         // will be sold for 800*.85=680$
-        const float SELL_EXPONENT = .65f; // 65% of its price
+        const float SellExponent = .65f; // 65% of its price
 
         public int Amount { get; set; }
         public double Price { get; }
         public double PriceForPlayer => GetPriceFor(Program.Player.VillagesManager);
-        public double SellPrice => Price * SELL_EXPONENT;
-        public double SellPriceForPlayer => PriceForPlayer * SELL_EXPONENT;
+        public double SellPrice => Price * SellExponent;
+        public double SellPriceForPlayer => PriceForPlayer * SellExponent;
         public string Name { get; }
         #endregion
         

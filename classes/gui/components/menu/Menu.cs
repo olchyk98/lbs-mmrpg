@@ -112,18 +112,18 @@ namespace lbs_rpg.classes.gui.components.menu
             ConsoleKey pressedKey = pressedKeyInfo.Key;
 
             // Process input
-            MenuKeyboardEvent returnValue = MenuKeyboardEvent.INVALID_KEY;
+            MenuKeyboardEvent returnValue = MenuKeyboardEvent.InvalidKey;
 
             switch (pressedKey)
             {
                 case ConsoleKey.Enter:
-                    returnValue = MenuKeyboardEvent.SUBMIT;
+                    returnValue = MenuKeyboardEvent.Submit;
                     break;
                 case ConsoleKey.DownArrow:
-                    returnValue = MenuKeyboardEvent.MOVE_DOWN;
+                    returnValue = MenuKeyboardEvent.MoveDown;
                     break;
                 case ConsoleKey.UpArrow:
-                    returnValue = MenuKeyboardEvent.MOVE_UP;
+                    returnValue = MenuKeyboardEvent.MoveUp;
                     break;
             }
 
@@ -205,18 +205,18 @@ namespace lbs_rpg.classes.gui.components.menu
                 MenuKeyboardEvent pressedEvent = GetKeyboardInput();
 
                 // Continue input listening if no valid action returned
-                if (pressedEvent == MenuKeyboardEvent.INVALID_KEY) continue;
+                if (pressedEvent == MenuKeyboardEvent.InvalidKey) continue;
 
                 // Process action
                 switch (pressedEvent)
                 {
-                    case MenuKeyboardEvent.SUBMIT:
+                    case MenuKeyboardEvent.Submit:
                         ExecuteSelectedItem();
                         return;
-                    case MenuKeyboardEvent.MOVE_UP:
+                    case MenuKeyboardEvent.MoveUp:
                         ChangeIndex(-1);
                         break;
-                    case MenuKeyboardEvent.MOVE_DOWN:
+                    case MenuKeyboardEvent.MoveDown:
                         ChangeIndex(1);
                         break;
                     default: // Invalid event

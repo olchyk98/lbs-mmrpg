@@ -5,8 +5,8 @@ namespace lbs_rpg.classes.gui.components
     // REFACTORED [4.5b]: ENUM -> CLASS
     internal static class MinimalScreenResolution
     {
-        public static readonly int SCREEN_WIDTH = 100;
-        public static readonly int SCREEN_HEIGHT = 25;
+        public static readonly int ScreenWidth = 100;
+        public static readonly int ScreenHeight = 25;
     }
 
     public static class ResolutionHandler
@@ -54,8 +54,8 @@ namespace lbs_rpg.classes.gui.components
         public static bool IsSupportedResolution()
         {
             int[] resolution = GetResolution();
-            return resolution[0] >= MinimalScreenResolution.SCREEN_WIDTH &&
-                   resolution[1] >= MinimalScreenResolution.SCREEN_HEIGHT;
+            return resolution[0] >= MinimalScreenResolution.ScreenWidth &&
+                   resolution[1] >= MinimalScreenResolution.ScreenHeight;
         }
     }
 }

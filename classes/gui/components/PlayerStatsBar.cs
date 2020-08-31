@@ -127,9 +127,10 @@ namespace lbs_rpg.classes.gui.components
             // Declare hud elements
             string[] elements =
             {
-                $"💵 {NumberConvertor.ShortenNumber(player.MoneyManager.Money)}",
-                $"🛡️ {player.Stats.DefenseProcent}%",
-                $"🧑 {villageManager.GetCurrentVillageReputation()}/{villageManager.CurrentVillage.MaxReputation}"
+                $"Money: {NumberConvertor.ShortenNumber(player.MoneyManager.Money)}",
+                $"Protection:  {player.Stats.DefenseProcent}%",
+                $"Speed: {player.Stats.MovementSpeed}",
+                $"Reputation {villageManager.GetCurrentVillageReputation()}/{villageManager.CurrentVillage.MaxReputation}"
             };
 
             // string elements =  string.Join(string.Empty, $"", elementsGap, $"🛡️ 4.1%", elementsGap, $"🧑 35/1500");

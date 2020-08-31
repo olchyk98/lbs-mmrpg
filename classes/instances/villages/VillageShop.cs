@@ -27,13 +27,13 @@ namespace lbs_rpg.classes.instances.villages
         private DateTime _popularityUpdatedTime = DateTime.Now;
 
         // []: Described in the .CalculateShopPrice documentation
-        private const float PRICE_MULTIPLIER = 1.2f;
+        private const float PriceMultiplier = 1.2f;
 
         // Time difference between popularity updates
-        private const int POPULARITY_REFRESH_TIME = 60 * 1000; // 60 seconds
+        private const int PopularityRefreshTime = 60 * 1000; // 60 seconds
 
         // Time difference between stock updates
-        private const int STOCK_REFRESH_TIME = 80 * 1000; // 80 seconds
+        private const int StockRefreshTime = 80 * 1000; // 80 seconds
 
         // Cache Random
         private static readonly Random Random = new Random();
@@ -158,12 +158,12 @@ namespace lbs_rpg.classes.instances.villages
                 throw new Exception($"ItemPrice should be higher than zero! Current value: {itemPrice}");
             }
 
-            if (DateTime.Now > _popularityUpdatedTime.AddMilliseconds(POPULARITY_REFRESH_TIME))
+            if (DateTime.Now > _popularityUpdatedTime.AddMilliseconds(PopularityRefreshTime))
             {
                 UpdatePopularity();
             }
 
-            return (PRICE_MULTIPLIER - (buyerReputation + (1 - _currentPopularity)) / 2) * itemPrice;
+            return (PriceMultiplier - (buyerReputation + (1 - _currentPopularity)) / 2) * itemPrice;
         }
 
         /// <summary>
@@ -215,7 +215,7 @@ namespace lbs_rpg.classes.instances.villages
         public IList<IItem> GetAvailableItems()
         {
             // Check if stock should be refreshed, by checking time.
-            if (DateTime.Now > _lastStockUpdateTime.AddMilliseconds(STOCK_REFRESH_TIME))
+            if (DateTime.Now > _lastStockUpdateTime.AddMilliseconds(StockRefreshTime))
             {
                 RegenerateStock();
             }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace lbs_rpg.classes.utils
 {
-    public static class FSTools
+    public static class FsTools
     {
         /// <summary>
         /// PUBLIC..asdmlasd method that is used by other public methods of this class.
