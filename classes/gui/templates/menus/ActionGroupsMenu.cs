@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.components.menu;
 using lbs_rpg.classes.gui.templates.progress;
 
@@ -33,8 +32,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                 {
                     "> Socialize <", (selectedIndex) =>
                     {
-                        Console.WriteLine("a");
-                        return;
+                        VillageReputationTasksMenu.Display();
                     }
                 },
                 {

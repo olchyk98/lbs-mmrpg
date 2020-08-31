@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.components.menu;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
@@ -48,6 +47,12 @@ namespace lbs_rpg.classes.gui.templates.menus
                 });
 
                 if(!added) throw new ApplicationException("Item duplication >> VillageShop");
+            }
+            
+            // Empty shop message
+            if (shopItems.Count == 0)
+            {
+                menuItems.Add("The shop is empty right now", (selectedIndex) => Display(selectedIndex));
             }
 
             // Add go to menu menu itme

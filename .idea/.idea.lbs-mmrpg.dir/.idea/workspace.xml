@@ -31,11 +31,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/contracts/items/IAmor.cs" />
-        <option value="$PROJECT_DIR$/contracts/gui/IRenderable.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/___VillageShop.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventory.cs" />
-        <option value="$PROJECT_DIR$/classes/utils/ObjectCloner.cs" />
         <option value="$PROJECT_DIR$/classes/utils/NumberPrinter.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/EntityProperties.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerProperties.cs" />
@@ -43,7 +38,6 @@
         <option value="$PROJECT_DIR$/classes/instances/monsters/Monster.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/MonsterType.cs" />
         <option value="$PROJECT_DIR$/classes/utils/NumberConvertor.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerSleepProgress.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/ActionReputation.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IEquipable.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IWeapon.cs" />
@@ -55,33 +49,39 @@
         <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/Menu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/menu/MenuKeyboardEvent.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/ColorizePastel.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/HardColor.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/Colorize.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IBoots.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IUseableBuff.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IBuff.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/PermanentHealthBooster.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IUseable.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ShopMenu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventoryMenu.cs" />
         <option value="$PROJECT_DIR$/contracts/entity/IEntityBot.cs" />
         <option value="$PROJECT_DIR$/legacy.txt" />
         <option value="$PROJECT_DIR$/classes/instances/villages/GameVillages.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/VillageTas.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTask.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTasks.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerTravelProgress.cs" />
+        <option value="$PROJECT_DIR$/resources/villages/villagerNames.txt" />
+        <option value="$PROJECT_DIR$/classes/utils/TicksManager.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/ConstantProgress.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/TravelToVillageMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerSleepProgress.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
+        <option value="$PROJECT_DIR$/resources/villages/tasks.txt" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerTravelProgress.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ShopMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/TravelToVillageMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/VillageReputationTasksMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventoryMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerDoTaskProgress.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTasks.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTask.cs" />
       </list>
     </option>
   </component>
@@ -92,7 +92,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
   </component>
   <component name="RunManager">
     <configuration name="lbs-mmrpg" type="DotNetProject" factoryName=".NET Project">
@@ -140,22 +140,38 @@
     </state>
     <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.1368.873@72.27.1368.873" timestamp="1598624950013" />
     <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.2808.873@72.27.2808.873" timestamp="1598551833406" />
-    <state x="156" y="98" width="900" height="779" key="SettingsEditor" timestamp="1598798589931">
+    <state x="210" y="78" width="1022" height="737" key="SettingsEditor" timestamp="1598894327712">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
-    <state x="156" y="98" key="SettingsEditor/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598798589931" />
+    <state x="210" y="78" width="1022" height="737" key="SettingsEditor/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598894327712" />
     <state x="156" y="98" width="900" height="779" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1598704219895" />
     <state x="245" y="98" width="1022" height="737" key="SettingsEditor/72.27.2808.873@72.27.2808.873" timestamp="1598549878722" />
+    <state x="284" y="154" width="888" height="829" key="dock-window-1" timestamp="1598897932277">
+      <screen x="72" y="27" width="1368" height="873" />
+    </state>
+    <state x="284" y="154" width="888" height="829" key="dock-window-1/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598897932277" />
+    <state x="1988" y="41" width="888" height="829" key="dock-window-2" timestamp="1598897932278">
+      <screen x="1440" y="0" width="1440" height="900" />
+    </state>
+    <state x="1988" y="41" width="888" height="829" key="dock-window-2/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598897932277" />
+    <state x="1440" y="0" width="883" height="829" key="dock-window-3" timestamp="1598897932278">
+      <screen x="1440" y="0" width="1440" height="900" />
+    </state>
+    <state x="1440" y="0" width="883" height="829" key="dock-window-3/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598897932278" />
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1598601500374">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/72.27.1368.873@72.27.1368.873" timestamp="1598601500374" />
-    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup" timestamp="1598865942333">
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1598907014507">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="1805" y="193" width="709" height="699" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@1440.0.1440.900" timestamp="1598730520536" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598798034377" />
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598907014507" />
     <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1598865942333" />
-    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598552655027" />
+    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598892676288" />
+    <state x="481" y="378" width="540" height="177" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598894300693">
+      <screen x="72" y="27" width="1368" height="873" />
+    </state>
+    <state x="481" y="378" width="540" height="177" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598894300693" />
   </component>
 </project>

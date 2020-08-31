@@ -1,5 +1,4 @@
-﻿// CONTINUE: Travel to another village menu -> ConstantProgress by limit ticks without key interruption
-// TODO: Display reputation in the travel to village menu (current / max)
+﻿// NEXT: Fight Monsters -> List of dungeons (different monsters :: "Spriderdraculas' dungeon") -> 2D
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]
@@ -34,10 +33,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.templates.menus;
-using lbs_rpg.classes.gui.templates.messages;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts.gui;
@@ -48,45 +45,47 @@ namespace lbs_rpg
     {
         // Declare few game important instances. They can be accessed from any class in the program.
         public static Player Player = default;
-        
+
         // Declare fast villages instance reference
         public static GameVillages Villages = default;
 
         // Declare RenderPipeline that includes renderable items (such as player stats) that will
         // be redrawn after each console.clear invocation.
         public static readonly IList<IRenderable> RenderPipeline = new List<IRenderable>();
-        
+
         public static void Main(string[] args)
         {
-            // Explicitly set console output encoding to allow the program display emojis.
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.Write("\xfeff"); // Print byte order mark (needed to change the encoding)
-            
             // Check if terminal container is not too small
             if (!ResolutionHandler.IsSupportedResolution())
             {
                 throw new ApplicationException(
                     "The terminal window is too small. Please change window to the fullscreen mode.");
             }
-            
+
             // Initialize player/villages instances
             Villages = new GameVillages();
             Player = new Player(Villages.GetRandomVillage());
 
             // Initialize render pipeline
-                // Player stats bar
             RenderPipeline.Add(new PlayerStatsBar(Player));
-            
+
             // Display the welcome message (game introduction)
             // WelcomeScreen.Display();
 
-            // Display the stats (before the menu, since the menu method will block the thread)
             // TODO: Stats should also display the enemy damage (not in the Program.Main)
             // TODO: Stats should accept an argument [isAttackReloadShown] and replace the money field with the attack reload
-                // * It would be super cool during the fights
 
-                // Display the main menu
-            ActionGroupsMenu.Display();
+            // Display the main menu
+            while (true)
+            {
+                /*
+                // Constantly invoke main menu printing when thread is not busy
+                // That way every task (other menu) can avoid memory recursion and
+                // just skip the task, knowing that program will navigate user
+                // to the main menu anyway.
+                */
+                ActionGroupsMenu.Display();
+            }
         }
     }
 }

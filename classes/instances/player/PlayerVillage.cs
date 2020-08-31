@@ -8,22 +8,27 @@ namespace lbs_rpg.classes.instances.player
     public class PlayerVillage
     {
         #region Fields
+
         public Village CurrentVillage { get; private set; }
         public Player Player { get; }
 
-        private readonly Dictionary<Village, int> _villagesReputation;
+        private readonly Dictionary<Village, int> myVillagesReputation;
+
         #endregion
 
         #region Constructor
+
         public PlayerVillage(Player player, Village currentVillage)
         {
             CurrentVillage = currentVillage;
-            _villagesReputation = new Dictionary<Village, int>();
+            myVillagesReputation = new Dictionary<Village, int>();
             Player = player;
         }
+
         #endregion
 
         #region Methods
+
         /// <summary>
         /// Migrate to another village
         /// </summary>
@@ -35,44 +40,42 @@ namespace lbs_rpg.classes.instances.player
         /// <summary>
         /// Takes current village and changes reputation for that village in the player's memory (PlayerVillage)
         /// </summary>
-        /// <param name="reputation">
+        /// <param name="amount">
         /// Number of reputation points that should be added
         /// </param>
         /// <exception cref="ArgumentException">
         /// Throwed in reputation is less than zero
         /// </exception>
-        public void AddCurrentVillageReputation(int reputation)
+        public void AddReputation(int amount)
+        {
+            AddReputation(CurrentVillage, amount);
+        }
+
+        /// <summary>
+        /// Takes target village and changes reputation for that village in the player's memory (PlayerVillage)
+        /// </summary>
+        /// <param name="village">
+        /// Target village
+        /// </param>
+        /// <param name="amount">
+        /// Number of reputation points that should be added
+        /// </param>
+        /// <exception cref="ArgumentException">
+        /// Throwed in reputation is less than zero
+        /// </exception>
+        public void AddReputation(Village village, int amount)
         {
             // Validate value
-            if (reputation < 0)
+            if (amount < 0)
             {
                 throw new ArgumentException("Reputation value cannot be less than zero!");
             }
 
             // Normalize reputation
-            int newReputation = Math.Clamp(GetCurrentVillageReputation() + reputation, 0, CurrentVillage.MaxReputation);
+            int newReputation = Math.Clamp(GetReputation() + amount, 0, village.MaxReputation);
 
             // Update the reputation value for this village
-            _villagesReputation[CurrentVillage] = newReputation;
-        }
-
-        /// <summary>
-        /// Returns player's reputation in the current village
-        /// </summary>
-        public int GetCurrentVillageReputation()
-        {
-            return GetVillageReputation(CurrentVillage);
-        }
-
-        /// <summary>
-        /// Returns player's reputation as procent (current/max)
-        /// </summary>
-        /// <returns>
-        /// Float that represents the procent value
-        /// </returns>
-        public float GetCurrentVillageReputationAsProcent()
-        {
-            return GetVillageReputationAsProcent(CurrentVillage);
+            myVillagesReputation[village] = newReputation;
         }
 
         /// <summary>
@@ -87,9 +90,23 @@ namespace lbs_rpg.classes.instances.player
         /// <returns>
         /// Boolean that represents if player can travel to the target village.
         /// </returns>
-        public bool CanTravelTo(Village village, Player player)
+        public bool CanTravelTo(Village village)
         {
-            return player.Health - player.VillagesManager.GetTripHealthRequirement(village) > 0;
+            return Player.Health - Player.VillagesManager.GetTripHealthRequirement(village) > 0;
+        }
+
+        /// <summary>
+        /// Checks if player has enough health to do a village task.
+        /// </summary>
+        /// <param name="task">
+        /// Target task
+        /// </param>
+        /// <returns>
+        /// Boolean that represents if player another health to complete the target task
+        /// </returns>
+        public bool CanDoTask(VillageTask task)
+        {
+            return Player.Health - GetTaskHealthRequirement(task) > 0;
         }
 
         /// <summary>
@@ -104,7 +121,12 @@ namespace lbs_rpg.classes.instances.player
         public float GetTripHealthRequirement(Village village)
         {
             return Convert.ToSingle(village.GetDistanceTo(CurrentVillage) *
-                                    PlayerStats.HealthAmountTripPerKm);
+                                    PlayerStats.HEALTH_AMOUNT_TRIP_PER_KM);
+        }
+
+        public float GetTaskHealthRequirement(VillageTask task)
+        {
+            return Convert.ToSingle(task.DurationTicks * PlayerStats.HEALTH_AMOUNT_SOCIALIZATION_PER_TICK);
         }
 
         /// <summary>
@@ -142,12 +164,12 @@ namespace lbs_rpg.classes.instances.player
             {
                 // Make a duplication of the sortedVillages to prevent memory bleeding
                 IList<Village> sortedVillagesOld = sortedVillages.ToList();
-                
+
                 // Can be replaced with a LINQ expression (.Where)
                 foreach (Village village in sortedVillagesOld)
                 {
                     // Check if player can travel
-                    if (!CanTravelTo(village, Player))
+                    if (!CanTravelTo(village))
                     {
                         sortedVillages.Remove(village);
                     }
@@ -169,46 +191,106 @@ namespace lbs_rpg.classes.instances.player
             return (int) Math.Ceiling(CurrentVillage.GetDistanceTo(targetVillage) / Player.Stats.MovementSpeed);
         }
 
-        public int GetVillageReputation(Village village)
+        /// <summary>
+        /// Returns player's reputation points for the target village.
+        /// </summary>
+        /// <param name="village">
+        /// Target village
+        /// </param>
+        /// <returns>
+        /// Reputation points
+        /// </returns>
+        public int GetReputation(Village village)
         {
-            bool hasReputation = _villagesReputation.TryGetValue(village, out int reputation);
+            myVillagesReputation.TryGetValue(village, out int reputation);
 
             // Set default value to reputation if no reputation for this village present
-            if (!hasReputation)
+            if (reputation == 0)
             {
-                _villagesReputation[CurrentVillage] = reputation;
+                myVillagesReputation[village] = reputation;
             }
 
             // Return reputation value
             return reputation;
         }
 
-        public float GetVillageReputationAsProcent(Village village)
+        /// <summary>
+        /// Returns player's reputation points in procents for the target village.
+        /// </summary>
+        /// <param name="village">
+        /// Target village
+        /// </param>
+        /// <returns>
+        /// Reputation rate (player's rate / max rate that player can get in the village)
+        /// </returns>
+        public float GetReputationAsProcent(Village village)
         {
-            return GetVillageReputation(village) / village.MaxReputation * 100;
+            return GetReputation(village) / village.MaxReputation * 100;
         }
 
         /// <summary>
-        /// Returns player's reputation in current village as a label.
+        /// Returns player's reputation in the target village as a label.
         /// </summary>
-        /// <param name="village"></param>
+        /// <param name="village">
+        /// Target village
+        /// </param>
         /// <returns>
         /// Label string:
         ///     Bad (0-30%)
         ///     Good (31%-90%)
         ///     Best (91%-100%)
         /// </returns>
-        public string GetVillageReputationAsString(Village village)
+        public string GetReputationAsString(Village village)
         {
             // Get reputation in procents
-            float reputationProcent = GetVillageReputationAsProcent(village);
-            
+            float reputationProcent = GetReputationAsProcent(village);
+
             // Return the value
             if (reputationProcent <= 30f) return "Bad";
             if (reputationProcent <= 90f) return "Good";
             if (reputationProcent <= 100f) return "Best";
             return "Unknown";
         }
+
+        /// <summary>
+        /// Returns player's reputation in the current village.
+        ///
+        /// More detailed information about this method you can get in the main overload.
+        /// </summary>
+        /// <returns>
+        /// Reputation points
+        /// </returns>
+        public int GetReputation()
+        {
+            return GetReputation(CurrentVillage);
+        }
+
+        /// <summary>
+        /// Returns player's reputation as procent (current/max)
+        ///
+        /// More detailed information about this method you can get in the main overload.
+        /// </summary>
+        /// <returns>
+        /// Float that represents the procent value
+        /// </returns>
+        public float GetReputationAsProcent()
+        {
+            return GetReputationAsProcent(CurrentVillage);
+        }
+
+        /// <summary>
+        /// Returns player's reputation as a label.
+        ///
+        /// More detailed information about this method you can get in the main overload.
+        /// </summary>
+        /// <returns>
+        /// BAD, GOOD, BEST
+        /// </returns>
+        public string GetReputationAsString()
+        {
+            return GetReputationAsString(CurrentVillage);
+        }
+
         #endregion
     }
 }

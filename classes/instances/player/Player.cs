@@ -1,9 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
 using lbs_rpg.classes.instances.villages;
-using lbs_rpg.contracts;
 using lbs_rpg.contracts.entity;
 using lbs_rpg.contracts.items;
 
@@ -23,7 +19,7 @@ namespace lbs_rpg.classes.instances.player
         public readonly PlayerInventory Inventory;
 
         // Reference to entity that the players is trying to kill right now
-        private IEntity _currentTarget = default;
+        private IEntity myCurrentTarget = default;
 
         #endregion
 
@@ -188,7 +184,7 @@ namespace lbs_rpg.classes.instances.player
             Inventory.AddItem(item);
 
             // Add village reputation
-            VillagesManager.AddCurrentVillageReputation(ActionReputation.BuyShopItem.Reputation);
+            VillagesManager.AddReputation(ActionReputation.BuyShopItem.Reputation);
         }
 
         /// <summary>

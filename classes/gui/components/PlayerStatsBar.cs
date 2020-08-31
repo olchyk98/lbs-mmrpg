@@ -4,7 +4,6 @@ using System.Text;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.utils;
-using lbs_rpg.contracts;
 using lbs_rpg.contracts.gui;
 using Pastel;
 
@@ -13,13 +12,13 @@ namespace lbs_rpg.classes.gui.components
     public class PlayerStatsBar : IRenderable
     {
         #region Fields
-        private Player _targetPlayer = default;
+        private Player myTargetPlayer = default;
         #endregion
 
         #region Constructor
         public PlayerStatsBar(Player player)
         {
-            _targetPlayer = player;
+            myTargetPlayer = player;
         }
         #endregion
 
@@ -97,7 +96,7 @@ namespace lbs_rpg.classes.gui.components
             int width = ResolutionHandler.GetResolution(0);
             
             // Declare output content
-            string content = $"Village \"{_targetPlayer.VillagesManager.CurrentVillage.Name}\"".Pastel(Color.White);
+            string content = $"Village \"{myTargetPlayer.VillagesManager.CurrentVillage.Name}\"".Pastel(Color.White);
             
             // Set print cursor
             Console.SetCursorPosition(width / 2 - content.Decolorize().Length / 2, posY);
@@ -130,7 +129,7 @@ namespace lbs_rpg.classes.gui.components
                 $"Money: {NumberConvertor.ShortenNumber(player.MoneyManager.Money)}",
                 $"Protection:  {player.Stats.DefenseProcent}%",
                 $"Speed: {player.Stats.MovementSpeed}",
-                $"Reputation {villageManager.GetCurrentVillageReputation()}/{villageManager.CurrentVillage.MaxReputation}"
+                $"Reputation: {villageManager.GetReputation()}/{villageManager.CurrentVillage.MaxReputation}"
             };
 
             // string elements =  string.Join(string.Empty, $"", elementsGap, $"🛡️ 4.1%", elementsGap, $"🧑 35/1500");

@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using lbs_rpg.contracts.items;
 
 namespace lbs_rpg.classes.instances.villages
 {
@@ -8,10 +6,12 @@ namespace lbs_rpg.classes.instances.villages
     {
         public string Name { get; }
         public VillageShop Shop { get; }
+        public VillageTasks Tasks { get; }
+
         public int MaxReputation { get; }
         // Village position is represented as a X value (km)
         public double Position { get; }
-        private const int MaxReputationLimit = 4000;
+        private const int MAX_REPUTATION_LIMIT = 4000;
 
         public Village(string name, double position)
         {
@@ -19,7 +19,8 @@ namespace lbs_rpg.classes.instances.villages
             
             Name = name;
             Shop = new VillageShop();
-            MaxReputation = random.Next(100, MaxReputationLimit);
+            Tasks = new VillageTasks(this);
+            MaxReputation = random.Next(100, MAX_REPUTATION_LIMIT);
             Position = position;
         }
 

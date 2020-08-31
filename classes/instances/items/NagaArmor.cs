@@ -1,4 +1,3 @@
-using lbs_rpg.contracts;
 using lbs_rpg.contracts.items;
 
 namespace lbs_rpg.classes.instances.items

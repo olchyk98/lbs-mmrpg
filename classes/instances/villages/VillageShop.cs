@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using Force.DeepCloner;
-using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.utils;
-using lbs_rpg.contracts;
 using lbs_rpg.contracts.items;
 
 namespace lbs_rpg.classes.instances.villages
@@ -14,26 +11,26 @@ namespace lbs_rpg.classes.instances.villages
     {
         #region Fields
 
-        private static IList<IItem> _stock = new List<IItem>();
+        private static IList<IItem> myStock = new List<IItem>();
 
         // Based on this value, the shop will display different items
-        private DateTime _lastStockUpdateTime = DateTime.Now;
+        private DateTime myLastStockUpdateTime = DateTime.Now;
 
         // Value that represents how popular the store is at the moment (changes with time) (cannot be affected by player).
         // This value is used in the items price calculation.
-        private float _currentPopularity;
+        private float myCurrentPopularity;
 
         // Last time when the popularity value was updated.
-        private DateTime _popularityUpdatedTime = DateTime.Now;
+        private DateTime myPopularityUpdatedTime = DateTime.Now;
 
         // []: Described in the .CalculateShopPrice documentation
-        private const float PriceMultiplier = 1.2f;
+        private const float PRICE_MULTIPLIER = 1.2f;
 
         // Time difference between popularity updates
-        private const int PopularityRefreshTime = 60 * 1000; // 60 seconds
+        private const int POPULARITY_REFRESH_TIME = 60 * 1000; // 60 seconds
 
         // Time difference between stock updates
-        private const int StockRefreshTime = 80 * 1000; // 80 seconds
+        private const int STOCK_REFRESH_TIME = 80 * 1000; // 80 seconds
 
         // Cache Random
         private static readonly Random Random = new Random();
@@ -44,13 +41,13 @@ namespace lbs_rpg.classes.instances.villages
 
         public VillageShop(IList<IItem> items)
         {
-            _stock = items;
+            myStock = items;
             UpdatePopularity();
         }
 
         public VillageShop()
         {
-            _stock = GenerateStock();
+            myStock = GenerateStock();
             UpdatePopularity();
         }
 
@@ -105,8 +102,8 @@ namespace lbs_rpg.classes.instances.villages
         /// </summary>
         public void UpdatePopularity()
         {
-            _currentPopularity = Random.Next(10, 100) / 100f;
-            _popularityUpdatedTime = DateTime.Now;
+            myCurrentPopularity = Random.Next(10, 100) / 100f;
+            myPopularityUpdatedTime = DateTime.Now;
         }
 
         /// <summary>
@@ -158,12 +155,12 @@ namespace lbs_rpg.classes.instances.villages
                 throw new Exception($"ItemPrice should be higher than zero! Current value: {itemPrice}");
             }
 
-            if (DateTime.Now > _popularityUpdatedTime.AddMilliseconds(PopularityRefreshTime))
+            if (DateTime.Now > myPopularityUpdatedTime.AddMilliseconds(POPULARITY_REFRESH_TIME))
             {
                 UpdatePopularity();
             }
 
-            return (PriceMultiplier - (buyerReputation + (1 - _currentPopularity)) / 2) * itemPrice;
+            return (PRICE_MULTIPLIER - (buyerReputation + (1 - myCurrentPopularity)) / 2) * itemPrice;
         }
 
         /// <summary>
@@ -173,13 +170,13 @@ namespace lbs_rpg.classes.instances.villages
         public void RegenerateStock()
         {
             // Create a fast variable, in case if I will change the target.
-            IList<IItem> stock = _stock;
+            IList<IItem> stock = myStock;
 
             // Randomize item positions (just for a visible effect)
             stock.Shuffle();
 
             // Update last update time
-            _lastStockUpdateTime = DateTime.Now;
+            myLastStockUpdateTime = DateTime.Now;
 
             // Randomize items amount
             for (int ma = 0; ma < stock.Count; ++ma)
@@ -215,13 +212,13 @@ namespace lbs_rpg.classes.instances.villages
         public IList<IItem> GetAvailableItems()
         {
             // Check if stock should be refreshed, by checking time.
-            if (DateTime.Now > _lastStockUpdateTime.AddMilliseconds(StockRefreshTime))
+            if (DateTime.Now > myLastStockUpdateTime.AddMilliseconds(STOCK_REFRESH_TIME))
             {
                 RegenerateStock();
             }
 
             // Return stock state
-            return _stock;
+            return myStock;
         }
 
         /// <summary>
@@ -292,7 +289,7 @@ namespace lbs_rpg.classes.instances.villages
         /// </flags>
         private bool RemoveItem(IItem item)
         {
-            bool didDelete = _stock.Remove(item);
+            bool didDelete = myStock.Remove(item);
             return didDelete;
         }
 

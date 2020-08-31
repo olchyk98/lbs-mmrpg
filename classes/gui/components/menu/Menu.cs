@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.contracts.gui;
 using Pastel;
 
@@ -10,15 +9,16 @@ namespace lbs_rpg.classes.gui.components.menu
 {
     public class Menu : IMenu
     {
-        private int _selectedIndex = 0;
-        private readonly Dictionary<string, Action<int>> _items = null;
-        private readonly string _label = null;
+        private int mySelectedIndex = 0;
+        private readonly Dictionary<string, Action<int>> myItems = null;
+        private readonly string myLabel = null;
         
         /// <summary>
         /// Menu Constructor
         /// </summary>
         /// <param name="items">
-        /// Menu options
+        /// Menu options.
+        /// Key: Action{int:selectedIndex}
         /// </param>
         /// <param name="label">
         /// Menu title
@@ -29,14 +29,14 @@ namespace lbs_rpg.classes.gui.components.menu
         /// </param>
         public Menu(Dictionary<string, Action<int>> items, string label = null, int selectedIndex = default)
         {
-            _items = ValidateListOptions(items);
-            _label = label;
+            myItems = ValidateListOptions(items);
+            myLabel = label;
 
             // Process selected index
             // Ignore selectedIndex if out of the range
-            if (selectedIndex != default && selectedIndex >= 0 && selectedIndex <= _items.Count)
+            if (selectedIndex != default && selectedIndex >= 0 && selectedIndex <= myItems.Count)
             {
-                _selectedIndex = selectedIndex;
+                mySelectedIndex = selectedIndex;
             }
         }
 
@@ -75,13 +75,13 @@ namespace lbs_rpg.classes.gui.components.menu
         /// </returns>
         public bool ExecuteItem(int index)
         {
-            string itemLabel = _items.Keys.ElementAtOrDefault(index);
+            string itemLabel = myItems.Keys.ElementAtOrDefault(index);
 
             // Skip if 
             if (itemLabel == null) return false;
 
             // Get and invoke the action
-            _items[itemLabel]?.Invoke(_selectedIndex);
+            myItems[itemLabel]?.Invoke(mySelectedIndex);
 
             // Return the success
             return true;
@@ -143,19 +143,19 @@ namespace lbs_rpg.classes.gui.components.menu
             }
 
             // Validate if next position is not of the boundaries
-            int nextIndex = _selectedIndex + direction;
+            int nextIndex = mySelectedIndex + direction;
 
             // Skip to the first/last item if index doesn't exist
             if (nextIndex < 0)
             {
-                nextIndex = _items.Count - 1;
-            } else if (nextIndex > _items.Count - 1)
+                nextIndex = myItems.Count - 1;
+            } else if (nextIndex > myItems.Count - 1)
             {
                 nextIndex = 0;
             }
 
             // Update the position cursor
-            _selectedIndex = nextIndex;
+            mySelectedIndex = nextIndex;
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace lbs_rpg.classes.gui.components.menu
             FastGuiUtils.ClearConsole();
 
             // Take all menu options -> output array
-            string[] items = _items.Keys.ToArray();
+            string[] items = myItems.Keys.ToArray();
             
             // Stylize items
             for (var ma = 0; ma < items.Length; ma++)
@@ -180,7 +180,7 @@ namespace lbs_rpg.classes.gui.components.menu
                 ref string item = ref items[ma];
 
                 // Highlight if currently selected
-                if (ma == _selectedIndex)
+                if (ma == mySelectedIndex)
                 {
                     item = item.Pastel(Color.White).PastelBg(Color.OrangeRed);
                     continue; // if yes, go to the next item
@@ -191,7 +191,7 @@ namespace lbs_rpg.classes.gui.components.menu
             }
 
             // Push label to the output without any stylization
-            items = items.Prepend(string.Empty).Prepend(_label).ToArray();
+            items = items.Prepend(string.Empty).Prepend(myLabel).ToArray();
 
             // Display the options
             FastGuiUtils.PrintCenteredText(items);
@@ -235,7 +235,7 @@ namespace lbs_rpg.classes.gui.components.menu
 
         public void ExecuteSelectedItem()
         {
-            ExecuteItem(_selectedIndex);
+            ExecuteItem(mySelectedIndex);
         }
     }
 }

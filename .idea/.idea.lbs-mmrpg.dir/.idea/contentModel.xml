@@ -30,11 +30,13 @@
               <e p="PlayerInventoryMenu.cs" t="Include" />
               <e p="ShopMenu.cs" t="Include" />
               <e p="TravelToVillageMenu.cs" t="Include" />
+              <e p="VillageReputationTasksMenu.cs" t="Include" />
             </e>
             <e p="messages" t="Include">
               <e p="WelcomeMessage.cs" t="Include" />
             </e>
             <e p="progress" t="Include">
+              <e p="PlayerDoTaskProgress.cs" t="Include" />
               <e p="PlayerSleepProgress.cs" t="Include" />
               <e p="PlayerTravelProgress.cs" t="Include" />
             </e>
@@ -92,7 +94,6 @@
         </e>
       </e>
       <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />
-      <e p="legacy.txt" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
           <e p="netcoreapp3.1" t="Include">
@@ -104,6 +105,8 @@
       <e p="resources" t="Include">
         <e p="villages" t="Include">
           <e p="names.txt" t="Include" />
+          <e p="tasks.txt" t="Include" />
+          <e p="villager_names.txt" t="Include" />
         </e>
       </e>
       <e p="start.sh" t="Include" />

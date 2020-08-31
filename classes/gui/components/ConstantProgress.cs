@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,13 +7,13 @@ namespace lbs_rpg.classes.gui.components
 {
     public static class ConstantProgress
     {
-        private const int MaxProgressWidth = 10;
+        private const int MAX_PROGRESS_WIDTH = 10;
         
         private static string PrintProgress(int progressValue)
         {
             // Create progress string
             StringBuilder progressBuilder = new StringBuilder();
-            for (var ma = 0; ma < MaxProgressWidth; ++ma)
+            for (var ma = 0; ma < MAX_PROGRESS_WIDTH; ++ma)
             {
                 char current = (ma < progressValue) ? '░' : '▓';
                 progressBuilder.Append(current);
@@ -83,7 +81,7 @@ namespace lbs_rpg.classes.gui.components
                     FastGuiUtils.PrintCenteredText(content);
 
                     // Update progress value
-                    if (++progressValue > MaxProgressWidth) progressValue = 0;
+                    if (++progressValue > MAX_PROGRESS_WIDTH) progressValue = 0;
 
                     // Invoke callback 
                     onProgress();
@@ -139,6 +137,15 @@ namespace lbs_rpg.classes.gui.components
             // Start drawing
             while (true)
             {
+                // Check if it is the last tick
+                bool isLastTick = currentTick >= maxTicks;
+
+                // Invoke tick callback
+                onProgress(isLastTick);
+                
+                // Stop if the last tick
+                if (isLastTick) break;
+                
                 // Clear the console
                 FastGuiUtils.ClearConsole();
                     
@@ -154,19 +161,10 @@ namespace lbs_rpg.classes.gui.components
                 FastGuiUtils.PrintCenteredText(content);
 
                 // Update progress value
-                if (++progressValue > MaxProgressWidth) progressValue = 0;
+                if (++progressValue > MAX_PROGRESS_WIDTH) progressValue = 0;
                 
                 // Update current tick value
                 ++currentTick;
-                
-                // Check if it was the last tick
-                bool isLastTick = currentTick >= maxTicks;
-
-                // Invoke callback
-                onProgress(isLastTick);
-                
-                // Stop if the last tick
-                if (isLastTick) break;
 
                 // Tick delay
                 Task.Delay(tickDelay).Wait();

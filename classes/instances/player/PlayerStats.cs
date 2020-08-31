@@ -1,5 +1,3 @@
-using System;
-
 namespace lbs_rpg.classes.instances.player
 {
     /// <summary>
@@ -8,6 +6,7 @@ namespace lbs_rpg.classes.instances.player
     /// </summary>
     public class PlayerStats
     {
+        #region Fields
         public Player Player { get; }
         
         // How many health points do player regenerate (per tick) when he's asleep.
@@ -21,16 +20,15 @@ namespace lbs_rpg.classes.instances.player
         
         // Constant float that represents how much health
         // does trip to another village take per meter.
-        public const float HealthAmountTripPerKm = 1.25f; // 100/80=1.25f // 80km per 100hp
-
+        public const float HEALTH_AMOUNT_TRIP_PER_KM = 1.25f; // 100/80=1.25f // 80km per 100hp
+        public const float HEALTH_AMOUNT_SOCIALIZATION_PER_TICK = .375f; // 60/160 (60 health per 160 ticks)
+        #endregion
+        
+        #region Constructor
         public PlayerStats(Player player)
         {
             Player = player;
         }
-
-        public void IncreaseLevel()
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
     }
 }

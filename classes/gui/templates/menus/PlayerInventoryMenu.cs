@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.components.menu;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
@@ -21,8 +20,11 @@ namespace lbs_rpg.classes.gui.templates.menus
             // Define menu items dictionary
             var menuItems = new Dictionary<string, Action<int>>();
             
+            // Get inventory items
+            IList<IItem> inventoryItems = playerInventory.Items;
+            
             // Add items
-            foreach (IItem item in playerInventory.Items)
+            foreach (IItem item in inventoryItems)
             {
                 // Add equip option
                 if (item is IEquipable equipableItem)
@@ -57,7 +59,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                         Display(selectedIndex);
                     });
                 }
-                
+
                 // Add sell option
                 menuItems.Add($"Sell \"{ item.Name }\" for ${ NumberConvertor.ShortenNumber(item.SellPriceForPlayer) } | You have { item.Amount }", (selectedIndex) =>
                 {
@@ -66,6 +68,12 @@ namespace lbs_rpg.classes.gui.templates.menus
                     // Refresh menu
                     Display(selectedIndex);
                 });
+            }
+            
+            // Add empty inventory status
+            if (inventoryItems.Count == 0)
+            {
+                menuItems.Add("Your inventory is empty", Display);
             }
             
             // Add "back to menu" button

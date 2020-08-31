@@ -8,7 +8,7 @@ namespace lbs_rpg.classes.instances.villages
     public class ActionReputation
     {
         public readonly int Reputation;
-        private readonly string _actionLabel;
+        private readonly string myActionLabel;
         private static readonly Random Random = new Random();
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace lbs_rpg.classes.instances.villages
         public ActionReputation(string actionLabel, int[] reputation)
         {
             Reputation = Random.Next(reputation[0], reputation[1]);
-            _actionLabel = actionLabel;
+            myActionLabel = actionLabel;
         }
         
 #nullable enable
@@ -37,7 +37,7 @@ namespace lbs_rpg.classes.instances.villages
             ActionReputation otherAction = (ActionReputation) obj;
             
             // Return the comparison by name (since names are unique)
-            return obj is ActionReputation && this._actionLabel == otherAction._actionLabel;
+            return obj is ActionReputation && this.myActionLabel == otherAction.myActionLabel;
         }
 #nullable disable
         
