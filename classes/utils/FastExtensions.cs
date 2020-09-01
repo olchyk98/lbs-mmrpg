@@ -9,29 +9,44 @@ namespace lbs_rpg.classes.utils
     {
         private static readonly Random Random = new Random();
         
+        private static string GetLongestArrayString(string[] content)
+        {
+            return content.OrderByDescending( s => s.Length ).First();
+        }
+        
+        /// <summary>
+        /// Returns dimensions of the array in 2D space by calculating
+        /// its height and length of the longest string in the array.
+        /// </summary>
+        /// <param name="content">
+        /// Target array
+        /// </param>
+        /// <returns>
+        /// Array's dimensions in the abstract 2D space.
+        /// </returns>
         public static int[] GetStrArrayBoundaries(string[] content)
         {
             // [x,y]
             var sizes = new int[2];
             //
-            sizes[0] = FastExtensions.GetLongestArrayString(content).Length;
+            sizes[0] = GetLongestArrayString(content).Length;
             sizes[1] = content.Length;
             //
             return sizes;
         }
-        
-        public static string GetLongestArrayString(string[] content)
-        {
-            return content.OrderByDescending( s => s.Length ).First();
-        }
-        
-        public static T GetRandomValue2D<T>(T[,] array)
-        {
-            int values = array.GetLength(0) * array.GetLength(1);
-            int index = Random.Next(values);
-            return array[index / array.GetLength(0), index % array.GetLength(0)];
-        }
-        
+
+        /// <summary>
+        /// Shuffles the target list.
+        /// </summary>
+        /// <param name="list">
+        /// Target list that implements IList
+        /// </param>
+        /// <typeparam name="T">
+        /// Optinal generic specification
+        /// </typeparam>
+        /// <returns>
+        /// Copy of the shuffled array
+        /// </returns>
         public static IList<T> Shuffle<T>(this IList<T> list)  
         {  
             int listLength = list.Count;  
@@ -46,6 +61,18 @@ namespace lbs_rpg.classes.utils
             return list;
         }
 
+        /// <summary>
+        /// Gets a random element in the list.
+        /// </summary>
+        /// <param name="list">
+        /// Target list that implements IList
+        /// </param>
+        /// <typeparam name="T">
+        /// Optinal generic specification
+        /// </typeparam>
+        /// <returns>
+        /// A random element from the list
+        /// </returns>
         public static T RandomElement<T>(this IList<T> list)
         {
             // Get list length
@@ -56,30 +83,6 @@ namespace lbs_rpg.classes.utils
             
             // Return an item on that position
             return list[randPosition];
-        }
-
-        public static string[] Convert2DCharToString(char[,] aChars)
-        {
-            int sizeX = aChars.GetLength(1);
-            int sizeY = aChars.GetLength(0);
-            string[] strings = new string[sizeY];
-
-            for (int my = 0; my < sizeY; my++)
-            {
-                // Create the string container
-                StringBuilder line = new StringBuilder();
-                
-                // Iterate through the array and compile all chars into a string
-                for (int mx = 0; mx < sizeX; mx++)
-                {
-                    line.Append(aChars[my, mx]);
-                }
-                
-                // Add compiled string to array
-                strings[my] = line.ToString();
-            }
-
-            return strings;
         }
     }
 }

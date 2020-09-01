@@ -10,7 +10,7 @@ namespace lbs_rpg.classes.instances.player
     {
         #region Fields
 
-        public float Health { get; private set; }
+        public float Health { get; set; }
 
         public float MaxHealth { get; set; }
         public readonly PlayerStats Stats;

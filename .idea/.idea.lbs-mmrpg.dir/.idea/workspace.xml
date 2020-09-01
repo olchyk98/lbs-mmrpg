@@ -31,19 +31,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/utils/NumberPrinter.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/EntityProperties.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerProperties.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/FastGuiUtils.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/monsters/Monster.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/monsters/MonsterType.cs" />
-        <option value="$PROJECT_DIR$/classes/utils/NumberConvertor.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/ActionReputation.cs" />
-        <option value="$PROJECT_DIR$/contracts/items/IEquipable.cs" />
-        <option value="$PROJECT_DIR$/contracts/items/IWeapon.cs" />
-        <option value="$PROJECT_DIR$/contracts/items/IArmor.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerInventory.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerMoney.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/NagaArmor.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/VillageShop.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
@@ -66,9 +53,7 @@
         <option value="$PROJECT_DIR$/classes/gui/components/ConstantProgress.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerSleepProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
         <option value="$PROJECT_DIR$/resources/villages/tasks.txt" />
@@ -79,9 +64,24 @@
         <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventoryMenu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerDoTaskProgress.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTasks.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/VillageTask.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTasks.cs" />
+        <option value="$PROJECT_DIR$/classes/utils/FastExtensions.cs" />
+        <option value="$PROJECT_DIR$/contracts/entity/IEntity.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Monster.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Onyz.cs" />
+        <option value="$PROJECT_DIR$/contracts/entity/IMonster.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Onyx.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Zombie.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Spider.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Cobra.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/DungeonEngine.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/custom/PlayerDungeonFight.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/DungeonEngine.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/DungeonsSelectMenu.cs" />
       </list>
     </option>
   </component>
@@ -135,9 +135,10 @@
       <screen x="72" y="27" width="2808" height="873" />
     </state>
     <state width="1322" height="216" key="GridCell.Tab.0.right/72.27.2808.873@72.27.2808.873" timestamp="1598378039044" />
-    <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog" timestamp="1598624950013">
+    <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog" timestamp="1598984119309">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
+    <state x="839" y="47" key="RiderGenerateDialog/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598984119309" />
     <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.1368.873@72.27.1368.873" timestamp="1598624950013" />
     <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.2808.873@72.27.2808.873" timestamp="1598551833406" />
     <state x="210" y="78" width="1022" height="737" key="SettingsEditor" timestamp="1598894327712">
@@ -162,11 +163,11 @@
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/72.27.1368.873@72.27.1368.873" timestamp="1598601500374" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1598907014507">
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1599075946398">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="1805" y="193" width="709" height="699" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@1440.0.1440.900" timestamp="1598730520536" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598907014507" />
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1599075946398" />
     <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1598865942333" />
     <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598892676288" />
     <state x="481" y="378" width="540" height="177" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598894300693">

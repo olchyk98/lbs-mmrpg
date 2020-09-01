@@ -19,12 +19,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                     "> Sleep <", (selectedIndex) => PlayerSleepProgress.Display()
                 },
                 {
-                    "> Fight Monsters <", (selectedIndex) =>
-                    {
-                        // TODO: Monsters menu
-                        Console.WriteLine("a");
-                        return;
-                    }
+                    "> Fight Monsters <", (selectedIndex) => DungeonsSelectMenu.Display()
                 },
                 {
                     "> Open Inventory <", (selectedIndex) => PlayerInventoryMenu.Display()

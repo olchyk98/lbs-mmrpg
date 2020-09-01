@@ -1,9 +1,15 @@
-﻿// NEXT: Fight Monsters -> List of dungeons (different monsters :: "Spriderdraculas' dungeon") -> 2D
+﻿// NEXT: Continue PlayerDungeonFight.Display (+pass type to the display method)
+// DETAILED: Fight Monsters -> List of dungeons (different monsters :: "Spriderdraculas' dungeon") -> 2D
+// TODO: Debugger to file -> Add during refactoring
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]
 // TODO: Refactor -> Class Regions
 // TODO [low priority]: Refactor code using LBS Style Guide ("my...", "a...")
+
+// TODO: Fill welcome message
+// TODO: Add items
+// TODO: Check english
 
 /*
  * Player should get good reputation in a village to win.

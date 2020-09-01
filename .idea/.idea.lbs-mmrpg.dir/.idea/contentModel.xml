@@ -11,6 +11,7 @@
         <e p="gui" t="Include">
           <e p="components" t="Include">
             <e p="ConstantProgress.cs" t="Include" />
+            <e p="DungeonEngine.cs" t="Include" />
             <e p="FastGuiUtils.cs" t="Include" />
             <e p="FastGuiUtilsAnimatedPrint.cs" t="Include" />
             <e p="PlayerStatsBar.cs" t="Include" />
@@ -25,8 +26,12 @@
             </e>
           </e>
           <e p="templates" t="Include">
+            <e p="custom" t="Include">
+              <e p="PlayerDungeonFight.cs" t="Include" />
+            </e>
             <e p="menus" t="Include">
               <e p="ActionGroupsMenu.cs" t="Include" />
+              <e p="DungeonsSelectMenu.cs" t="Include" />
               <e p="PlayerInventoryMenu.cs" t="Include" />
               <e p="ShopMenu.cs" t="Include" />
               <e p="TravelToVillageMenu.cs" t="Include" />
@@ -43,14 +48,15 @@
           </e>
         </e>
         <e p="instances" t="Include">
-          <e p="entity" t="Include" />
           <e p="items" t="Include">
             <e p="NagaArmor.cs" t="Include" />
             <e p="PermanentHealthBooster.cs" t="Include" />
           </e>
           <e p="monsters" t="Include">
-            <e p="Monster.cs" t="Include" />
-            <e p="MonsterType.cs" t="Include" />
+            <e p="Cobra.cs" t="Include" />
+            <e p="Onyx.cs" t="Include" />
+            <e p="Spider.cs" t="Include" />
+            <e p="Zombie.cs" t="Include" />
           </e>
           <e p="player" t="Include">
             <e p="Player.cs" t="Include" />
@@ -77,7 +83,7 @@
       <e p="contracts" t="Include">
         <e p="entity" t="Include">
           <e p="IEntity.cs" t="Include" />
-          <e p="IEntityBot.cs" t="Include" />
+          <e p="IMonster.cs" t="Include" />
         </e>
         <e p="gui" t="Include">
           <e p="IMenu.cs" t="Include" />

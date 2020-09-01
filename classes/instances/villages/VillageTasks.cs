@@ -97,11 +97,24 @@ namespace lbs_rpg.classes.instances.villages
             myCurrentTasks = tasks;
         }
 
+        /// <summary>
+        /// Removes target task from the village's tasks list.
+        /// </summary>
+        /// <param name="task">
+        /// Target task
+        /// </param>
         public void RemoveTask(VillageTask task)
         {
             myCurrentTasks.Remove(task);
         }
 
+        /// <summary>
+        /// Refreshes the tasks list when neeed and returns
+        /// the relevant tasks list.
+        /// </summary>
+        /// <returns>
+        /// List of task without any filtering
+        /// </returns>
         public IList<VillageTask> GetAvailableTasks()
         {
             // Check if it's time to update the tasks list
