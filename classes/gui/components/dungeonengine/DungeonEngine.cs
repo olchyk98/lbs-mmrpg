@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.contracts.entity;
+using lbs_rpg.contracts.gui;
 
 namespace lbs_rpg.classes.gui.components.dungeonengine
 {
@@ -17,11 +19,8 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         #region Constructor
         public DungeonEngine(Type monstersType)
         {
-            myMonstersType = monstersType;
-            myMonsters = new List<IMonster>();
+            InitializeMonsters(monstersType);
             myPlayer = SpawnPlayer();
-
-            RefreshMonsterSpawnTimeout();
         }
         #endregion
         
@@ -52,6 +51,17 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             return player;
         }
 
+        /// <summary>
+        /// Listens to keyboard, filter buttons and returns x and y movement directions
+        /// </summary>
+        /// <returns>
+        /// Array of two-axis directions - [x, y]
+        /// </returns>
+        private int[] GetInputDirections()
+        {
+            // TODO
+        }
+
         #endregion
         
         #region Tick Methods
@@ -61,15 +71,26 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         /// </summary>
         public void ProcessTicks()
         {
-            // Draw Recursion
-            while (true)
+            // Draw & Update
+            // Run in a separate task to be able to handle input
+            Task.Run(() =>
             {
-                bool didExit = UpdateTick();
-                DrawTick();
+                // Draw Recursion
+                while (true)
+                {
+                    bool didExit = UpdateTick();
+                    DrawTick();
 
-                // Exit dungeon if player died or touched a wall
-                if (didExit) break;
-            }
+                    // Exit dungeon if player died or touched a wall
+                    if (didExit) break;
+                }
+            });
+            
+            // Handle input
+            int[] inputDirections = GetInputDirections();
+            
+            // Move player using those values
+            ((IObject2D) myPlayer).MoveDirection(inputDirections[0], inputDirections[1]);
         }
 
         

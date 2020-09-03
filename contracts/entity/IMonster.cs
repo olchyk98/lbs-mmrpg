@@ -25,8 +25,7 @@ namespace lbs_rpg.contracts.entity
             int directionY = (target.Position[1] < Position[1]) ? -1 : 1;
             
             // Move the monster
-            Position[0] += directionX;
-            Position[1] += directionY;
+            MoveDirection(directionX, directionY);
         }
 
         /// <summary>

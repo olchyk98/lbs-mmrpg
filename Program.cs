@@ -1,4 +1,5 @@
-﻿// NEXT: Continue PlayerDungeonFight.Display (+pass type to the display method)
+﻿// NEXT: DungeonEngine -> .GetInputDirections
+// NEXT: Make one more partial class for DungeonEngine (for the player methods and fields)
 // DETAILED: Fight Monsters -> List of dungeons (different monsters :: "Spriderdraculas' dungeon") -> 2D
 // TODO: Go to main menu if player touches a wall
 // IDEA: Place different (1x1, 2x2, 3x3 :: '*') blocks in the dungeon (random). This will make env more realistic 

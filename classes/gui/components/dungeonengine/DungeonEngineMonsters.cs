@@ -10,9 +10,21 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
     public partial class DungeonEngine
     {
         #region Fields
-        private readonly Type myMonstersType;
-        private readonly List<IMonster> myMonsters;
+        private readonly List<IMonster> myMonsters = new List<IMonster>();
+        private Type myMonstersType;
         private int myTicksToMonsterSpawn;
+        #endregion
+        
+        #region Offtopic Constructor
+
+        /// <summary>
+        /// Part of the main constructor that initializes monster fields/timeouts
+        /// </summary>
+        private void InitializeMonsters(Type monstersType)
+        {
+            myMonstersType = monstersType;
+            RefreshMonsterSpawnTimeout();
+        }
         #endregion
         
         #region Methods
