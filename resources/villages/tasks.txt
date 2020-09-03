@@ -1,4 +1,4 @@
-Help {0} to finish his house
+Help {0} to finish the house
 Fix few low-damage weapons for {0}
 Help {0} with Gendromes in house
 Tell {0} about what's going on in the dungeons

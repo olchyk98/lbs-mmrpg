@@ -1,11 +1,9 @@
 using System;
-using System.Drawing;
 using System.Text;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.utils;
 using lbs_rpg.contracts.gui;
-using Pastel;
 
 namespace lbs_rpg.classes.gui.components
 {

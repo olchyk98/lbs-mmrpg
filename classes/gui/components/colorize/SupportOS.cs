@@ -1,6 +1,3 @@
-using System;
-using System.Runtime.InteropServices;
-
 namespace lbs_rpg.classes.gui.components.colorize
 {
     public static class SupportOs

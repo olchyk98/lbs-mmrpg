@@ -9,5 +9,7 @@ namespace lbs_rpg.classes.instances.monsters
         public float MaxHealth { get; } = 30;
         public static string Name { get; } = "Spider";
         public float HeadPrice { get; } = 3000;
+        public float AttackDamage { get; } = 8.5f;
+        public int[] Position { get; set; }
     }
 }

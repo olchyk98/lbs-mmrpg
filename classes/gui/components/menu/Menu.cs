@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.contracts.gui;
-using Pastel;
 
 namespace lbs_rpg.classes.gui.components.menu
 {

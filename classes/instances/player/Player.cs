@@ -42,6 +42,8 @@ namespace lbs_rpg.classes.instances.player
         /// Internal method.
         /// Can be used to apply damage to the entity.
         /// Can be also used to heal the entity.
+        ///
+        /// If the damage is critical the health will be set to 0.1, since player cannot actually die.
         /// </summary>
         /// <param name="health">
         /// A value that is not 0.
@@ -60,12 +62,6 @@ namespace lbs_rpg.classes.instances.player
             // Convert class to its interface to use some methods that are implemented in the interface
             IEntity instanceEntity = this;
 
-            // Check if player is alive
-            if (!instanceEntity.IsAlive())
-            {
-                throw new Exception("Tried to apply damage to a dead player!");
-            }
-
             // Validate argument
             if (health == 0)
             {
@@ -78,9 +74,15 @@ namespace lbs_rpg.classes.instances.player
             // Keep the health value between 0 and MaxHealth
             if (Health < 0) Health = 0;
             else if (Health > MaxHealth) Health = MaxHealth;
+            
+            // Store if player is alive status
+            bool isAlive = !instanceEntity.IsAlive();
+            
+            // Clamp player health
+            Health = Math.Clamp(Health, .1f, MaxHealth);
 
             // Return Status
-            return instanceEntity.IsAlive();
+            return isAlive;
         }
 
         /// <summary>

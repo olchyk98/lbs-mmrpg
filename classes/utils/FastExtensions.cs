@@ -1,19 +1,29 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace lbs_rpg.classes.utils
 {
     public static class FastExtensions
     {
         private static readonly Random Random = new Random();
-        
+
+        /// <summary>
+        /// Returns the longest string item in the target array. 
+        /// </summary>
+        /// <param name="content">
+        /// Target array
+        /// </param>
+        /// <returns>
+        /// Longest string in the array
+        /// </returns>
         private static string GetLongestArrayString(string[] content)
         {
-            return content.OrderByDescending( s => s.Length ).First();
+            return content.OrderByDescending(s => s.Length).First();
         }
-        
+
         /// <summary>
         /// Returns dimensions of the array in 2D space by calculating
         /// its height and length of the longest string in the array.
@@ -47,15 +57,16 @@ namespace lbs_rpg.classes.utils
         /// <returns>
         /// Copy of the shuffled array
         /// </returns>
-        public static IList<T> Shuffle<T>(this IList<T> list)  
-        {  
-            int listLength = list.Count;  
-            while (listLength > 1) {  
-                listLength--;  
-                int randomizedIndex = Random.Next(listLength + 1);  
-                T randomizedValue = list[randomizedIndex];  
-                list[randomizedIndex] = list[listLength];  
-                list[listLength] = randomizedValue;  
+        public static IList<T> Shuffle<T>(this IList<T> list)
+        {
+            int listLength = list.Count;
+            while (listLength > 1)
+            {
+                listLength--;
+                int randomizedIndex = Random.Next(listLength + 1);
+                T randomizedValue = list[randomizedIndex];
+                list[randomizedIndex] = list[listLength];
+                list[listLength] = randomizedValue;
             }
 
             return list;
@@ -77,12 +88,35 @@ namespace lbs_rpg.classes.utils
         {
             // Get list length
             int length = list.Count;
-            
+
             // Randomize element index
             int randPosition = Random.Next(length);
-            
+
             // Return an item on that position
             return list[randPosition];
+        }
+
+        /// <summary>
+        /// Completely clones an object
+        /// </summary>
+        /// <param name="obj">
+        /// Serializable object
+        /// </param>
+        /// <typeparam name="T">
+        /// Object's type
+        /// </typeparam>
+        /// <returns>
+        /// The cloned object
+        /// </returns>
+        public static T DeepClone<T>(this T obj)
+        {
+            using var memoryStream = new MemoryStream();
+            var formatter = new BinaryFormatter();
+            
+            formatter.Serialize(memoryStream, obj);
+            memoryStream.Position = 0;
+
+            return (T) formatter.Deserialize(memoryStream);
         }
     }
 }

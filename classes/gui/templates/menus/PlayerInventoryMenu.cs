@@ -45,7 +45,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                         // Refresh menu
                         Display(selectedIndex);
                     });
-                } else if (item is IBuff buffItem)
+                } else if (item is IUseable useableItem)
                 { // Add apply {buff} option
                     menuItems.Add($"Use \"{ item.Name }\" | You have { item.Amount }", (selectedIndex) =>
                     {
@@ -53,7 +53,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                         player.Inventory.RemoveItem(item);
                         
                         // Apply item's effects on player
-                        buffItem.UseOn(player);
+                        useableItem.UseOn(player);
                         
                         // Refresh menu
                         Display(selectedIndex);

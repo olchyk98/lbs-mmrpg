@@ -1,5 +1,7 @@
 ﻿// NEXT: Continue PlayerDungeonFight.Display (+pass type to the display method)
 // DETAILED: Fight Monsters -> List of dungeons (different monsters :: "Spriderdraculas' dungeon") -> 2D
+// TODO: Go to main menu if player touches a wall
+// IDEA: Place different (1x1, 2x2, 3x3 :: '*') blocks in the dungeon (random). This will make env more realistic 
 // TODO: Debugger to file -> Add during refactoring
 
 // TODO: Refactor -> IDE Style
@@ -39,7 +41,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.templates.menus;
 using lbs_rpg.classes.instances.player;
@@ -76,7 +77,7 @@ namespace lbs_rpg
             // Initialize render pipeline
             RenderPipeline.Add(new PlayerStatsBar(Player));
 
-            // Display the welcome message (game introduction)
+            // Display the welcome message (game instructions)
             // WelcomeScreen.Display();
 
             // TODO: Stats should also display the enemy damage (not in the Program.Main)
