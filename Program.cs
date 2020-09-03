@@ -39,6 +39,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.templates.menus;
 using lbs_rpg.classes.instances.player;

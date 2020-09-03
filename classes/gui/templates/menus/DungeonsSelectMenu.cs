@@ -42,7 +42,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                 
                 menuItems.Add(itemLabel, (selectedIndex) =>
                 {
-                    PlayerDungeonFight.Display();
+                    PlayerDungeonFight.Display(monsterType);
                 });
             }
 

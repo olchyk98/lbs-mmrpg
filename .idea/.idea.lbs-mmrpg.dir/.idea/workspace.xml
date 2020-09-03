@@ -27,18 +27,15 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/35/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/45/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/44/DateTime.Unix.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/4D/AppDomain.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/instances/items/NagaArmor.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/VillageShop.cs" />
-        <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/Menu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/menu/MenuKeyboardEvent.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/ColorizePastel.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/HardColor.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/colorize/Colorize.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IBoots.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IUseableBuff.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IBuff.cs" />
@@ -51,7 +48,6 @@
         <option value="$PROJECT_DIR$/resources/villages/villagerNames.txt" />
         <option value="$PROJECT_DIR$/classes/utils/TicksManager.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/ConstantProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerSleepProgress.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
         <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
@@ -76,12 +72,17 @@
         <option value="$PROJECT_DIR$/classes/instances/monsters/Zombie.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Spider.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Cobra.cs" />
         <option value="$PROJECT_DIR$/classes/gui/DungeonEngine.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/DungeonsSelectMenu.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/custom/PlayerDungeonFight.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/DungeonEngine.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/DungeonsSelectMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/colorize/Colorize.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/colorize/SupportWindows.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/colorize/OSTypes.cs" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/colorize/SupportOS.cs" />
       </list>
     </option>
   </component>
@@ -141,11 +142,11 @@
     <state x="839" y="47" key="RiderGenerateDialog/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598984119309" />
     <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.1368.873@72.27.1368.873" timestamp="1598624950013" />
     <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.2808.873@72.27.2808.873" timestamp="1598551833406" />
-    <state x="210" y="78" width="1022" height="737" key="SettingsEditor" timestamp="1598894327712">
+    <state x="156" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1599117605525">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="210" y="78" width="1022" height="737" key="SettingsEditor/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598894327712" />
-    <state x="156" y="98" width="900" height="779" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1598704219895" />
+    <state x="156" y="98" width="900" height="779" key="SettingsEditor/72.27.1368.873@72.27.1368.873" timestamp="1599117605525" />
     <state x="245" y="98" width="1022" height="737" key="SettingsEditor/72.27.2808.873@72.27.2808.873" timestamp="1598549878722" />
     <state x="284" y="154" width="888" height="829" key="dock-window-1" timestamp="1598897932277">
       <screen x="72" y="27" width="1368" height="873" />
@@ -163,12 +164,12 @@
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/72.27.1368.873@72.27.1368.873" timestamp="1598601500374" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1599075946398">
+    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup" timestamp="1599124613199">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="1805" y="193" width="709" height="699" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@1440.0.1440.900" timestamp="1598730520536" />
     <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1599075946398" />
-    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1598865942333" />
+    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1599124613199" />
     <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1598892676288" />
     <state x="481" y="378" width="540" height="177" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598894300693">
       <screen x="72" y="27" width="1368" height="873" />

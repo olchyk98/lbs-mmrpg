@@ -72,7 +72,7 @@ namespace lbs_rpg.classes.gui.components
                 // Checks if this position in the healthbar should be filled (health)
                 if (ma < Math.Floor(playerHealthProcent / 100f * width))
                 {
-                    current = current.PastelBg(Color.Red);
+                    current = current.Colorize("bgred");
                 }
 
                 // Append char to the output
@@ -96,7 +96,7 @@ namespace lbs_rpg.classes.gui.components
             int width = ResolutionHandler.GetResolution(0);
             
             // Declare output content
-            string content = $"Village \"{myTargetPlayer.VillagesManager.CurrentVillage.Name}\"".Pastel(Color.White);
+            string content = $"Village \"{myTargetPlayer.VillagesManager.CurrentVillage.Name}\"".Colorize("white");
             
             // Set print cursor
             Console.SetCursorPosition(width / 2 - content.Decolorize().Length / 2, posY);

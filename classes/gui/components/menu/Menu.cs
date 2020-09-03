@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.contracts.gui;
 using Pastel;
 
@@ -182,12 +183,12 @@ namespace lbs_rpg.classes.gui.components.menu
                 // Highlight if currently selected
                 if (ma == mySelectedIndex)
                 {
-                    item = item.Pastel(Color.White).PastelBg(Color.OrangeRed);
+                    item = item.Colorize("white").Colorize("bgyellow");
                     continue; // if yes, go to the next item
                 }
 
                 // Otherwise set the default color
-                item = item.Pastel(Color.Red);
+                item = item.Colorize("red");
             }
 
             // Push label to the output without any stylization

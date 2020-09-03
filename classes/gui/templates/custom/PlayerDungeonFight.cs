@@ -1,10 +1,11 @@
+using System;
+
 namespace lbs_rpg.classes.gui.templates.custom
 {
     public static class PlayerDungeonFight
     {
-        public static void Display()
+        public static void Display(Type monstersType)
         {
-            // Create a new instance of DungeonEngine
             // TODO: Continue HERE
         }
     }
