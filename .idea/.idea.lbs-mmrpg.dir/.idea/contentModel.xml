@@ -23,6 +23,7 @@
             <e p="dungeonengine" t="Include">
               <e p="DungeonEngine.cs" t="Include" />
               <e p="DungeonEngineMonsters.cs" t="Include" />
+              <e p="DungeonEnginePlayer.cs" t="Include" />
             </e>
             <e p="menu" t="Include">
               <e p="Menu.cs" t="Include" />
@@ -30,9 +31,6 @@
             </e>
           </e>
           <e p="templates" t="Include">
-            <e p="custom" t="Include">
-              <e p="PlayerDungeonFight.cs" t="Include" />
-            </e>
             <e p="menus" t="Include">
               <e p="ActionGroupsMenu.cs" t="Include" />
               <e p="DungeonsSelectMenu.cs" t="Include" />

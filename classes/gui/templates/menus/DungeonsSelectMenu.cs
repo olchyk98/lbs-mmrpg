@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using lbs_rpg.classes.gui.components.dungeonengine;
 using lbs_rpg.classes.gui.components.menu;
-using lbs_rpg.classes.gui.templates.custom;
 using lbs_rpg.contracts.entity;
 
 namespace lbs_rpg.classes.gui.templates.menus
@@ -42,7 +42,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                 
                 menuItems.Add(itemLabel, (selectedIndex) =>
                 {
-                    PlayerDungeonFight.Display(monsterType);
+                    (new DungeonEngine(monsterType)).ProcessTicks();
                 });
             }
 

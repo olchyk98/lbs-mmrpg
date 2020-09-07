@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace lbs_rpg.classes.utils
 {
@@ -112,7 +114,7 @@ namespace lbs_rpg.classes.utils
         {
             using var memoryStream = new MemoryStream();
             var formatter = new BinaryFormatter();
-            
+
             formatter.Serialize(memoryStream, obj);
             memoryStream.Position = 0;
 

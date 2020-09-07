@@ -1,3 +1,7 @@
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
 namespace lbs_rpg.contracts.gui
 {
     public interface IObject2D
