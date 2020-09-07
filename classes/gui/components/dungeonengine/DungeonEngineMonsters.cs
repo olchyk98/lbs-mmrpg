@@ -67,7 +67,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         /// </summary>
         private void RefreshMonsterSpawnTimeout()
         {
-            myTicksToMonsterSpawn = Random.Next(50, 400);
+            myTicksToMonsterSpawn = Random.Next(40, 160);
         }
         
         /// <summary>

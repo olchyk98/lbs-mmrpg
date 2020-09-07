@@ -139,10 +139,10 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             int y = myPlayer.Position[1];
             
             //
-            const int borderSize = 1;
+            int borderSize = CanvasBorderSize;
             
             // Check if player touches the border -> Return
-            return x < borderSize || x > CanvasSize[0] - borderSize || y < borderSize || y > CanvasSize[1] - borderSize;
+            return x < borderSize || x > CanvasSize[0] - 1 - borderSize || y < borderSize || y > CanvasSize[1] - 1 - borderSize;
         }
 
         #endregion

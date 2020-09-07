@@ -4,7 +4,7 @@ namespace lbs_rpg.classes.instances.monsters
 {
     public class Cobra : IMonster
     {
-        public int TicksPerMove { get; } = 20;
+        public int TicksPerMove { get; } = 5;
         public float Health { get; set; }
         public float MaxHealth { get; } = 100;
         public static string Name { get; } = "Cobra";

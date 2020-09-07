@@ -14,12 +14,16 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
     public partial class DungeonEngine
     {
         #region Fields
+
         private static readonly Random Random = new Random();
+
+        private static readonly int CanvasBorderSize = 1;
 
         private static readonly int[] CanvasSize = // x,y
         {
-            20, 20
+            40, 10
         };
+
         #endregion
 
         #region Constructor
@@ -52,10 +56,11 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
                 {
                     // Break if rendering process exited
                     if (token.IsCancellationRequested) break;
-                    
+
                     // Update & Draw
                     bool didExit = UpdateTick();
                     DrawTick();
+
 
                     // Exit dungeon if player died or touched a wall
                     if (didExit)
@@ -63,6 +68,9 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
                         tokenSource.Cancel();
                         break;
                     }
+                    
+                    // Wait one millisecond between ticks
+                    Task.Delay(80).Wait();
                 }
             });
 
@@ -71,13 +79,13 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             {
                 // Break if rendering process exited
                 if (token.IsCancellationRequested) break;
-            
+
                 // Handle input
                 int[] inputDirections = GetInputDirections();
-            
+
                 // Move player using those values
                 bool isTouchingBorder = MovePlayer(inputDirections[0], inputDirections[1]);
-                
+
                 // Stop game if player touches the border
                 if (isTouchingBorder)
                 {
@@ -100,7 +108,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             {
                 // Create char array & Fill the blanks (spaces)
                 char[] charArray = new char[CanvasSize[0]].Select(_ => ' ').ToArray();
-                
+
                 // Push to the output array
                 outputBuilder.Add(charArray);
             }
@@ -118,9 +126,54 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             // Draw player
             outputBuilder.ElementAt(myPlayer.Position[1])[myPlayer.Position[0]] = '#';
 
+            #region Deprecated Implementation: "Draw Canvas Border"
+            // EXPLICIT SOLUTION: Draw canvas border
+            // --> TOP AND BOTTOM
+            // Iterate through width pixels
+            // for (var mx = 0; mx < CanvasSize[0]; ++mx)
+            // {
+            //     // Top & Bottom multiplicator (0 - top, 1 - bottom)
+            //     for (var my = 0; my <= 1; ++my)
+            //     {
+            //         outputBuilder.ElementAt(my * (CanvasSize[1] - 1))[mx] = '*';
+            //     }
+            // }
+            //
+            // // --> LEFT AND RIGHT
+            // // Iterate through height pixels
+            // for (var my = 0; my < CanvasSize[1]; ++my)
+            // {
+            //     // Top & Left multiplicator (0 - left, 1 - right)
+            //     for (var mx = 0; mx < CanvasSize[0]; ++mx)
+            //     {
+            //         outputBuilder.ElementAt(my * (CanvasSize[0] - 1))[my] = '*';
+            //     }
+            // }
+            #endregion
+
+            // Draw canvas border
+            // This solution does not override all cells in the array, therefore it can be securely in the end
+            // of the rendering process pipeline
+            for (var my = 0; my < CanvasSize[1]; ++my)
+            {
+                for (var mx = 0; mx < CanvasSize[0]; ++mx)
+                {
+                    // Check if print cursor is on the first/last line of the canvas
+                    // if yes -> print the whole line of "*" ( two || )
+                    // Otherwise if currently on the first/last character in the line -> Print "*" ( two || )
+                    if (
+                        my == 0 || my == CanvasSize[1] - 1
+                                || mx == 0 || mx == CanvasSize[0] - 1
+                    )
+                    {
+                        outputBuilder.ElementAt(my)[mx] = '*';
+                    }
+                }
+            }
+
             // Convert builder to output
             string[] outputArray = new string[outputBuilder.Count];
-            
+
             for (var my = 0; my < outputBuilder.Count; ++my)
             {
                 // Add to the output array (convert chars to string)
@@ -129,7 +182,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
 
             // Clear console
             FastGuiUtils.ClearConsole();
-            
+
             // Output
             FastGuiUtils.PrintCenteredText(outputArray);
         }
@@ -181,9 +234,6 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
                 RefreshMonsterSpawnTimeout();
                 SpawnMonster();
             }
-
-            // Wait one millisecond between ticks
-            Task.Delay(10).Wait();
 
             // Return success and proceed to the next tick
             return false;
