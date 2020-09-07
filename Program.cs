@@ -1,9 +1,9 @@
-﻿// NEXT: DungeonEngine -> .GetInputDirections
-// NEXT: Make one more partial class for DungeonEngine (for the player methods and fields)
-// DETAILED: Fight Monsters -> List of dungeons (different monsters :: "Spriderdraculas' dungeon") -> 2D
-// TODO: Go to main menu if player touches a wall
-// IDEA: Place different (1x1, 2x2, 3x3 :: '*') blocks in the dungeon (random). This will make env more realistic 
-// TODO: Debugger to file -> Add during refactoring
+﻿// NEXT: DungeonEngine -> Player damage, Player current enemy, Player attack
+// TODO: DungeonEngine -> Split draw method into submethods (partial)
+// IDEA: Place different (1x1, 2x2, 3x3 :: '*') blocks in the dungeon (random). This will make env more realistic
+    // IF ACCEPTED: Make canvas bigger
+// TODO: Debug to file -> Add during refactoring
+    // IF ACCEPTED: Name class "Debugger" -> *Static
 
 // TODO: Refactor -> IDE Style
 // TODO: Refactor -> Documentation [///]

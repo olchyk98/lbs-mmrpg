@@ -120,7 +120,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
                 int[] pos = monster.Position;
 
                 // Print monster
-                outputBuilder.ElementAt(pos[1])[pos[0]] = '%';
+                outputBuilder.ElementAt(pos[1])[pos[0]] = monster.ModelChar;
             }
 
             // Draw player

@@ -10,6 +10,7 @@ namespace lbs_rpg.classes.instances.monsters
         public static string Name { get; } = "Onyx";
         public float HeadPrice { get; } = 8000;
         public float AttackDamage { get; } = 30f;
+        public char ModelChar { get; } = '&';
         public int[] Position { get; set; }
     }
 }

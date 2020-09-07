@@ -10,6 +10,9 @@ namespace lbs_rpg.contracts.entity
         public int TicksPerMove { get; }
         public float HeadPrice { get; }
         public float AttackDamage { get; }
+        
+        // Char representation of monster's look on the canvas
+        public char ModelChar { get; }
 
         /// <summary>
         /// Calculates monster's next position that will bring
