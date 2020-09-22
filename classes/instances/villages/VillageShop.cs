@@ -194,7 +194,7 @@ namespace lbs_rpg.classes.instances.villages
             }
 
             // Add new items
-            int newItemsCount = (Random.Next(0, 1) == 0) ? 0 : Random.Next(1, 4);
+            int newItemsCount = (Random.Next(2) == 0) ? 0 : Random.Next(1, 4);
 
             for (var ma = 0; ma < newItemsCount; ++ma)
             {

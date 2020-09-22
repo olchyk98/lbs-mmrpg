@@ -33,7 +33,7 @@ namespace lbs_rpg.classes.gui.templates.menus
                     // Break if moreMoney > 0, because it means that player has not enough money
                     if (moreMoney > 0)
                     {
-                        Display(selectedIndex, $"You need { NumberConvertor.ShortenNumber(moreMoney) } more to buy \"{ item.Name }\"");
+                        Display(selectedIndex, $"You need ${ NumberConvertor.ShortenNumber(moreMoney) } more to buy \"{ item.Name }\"");
                     }
                     
                     // Remove item from the shop

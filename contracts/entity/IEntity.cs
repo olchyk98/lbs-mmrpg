@@ -14,7 +14,7 @@ namespace lbs_rpg.contracts.entity
         /// Damage
         /// </param>
         /// <returns>
-        /// Boolean, that represents if the entity was killed
+        /// Boolean that represents if entity is still alive
         /// </returns>
         public bool ApplyDamage(float damage)
         {

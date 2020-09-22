@@ -12,6 +12,11 @@ namespace lbs_rpg.classes.instances.player
         // How many health points do player regenerate (per tick) when he's asleep.
         public float HealthRegeneration { get; } = .5f;
         
+        public float AttackDamage => Player.Inventory.Sword?.Damage ?? 5f;
+        
+        // Length of player's attack ray
+        public int AttackRange => Player.Inventory.Sword?.AttackRange ?? 1;
+        
         // With how many procents player reduces applied to him damage
         public float DefenseProcent => Player.Inventory.Armor?.ProtectionProcent ?? 0f;
         

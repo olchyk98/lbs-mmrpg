@@ -14,7 +14,7 @@ namespace lbs_rpg.classes.instances.player
         #region Constructor
         public PlayerMoney(Player player)
         {
-            Money = 1e7;
+            Money = 5000;
             Player = player;
         }
         #endregion

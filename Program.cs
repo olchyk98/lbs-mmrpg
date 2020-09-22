@@ -1,18 +1,12 @@
-﻿// NEXT: DungeonEngine -> Player damage, Player current enemy, Player attack
-// TODO: DungeonEngine -> Split draw method into submethods (partial)
-// IDEA: Place different (1x1, 2x2, 3x3 :: '*') blocks in the dungeon (random). This will make env more realistic
-    // IF ACCEPTED: Make canvas bigger
-// TODO: Debug to file -> Add during refactoring
+﻿// TODO [LP]: Debug to file -> Add during refactoring
     // IF ACCEPTED: Name class "Debugger" -> *Static
 
-// TODO: Refactor -> IDE Style
-// TODO: Refactor -> Documentation [///]
-// TODO: Refactor -> Class Regions
-// TODO [low priority]: Refactor code using LBS Style Guide ("my...", "a...")
+// TODO [LP]: Refactor -> Split DungeonEngine (partials) into classes ;; Create subclasses for the dungeon engine
+//     (renderer, updater, collector, keyboard controller) -> With ref to the parent instance
 
 // TODO: Fill welcome message
 // TODO: Add items
-// TODO: Check english
+// TODO: Check language
 
 /*
  * Player should get good reputation in a village to win.
@@ -76,13 +70,10 @@ namespace lbs_rpg
             Player = new Player(Villages.GetRandomVillage());
 
             // Initialize render pipeline
-            RenderPipeline.Add(new PlayerStatsBar(Player));
+            RenderPipeline.Add(new PlayerStatsBar());
 
             // Display the welcome message (game instructions)
             // WelcomeScreen.Display();
-
-            // TODO: Stats should also display the enemy damage (not in the Program.Main)
-            // TODO: Stats should accept an argument [isAttackReloadShown] and replace the money field with the attack reload
 
             // Display the main menu
             while (true)

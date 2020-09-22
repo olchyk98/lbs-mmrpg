@@ -27,6 +27,11 @@ namespace lbs_rpg.classes.gui.components
         /// <summary>
         /// Returns width or height of the console container
         /// </summary>
+        /// <param name="index">
+        /// Number that represents value axis.
+        /// Can be only 0 or 1.
+        /// The method will return window width if zero was passed, or window height if the value is one.
+        /// </param>
         /// <returns></returns>
         public static int GetResolution(int index)
         {

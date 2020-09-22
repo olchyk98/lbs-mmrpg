@@ -115,12 +115,15 @@ namespace lbs_rpg.classes.gui.components.menu
 
             switch (pressedKey)
             {
+                case ConsoleKey.Spacebar:
                 case ConsoleKey.Enter:
                     returnValue = MenuKeyboardEvent.Submit;
                     break;
+                case ConsoleKey.S:
                 case ConsoleKey.DownArrow:
                     returnValue = MenuKeyboardEvent.MoveDown;
                     break;
+                case ConsoleKey.W:
                 case ConsoleKey.UpArrow:
                     returnValue = MenuKeyboardEvent.MoveUp;
                     break;

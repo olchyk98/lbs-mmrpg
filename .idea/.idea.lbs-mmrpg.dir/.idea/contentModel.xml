@@ -22,8 +22,11 @@
             </e>
             <e p="dungeonengine" t="Include">
               <e p="DungeonEngine.cs" t="Include" />
+              <e p="DungeonEngineDraw.cs" t="Include" />
               <e p="DungeonEngineMonsters.cs" t="Include" />
               <e p="DungeonEnginePlayer.cs" t="Include" />
+              <e p="DungeonEngineUpdate.cs" t="Include" />
+              <e p="DungeonInputEvent.cs" t="Include" />
             </e>
             <e p="menu" t="Include">
               <e p="Menu.cs" t="Include" />
@@ -51,6 +54,8 @@
         </e>
         <e p="instances" t="Include">
           <e p="items" t="Include">
+            <e p="FireBoots.cs" t="Include" />
+            <e p="Katana.cs" t="Include" />
             <e p="NagaArmor.cs" t="Include" />
             <e p="PermanentHealthBooster.cs" t="Include" />
           </e>
@@ -61,8 +66,10 @@
             <e p="Zombie.cs" t="Include" />
           </e>
           <e p="player" t="Include">
+            <e p="DungeonPlayer.cs" t="Include" />
+            <e p="Object2DRotation.cs" t="Include" />
             <e p="Player.cs" t="Include" />
-            <e p="Player2D.cs" t="Include" />
+            <e p="PlayerAttackLine.cs" t="Include" />
             <e p="PlayerInventory.cs" t="Include" />
             <e p="PlayerMoney.cs" t="Include" />
             <e p="PlayerStats.cs" t="Include" />
@@ -85,8 +92,8 @@
       </e>
       <e p="contracts" t="Include">
         <e p="entity" t="Include">
+          <e p="AMonster.cs" t="Include" />
           <e p="IEntity.cs" t="Include" />
-          <e p="IMonster.cs" t="Include" />
         </e>
         <e p="gui" t="Include">
           <e p="IMenu.cs" t="Include" />
@@ -98,8 +105,8 @@
           <e p="IBoots.cs" t="Include" />
           <e p="IEquipable.cs" t="Include" />
           <e p="IItem.cs" t="Include" />
+          <e p="ISword.cs" t="Include" />
           <e p="IUseable.cs" t="Include" />
-          <e p="IWeapon.cs" t="Include" />
         </e>
       </e>
       <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />

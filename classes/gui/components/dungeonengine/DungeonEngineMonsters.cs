@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using lbs_rpg.contracts.entity;
 
 namespace lbs_rpg.classes.gui.components.dungeonengine
@@ -11,10 +10,10 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
     public partial class DungeonEngine
     {
         #region Fields
-        private readonly List<IMonster> myMonsters = new List<IMonster>();
+        private readonly List<AMonster> myMonsters = new List<AMonster>();
         private Type myMonstersType;
         private int myTicksToMonsterSpawn;
-        private readonly IDictionary<IMonster, int> myMonstersMovementTicks = new Dictionary<IMonster, int>();
+        private readonly IDictionary<AMonster, int> myMonstersMovementTicks = new Dictionary<AMonster, int>();
 
         #endregion
         
@@ -38,16 +37,16 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         private void SpawnMonster()
         {
             // Random monster position
-            int multiplicatorX = Random.Next(0, 1);
-            int multiplicatorY = Random.Next(0, 1);
+            int multiplicatorX = Random.Next(2); // 0, 1
+            int multiplicatorY = Random.Next(2); // 0, 1
             int[] position =
             {
-                CanvasSize[0] * multiplicatorX,
-                CanvasSize[1] * multiplicatorY
+                (CanvasSize[0] - 1) * multiplicatorX,
+                (CanvasSize[1] - 1) * multiplicatorY
             };
             
             // Instantiate monster
-            var monsterInstance = (IMonster) Activator.CreateInstance(myMonstersType);
+            var monsterInstance = (AMonster) Activator.CreateInstance(myMonstersType);
 
             // Check if instantiated
             if (monsterInstance == null)
@@ -67,7 +66,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         /// </summary>
         private void RefreshMonsterSpawnTimeout()
         {
-            myTicksToMonsterSpawn = Random.Next(40, 80);
+            myTicksToMonsterSpawn = Random.Next(10, 40);
         }
         
         /// <summary>
@@ -76,7 +75,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         /// <param name="monster">
         /// Target monster
         /// </param>
-        private void DestroyMonster(IMonster monster)
+        private void RemoveMonster(AMonster monster)
         {
             myMonsters.Remove(monster);
         }
@@ -90,7 +89,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         /// <returns>
         /// Boolean that represents if timer hasn't ended yet
         /// </returns>
-        private bool DecrementMonstersMoveTimer(IMonster monster)
+        private bool DecrementMonstersMoveTimer(AMonster monster)
         {
             // Check if already started tracking spawn time for this monster
             // (check if this key is in the dictionary)

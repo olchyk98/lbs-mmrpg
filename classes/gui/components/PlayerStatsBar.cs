@@ -3,24 +3,15 @@ using System.Text;
 using lbs_rpg.classes.gui.components.colorize;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.utils;
+using lbs_rpg.contracts.entity;
 using lbs_rpg.contracts.gui;
 
 namespace lbs_rpg.classes.gui.components
 {
     public class PlayerStatsBar : IRenderable
     {
-        #region Fields
-        private Player myTargetPlayer = default;
-        #endregion
-
-        #region Constructor
-        public PlayerStatsBar(Player player)
-        {
-            myTargetPlayer = player;
-        }
-        #endregion
-
         #region Methods
+
         /// <summary>
         /// Renders a stats bar on the last and pre-last y positions
         /// </summary>
@@ -28,19 +19,82 @@ namespace lbs_rpg.classes.gui.components
         {
             // Health Bar
             DisplayHealthBar();
-            
+
             // Current location (village)
             DisplayLocation();
 
             // Stats
             DisplayStats();
+
+            // Attack Bar
+            DisplayAttackBar();
         }
 
-        // Sequential Methods
+        #endregion
+
+        #region Sequential Methods
+
+        private void DisplayAttackBar()
+        {
+            // HealthBar Y position
+            int posY = ResolutionHandler.GetResolution(1);
+
+            // Line width
+            int width = ResolutionHandler.GetResolution(0);
+
+            // Get player's target information
+            AMonster targetMonster = Program.Player.CurrentTarget;
+            
+            // Declare string builder
+            StringBuilder attackBarBuilder = new StringBuilder();
+
+            if (targetMonster != default)
+            {
+                float monsterHealth = targetMonster.Health;
+                string monsterName = (string) targetMonster.GetType().GetProperty("Name")?.GetValue(null);
+                string targetText = $"{monsterName}: {targetMonster.Health}/{targetMonster.MaxHealth}";
+
+                // Calculate health position x
+                int monsterHealthX = width / 2 - targetText.Length / 2;
+
+                // Calculate monster health in procents
+                var monsterHealthProcent = (int) Math.Floor((double) monsterHealth / targetMonster.MaxHealth * 100);
+
+                // Push content to the builder
+                for (var ma = 0; ma < width; ++ma)
+                {
+                    // Chat that will be added during this iteration
+                    string current = " ";
+
+                    // Place text char when in the text container area
+                    if (ma >= monsterHealthX && ma < monsterHealthX + targetText.Length)
+                    {
+                        current = targetText[ma - monsterHealthX].ToString();
+                    }
+
+                    // Checks if this position in the healthbar should be filled (health)
+                    if (ma < Math.Floor(monsterHealthProcent / 100f * width))
+                    {
+                        current = current.Colorize("bgblue");
+                    }
+
+                    // Append char to the output
+                    attackBarBuilder.Append(current);
+                }
+            }
+
+            // Place cursor at the position
+            Console.SetCursorPosition(0, posY);
+
+            // Display the health bar rectangle
+            string barText = attackBarBuilder.ToString();
+            Console.WriteLine(barText);
+        }
+
         private void DisplayHealthBar()
         {
             // HealthBar Y position
-            int posY = ResolutionHandler.GetResolution(1) - 1;
+            int posY = ResolutionHandler.GetResolution(1) - 2;
 
             // Line width
             int width = ResolutionHandler.GetResolution(0);
@@ -56,7 +110,7 @@ namespace lbs_rpg.classes.gui.components
             StringBuilder barTextBuilder = new StringBuilder();
 
             // Content the barText (rectangles and text)
-            for (var ma = 0; ma < width; ma++)
+            for (var ma = 0; ma < width; ++ma)
             {
                 // Chat that will be added during this iteration
                 string current = " ";
@@ -92,17 +146,17 @@ namespace lbs_rpg.classes.gui.components
 
             // Line width
             int width = ResolutionHandler.GetResolution(0);
-            
+
             // Declare output content
-            string content = $"Village \"{myTargetPlayer.VillagesManager.CurrentVillage.Name}\"".Colorize("white");
-            
+            string content = $"Village \"{Program.Player.VillagesManager.CurrentVillage.Name}\"".Colorize("white");
+
             // Set print cursor
             Console.SetCursorPosition(width / 2 - content.Decolorize().Length / 2, posY);
-            
+
             // Output
             Console.WriteLine(content);
         }
-        
+
         private void DisplayStats()
         {
             /*
@@ -111,7 +165,7 @@ namespace lbs_rpg.classes.gui.components
 
             // Access player instance
             Player player = Program.Player;
-            
+
             // Access player's village manager. Cache it since we will use it twice
             PlayerVillage villageManager = player.VillagesManager;
 
@@ -124,7 +178,7 @@ namespace lbs_rpg.classes.gui.components
             // Declare hud elements
             string[] elements =
             {
-                $"Money: {NumberConvertor.ShortenNumber(player.MoneyManager.Money)}",
+                $"Money: ${NumberConvertor.ShortenNumber(player.MoneyManager.Money)}",
                 $"Protection:  {player.Stats.DefenseProcent}%",
                 $"Speed: {player.Stats.MovementSpeed}",
                 $"Reputation: {villageManager.GetReputation()}/{villageManager.CurrentVillage.MaxReputation}"
@@ -143,6 +197,7 @@ namespace lbs_rpg.classes.gui.components
             // Output
             Console.WriteLine(elementsString);
         }
+
         #endregion
     }
 }

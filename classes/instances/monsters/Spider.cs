@@ -2,15 +2,15 @@ using lbs_rpg.contracts.entity;
 
 namespace lbs_rpg.classes.instances.monsters
 {
-    public class Spider : IMonster
+    public class Spider : AMonster
     {
-        public int TicksPerMove { get; } = 4;
-        public float Health { get; set; }
-        public float MaxHealth { get; } = 30;
+        public override int TicksPerMove { get; } = 4;
+        public override float MaxHealth { get; } = 30;
+        public static string FightDifficulty = "C";
         public static string Name { get; } = "Spider";
-        public float HeadPrice { get; } = 3000;
-        public float AttackDamage { get; } = 8.5f;
-        public char ModelChar { get; } = '@';
-        public int[] Position { get; set; }
+        public override float HeadPrice { get; } = 3000;
+        public override float AttackDamage { get; } = 8.5f;
+        public override char ModelChar { get; } = '@';
+        public override int[] Position { get; set; }
     }
 }

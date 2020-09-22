@@ -12,7 +12,7 @@ namespace lbs_rpg.classes.instances.player
         public IList<IItem> Items { get; }
 
         public IArmor Armor { get; private set; }
-        public IWeapon Weapon { get; private set; }
+        public ISword Sword { get; private set; }
         public IBoots Boots { get; private set; }
         public Player Player { get; }
 
@@ -125,14 +125,14 @@ namespace lbs_rpg.classes.instances.player
         /// Custom equipment setter.
         /// Created to have more control on what's going on.
         /// </devnote>
-        public void EquipWeapon(IWeapon weapon, bool unequip = false)
+        public void EquipWeapon(ISword sword, bool unequip = false)
         {
             if (!unequip)
             {
-                Weapon = weapon;
-            } else if (Weapon?.Name == weapon.Name)
+                Sword = sword;
+            } else if (Sword?.Name == sword.Name)
             {
-                Weapon = default;
+                Sword = default;
             }
         }
         

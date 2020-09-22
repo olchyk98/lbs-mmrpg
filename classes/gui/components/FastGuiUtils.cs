@@ -18,7 +18,7 @@ namespace lbs_rpg.classes.gui.components
         public static void PrintCenteredText(string[] text)
         {
             int textLines = text.Length;
-            int[] windowDimensions = {Console.WindowWidth, Console.WindowHeight};
+            int[] windowDimensions = ResolutionHandler.GetResolution();
 
             // Iterate through all characters in the array.
             for (var ma = 0; ma < text.Length; ++ma)

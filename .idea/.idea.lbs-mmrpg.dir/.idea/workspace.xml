@@ -14,75 +14,82 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/38/Type.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/10/Array.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/39D/Dictionary.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/34/String.Comparison.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/807DF784-9199-494D-8C79-DE710BCE2A40/62/17c0b056/ICloneable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/53E50124-488C-4B08-9C9D-D6D5F4A06A98/B/Color.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/contracts/items/ISword.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/45212CA3-153F-478C-B9B1-60517BBB01B3/f4/84d1eb7b/Boolean.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/807DF784-9199-494D-8C79-DE710BCE2A40/54/fd9e3930/Activator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/140/CancellationToken.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/2D/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/86/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ACA4EEDC-D5B2-41AA-94BF-3D4A002CF683/6/Console.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/AF/ParamsArray.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/35/String.Manipulation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/45/DateTime.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/4B/Activator.RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/44/DateTime.Unix.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/4D/AppDomain.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/807DF784-9199-494D-8C79-DE710BCE2A40/2E/RuntimeType.CoreCLR.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/classes/utils/TicksManager.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/ConstantProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerSleepProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/Village.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerVillage.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerTravelProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ShopMenu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/TravelToVillageMenu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/VillageReputationTasksMenu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/progress/PlayerDoTaskProgress.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTask.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/villages/VillageTasks.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/monsters/Monster.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/monsters/Onyz.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ActionGroupsMenu.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/DungeonEngine.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/colorize/SupportWindows.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/OSTypes.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/colorize/SupportOS.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/NagaArmor.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IItem.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/HardColor.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/colorize/Colorize.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/menu/Menu.cs" />
         <option value="$PROJECT_DIR$/resources/villages/tasks.txt" />
-        <option value="$PROJECT_DIR$/contracts/entity/IEntity.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IUseable.cs" />
-        <option value="$PROJECT_DIR$/contracts/items/IWeapon.cs" />
         <option value="$PROJECT_DIR$/contracts/items/IArmor.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/menus/PlayerInventoryMenu.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/PermanentHealthBooster.cs" />
         <option value="$PROJECT_DIR$/contracts/entity/IEntity2D.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/DungeonEngine.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
         <option value="$PROJECT_DIR$/classes/instances/player/Player2D.cs" />
         <option value="$PROJECT_DIR$/classes/gui/templates/custom/PlayerDungeonFight.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/templates/menus/DungeonsSelectMenu.cs" />
-        <option value="$PROJECT_DIR$/contracts/gui/IObject2D.cs" />
         <option value="$PROJECT_DIR$/classes/utils/FastExtensions.cs" />
         <option value="$PROJECT_DIR$/classes/utils/GlobalTools.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEnginePlayer.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/colorize/SupportOS.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/PlayerAttackLine.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/DungeonPlayerRotation.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/Object2DRotation.cs" />
+        <option value="$PROJECT_DIR$/contracts/gui/IObject2D.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/AttackLine.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonInputEvent.cs" />
+        <option value="$PROJECT_DIR$/contracts/items/IWeapon.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerInventory.cs" />
+        <option value="$PROJECT_DIR$/contracts/items/ISword.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/items/Katana.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/ResolutionHandler.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEngineMonsters.cs" />
+        <option value="$PROJECT_DIR$/contracts/entity/IEntity.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerAttackLine.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerStats.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/ShopMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/items/FireBoots.cs" />
         <option value="$PROJECT_DIR$/contracts/entity/IMonster.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Cobra.cs" />
+        <option value="$PROJECT_DIR$/contracts/entity/AMonster.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/menus/DungeonsSelectMenu.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/monsters/Onyx.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Spider.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Zombie.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/monsters/Onyx.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEngine.cs" />
-        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEngineMonsters.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerMoney.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/Player.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEnginePlayer.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEngineUpdate.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/DungeonPlayer.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEngineDraw.cs" />
         <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/components/dungeonengine/DungeonEngine.cs" />
       </list>
     </option>
   </component>
@@ -140,10 +147,14 @@
     </state>
     <state width="1322" height="216" key="GridCell.Tab.0.right/72.27.1368.873@72.27.1368.873" timestamp="1599126848166" />
     <state width="1322" height="216" key="GridCell.Tab.0.right/72.27.2808.873@72.27.2808.873" timestamp="1598378039044" />
-    <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog" timestamp="1599135899325">
+    <state x="339" y="209" width="824" height="515" key="IDE.errors.dialog" timestamp="1600857383651">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
-    <state x="839" y="47" key="RiderGenerateDialog/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1598984119309" />
+    <state x="339" y="209" width="824" height="515" key="IDE.errors.dialog/72.27.1368.873@72.27.1368.873" timestamp="1600857383651" />
+    <state x="839" y="47" width="399" height="702" key="RiderGenerateDialog" timestamp="1600801157437">
+      <screen x="72" y="27" width="1368" height="873" />
+    </state>
+    <state x="839" y="47" width="399" height="702" key="RiderGenerateDialog/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1600801157437" />
     <state x="839" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.1368.873@72.27.1368.873" timestamp="1599135899325" />
     <state x="1854" y="47" width="601" height="813" key="RiderGenerateDialog/72.27.2808.873@72.27.2808.873" timestamp="1598551833406" />
     <state x="156" y="98" width="1022" height="737" key="SettingsEditor" timestamp="1599117605525">
@@ -172,13 +183,13 @@
       <screen x="72" y="27" width="1368" height="873" />
     </state>
     <state x="348" y="346" width="616" height="284" key="org.intellij.images.editor.actions.BackgroundImageDialog/72.27.1368.873@72.27.1368.873" timestamp="1598601500374" />
-    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup" timestamp="1599513284065">
+    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup" timestamp="1600972371669">
       <screen x="72" y="27" width="2808" height="873" />
     </state>
     <state x="1805" y="193" width="709" height="699" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@1440.0.1440.900" timestamp="1598730520536" />
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1599165448510" />
-    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1599465083914" />
-    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1599513284065" />
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873/1440.0.1440.900@72.27.1368.873" timestamp="1600807789223" />
+    <state x="419" y="214" width="673" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1600862628935" />
+    <state x="784" y="214" width="1380" height="678" key="search.everywhere.popup/72.27.2808.873@72.27.2808.873" timestamp="1600972371669" />
     <state x="481" y="378" width="540" height="177" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1598894300693">
       <screen x="72" y="27" width="1368" height="873" />
     </state>

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.contracts.gui;
 
@@ -7,7 +8,8 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
     public partial class DungeonEngine
     {
         #region Fields
-        private Player2D myPlayer;
+        private DungeonPlayer myPlayer;
+        private readonly IList<PlayerAttackLine> myPlayerAttackLines = new List<PlayerAttackLine>();
         #endregion
         
         #region External Constructor
@@ -18,6 +20,8 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         }
         #endregion
         
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         #region Methods
         /// <summary>
         /// Creates a new player2D instance and places it in the middle of the screen.
@@ -25,7 +29,7 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
         /// <returns>
         /// Created canvas wrapper of player
         /// </returns>
-        private Player2D SpawnPlayer()
+        private DungeonPlayer SpawnPlayer()
         {
             // Calculate position
             int[] position =
@@ -35,66 +39,55 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             };
 
             // Instantiate player
-            Player2D player = new Player2D(Program.Player);
+            DungeonPlayer dungeonPlayer = new DungeonPlayer(Program.Player);
 
             // Set player 2d position
-            player.Position = position;
+            dungeonPlayer.Position = position;
 
             // Return the created player instance
-            return player;
+            return dungeonPlayer;
         }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
-        /// Listens to keyboard, filter buttons and returns x and y movement directions
+        /// Listens to keyboard, filter buttons and returns currently pressed button
         /// </summary>
         /// <returns>
-        /// Array of two-axis directions - [x, y]
+        /// Pressed button value
         /// </returns>
-        private int[] GetInputDirections()
+        private DungeonInputEvent GetInputEvent()
         {
-            // Declare direction array
-            int[] direction = new int[2]; // [x,y]
-
             // Don't return anything till an valid input received
             while (true)
             {
                 // Get keyboard input
                 ConsoleKeyInfo keyInfo = Console.ReadKey(true);
 
-                // Declare boolean that represents if ve got a valid input
-                bool isValidInput = true;
-
                 // Check which key is pressed
                 switch (keyInfo.Key)
                 {
                     case ConsoleKey.A:
                     case ConsoleKey.LeftArrow:
-                        direction[0] = -1;
-                        break;
+                        return DungeonInputEvent.MOVE_LEFT;
                     case ConsoleKey.D:
                     case ConsoleKey.RightArrow:
-                        direction[0] = 1;
-                        break;
+                        return DungeonInputEvent.MOVE_RIGHT;
                     case ConsoleKey.W:
                     case ConsoleKey.UpArrow:
-                        direction[1] = -1;
-                        break;
+                        return DungeonInputEvent.MOVE_UP;
                     case ConsoleKey.S:
                     case ConsoleKey.DownArrow:
-                        direction[1] = 1;
-                        break;
+                        return DungeonInputEvent.MOVE_DOWN;
+                    case ConsoleKey.Enter:
+                        return DungeonInputEvent.ATTACK;
                     default: // No valid input
-                        isValidInput = false;
                         continue;
                 }
-
-                // Exit while loop if a valid input received
-                if (isValidInput) break;
             }
-
-            // Return direction array
-            return direction;
         }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
         /// Moves player in the target direction.
@@ -125,6 +118,8 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             // Check if player is touching the border -> Return result
             return CheckPlayerTouchesBorder();
         }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         /// <summary>
         /// Checks if player touches the canvas border
@@ -143,6 +138,27 @@ namespace lbs_rpg.classes.gui.components.dungeonengine
             
             // Check if player touches the border -> Return
             return x < borderSize || x > CanvasSize[0] - 1 - borderSize || y < borderSize || y > CanvasSize[1] - 1 - borderSize;
+        }
+        
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        /// <summary>
+        /// Creates a new attack line that comes from player and
+        /// damages all nearby monsters.
+        /// </summary>
+        private void MakePlayerAttack()
+        {
+            // Don't process if player's attack is on delay
+            if (myPlayer.AttackCooldown > 0) return;
+            
+            // Update player's attack delay
+            myPlayer.AttackCooldown = myPlayer.MaxAttackCooldown;
+            
+            // Create attack line
+            PlayerAttackLine attackLine = myPlayer.Attack();
+                        
+            // Add to the lines
+            myPlayerAttackLines.Add(attackLine);
         }
 
         #endregion

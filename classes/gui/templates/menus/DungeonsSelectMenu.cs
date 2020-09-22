@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using lbs_rpg.classes.gui.components.dungeonengine;
 using lbs_rpg.classes.gui.components.menu;
 using lbs_rpg.contracts.entity;
@@ -16,7 +15,7 @@ namespace lbs_rpg.classes.gui.templates.menus
             var menuItems = new Dictionary<string, Action<int>>();
             
             // Get all monsters in the assembly to access names
-            Type monsterInterfaceType = typeof(IMonster);
+            Type monsterInterfaceType = typeof(AMonster);
             List<Type> monsterTypes = AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(ma => ma.GetTypes())
                 .Where(ma => monsterInterfaceType.IsAssignableFrom(ma) && !ma.IsInterface).ToList();
@@ -25,29 +24,29 @@ namespace lbs_rpg.classes.gui.templates.menus
             foreach (Type monsterType in monsterTypes)
             {
                 // Get name property from the type
-                PropertyInfo monsterInfo = monsterType.GetProperty("Name", (BindingFlags.Public | BindingFlags.Static));
+                var monsterName = (string) monsterType.GetProperty("Name")?.GetValue(null);
                 
-                // Extract monster name
-                string monsterName = monsterInfo?.GetValue(null, null)?.ToString();
-
+                // Get monster strength level
+                var monsterLevel = (string) monsterType.GetField("FightDifficulty")?.GetValue(null);
+                
                 // Skip if there's a problem with the project structure
                 if (monsterName == null)
                 {
-                    // TODO: Report with Debugger
                     continue;
                 }
 
                 // Add monster to the menu
-                string itemLabel = $"Dungeon \"{monsterName}\"";
+                string itemLabel = $"Dungeon \"{monsterName}\" (Difficulty: {monsterLevel})";
                 
                 menuItems.Add(itemLabel, (selectedIndex) =>
                 {
                     (new DungeonEngine(monsterType)).ProcessTicks();
                 });
             }
-
-            // throw new Exception();
             
+            // Add go to menu menu itme
+            menuItems.Add("> Go to menu <", (selectedIndex) => ActionGroupsMenu.Display());
+
             // Display menu
             (new Menu(menuItems, "GO TO DUNGEON:")).Display();
         }

@@ -6,10 +6,11 @@ namespace lbs_rpg.contracts.items
     /// Better weapon will allow you kill monsters faster.
     /// It also increases your attack shockwave range.
     /// </summary>
-    public interface IWeapon : IEquipable
+    public interface ISword : IEquipable
     {
         public float Damage { get; }
-        
+        public int AttackRange { get; }
+
         /// <summary>
         /// Checks if item equiped (placed) on any inventory slots
         /// </summary>
@@ -21,7 +22,7 @@ namespace lbs_rpg.contracts.items
         /// </returns>
         bool IEquipable.IsEquipedOn(PlayerInventory inventory)
         {
-            return inventory.Weapon?.Name == Name;
+            return inventory.Sword?.Name == Name;
         }
         
         /// <summary>

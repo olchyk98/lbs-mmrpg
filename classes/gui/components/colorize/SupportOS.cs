@@ -34,7 +34,6 @@ namespace lbs_rpg.classes.gui.components.colorize
 #else
         public static void SupportWindows()
         {
-            return;
         }
 #endif
     }

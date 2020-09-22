@@ -5,7 +5,6 @@ using lbs_rpg.contracts.items;
 
 namespace lbs_rpg.classes.instances.player
 {
-    // [Headhunter]
     public class Player : IEntity
     {
         #region Fields
@@ -19,7 +18,7 @@ namespace lbs_rpg.classes.instances.player
         public readonly PlayerInventory Inventory;
 
         // Reference to entity that the players is trying to kill right now
-        private IEntity myCurrentTarget = default;
+        public AMonster CurrentTarget { get; private set; } = default;
 
         #endregion
 
@@ -76,7 +75,7 @@ namespace lbs_rpg.classes.instances.player
             else if (Health > MaxHealth) Health = MaxHealth;
             
             // Store if player is alive status
-            bool isAlive = !instanceEntity.IsAlive();
+            bool isAlive = instanceEntity.IsAlive();
             
             // Clamp player health
             Health = Math.Clamp(Health, .1f, MaxHealth);
@@ -197,6 +196,15 @@ namespace lbs_rpg.classes.instances.player
         {
             Inventory.RemoveItem(item);
             MoneyManager.IncreaseMoney(item.SellPriceForPlayer);
+        }
+
+        /// <summary>
+        /// Changes player's current target.
+        /// This method affects the player's status bar.
+        /// </summary>
+        public void SetMonsterTarget(AMonster monster)
+        {
+            CurrentTarget = monster;
         }
 
         #endregion

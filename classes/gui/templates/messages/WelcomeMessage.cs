@@ -20,7 +20,7 @@ namespace lbs_rpg.classes.gui.templates.messages
 
             // Create the breakline pipe
             // Initialize the string builder. We need a direct access to the char[]
-            var breakLineBuilder = new StringBuilder(new string('═', Console.WindowWidth));
+            var breakLineBuilder = new StringBuilder(new string('═', ResolutionHandler.GetResolution(0)));
 
             // Change first and last char to the '*', for style purposes.
             breakLineBuilder[0] = '╠';

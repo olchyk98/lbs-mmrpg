@@ -2,15 +2,16 @@ using lbs_rpg.contracts.entity;
 
 namespace lbs_rpg.classes.instances.monsters
 {
-    public class Onyx : IMonster
+    public class Onyx : AMonster
     {
-        public int TicksPerMove { get; } = 4;
-        public float Health { get; set; }
-        public float MaxHealth { get; } = 30;
+        public override int TicksPerMove { get; } = 4;
+        public static string FightDifficulty = "A-";
+        public override float MaxHealth { get; } = 30;
         public static string Name { get; } = "Onyx";
-        public float HeadPrice { get; } = 8000;
-        public float AttackDamage { get; } = 30f;
-        public char ModelChar { get; } = '&';
-        public int[] Position { get; set; }
+        public override float HeadPrice { get; } = 8000;
+        public override float AttackDamage { get; } = 30f;
+        public override char ModelChar { get; } = '&';
+
+        public override int[] Position { get; set; }
     }
 }
