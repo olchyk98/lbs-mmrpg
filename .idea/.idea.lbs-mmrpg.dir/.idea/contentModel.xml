@@ -17,7 +17,7 @@
             <e p="ResolutionHandler.cs" t="Include" />
             <e p="colorize" t="Include">
               <e p="Colorize.cs" t="Include" />
-              <e p="HardColor.cs" t="Include" />
+              <e p="ColorizeColor.cs" t="Include" />
               <e p="SupportOS.cs" t="Include" />
             </e>
             <e p="dungeonengine" t="Include">

@@ -1,11 +1,11 @@
-﻿// TODO [LP]: Debug to file -> Add during refactoring
+﻿// TODO [LP]: Debug to file
     // IF ACCEPTED: Name class "Debugger" -> *Static
-
 // TODO [LP]: Refactor -> Split DungeonEngine (partials) into classes ;; Create subclasses for the dungeon engine
 //     (renderer, updater, collector, keyboard controller) -> With ref to the parent instance
 
 // TODO: Fill welcome message
 // TODO: Add items
+// TODO: Balance Game
 // TODO: Check language
 
 /*

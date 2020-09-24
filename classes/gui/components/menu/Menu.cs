@@ -121,6 +121,7 @@ namespace lbs_rpg.classes.gui.components.menu
                     break;
                 case ConsoleKey.S:
                 case ConsoleKey.DownArrow:
+                case ConsoleKey.Tab:
                     returnValue = MenuKeyboardEvent.MoveDown;
                     break;
                 case ConsoleKey.W:
@@ -184,12 +185,12 @@ namespace lbs_rpg.classes.gui.components.menu
                 // Highlight if currently selected
                 if (ma == mySelectedIndex)
                 {
-                    item = item.Colorize("white").Colorize("bgyellow");
+                    item = item.Colorize(ColorizeColor.WHITE).Colorize(ColorizeColor.BGYELLOW);
                     continue; // if yes, go to the next item
                 }
 
                 // Otherwise set the default color
-                item = item.Colorize("red");
+                item = item.Colorize(ColorizeColor.RED);
             }
 
             // Push label to the output without any stylization

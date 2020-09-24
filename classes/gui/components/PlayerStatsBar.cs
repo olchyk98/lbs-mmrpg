@@ -75,7 +75,7 @@ namespace lbs_rpg.classes.gui.components
                     // Checks if this position in the healthbar should be filled (health)
                     if (ma < Math.Floor(monsterHealthProcent / 100f * width))
                     {
-                        current = current.Colorize("bgblue");
+                        current = current.Colorize(ColorizeColor.BGBLUE);
                     }
 
                     // Append char to the output
@@ -124,7 +124,7 @@ namespace lbs_rpg.classes.gui.components
                 // Checks if this position in the healthbar should be filled (health)
                 if (ma < Math.Floor(playerHealthProcent / 100f * width))
                 {
-                    current = current.Colorize("bgred");
+                    current = current.Colorize(ColorizeColor.BGRED);
                 }
 
                 // Append char to the output
@@ -148,7 +148,8 @@ namespace lbs_rpg.classes.gui.components
             int width = ResolutionHandler.GetResolution(0);
 
             // Declare output content
-            string content = $"Village \"{Program.Player.VillagesManager.CurrentVillage.Name}\"".Colorize("white");
+            string content = $"Village \"{Program.Player.VillagesManager.CurrentVillage.Name.Colorize(ColorizeColor.ITALIC)}\""
+                .Colorize(ColorizeColor.WHITE);
 
             // Set print cursor
             Console.SetCursorPosition(width / 2 - content.Decolorize().Length / 2, posY);
