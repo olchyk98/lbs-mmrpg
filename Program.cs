@@ -1,9 +1,4 @@
-﻿// TODO: Fill welcome message
-// TODO: Add items
-// TODO: Balance Game
-// TODO: Check language
-
-/*
+﻿/*
  * Player should get good reputation in a village to win.
  * He can gain reputation by buying stuff from the shop, fighting monsters to protect the village or
  * socializing.
