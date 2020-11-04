@@ -5,7 +5,7 @@ namespace lbs_rpg.classes.instances.monsters
     public class Spider : AMonster
     {
         public override int TicksPerMove { get; } = 4;
-        public override float MaxHealth { get; } = 15;
+        public override float MaxHealth { get; } = 30;
         public static string FightDifficulty = "C";
         public static string Name { get; } = "Spider";
         public override float HeadPrice { get; } = 3000;

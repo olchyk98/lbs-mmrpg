@@ -33,13 +33,12 @@ namespace lbs_rpg.classes.gui.templates.messages
             string[] welcomeMessage =
             {
                 breakLine,
-                "Welcome, Warrior!",
-                "Dark times have come.",
-                "After this attack by strange monsters, people started to think that you came with them.",
-                "Your reputation has fallen, no one trusts you know. Therefore it's your opportunity to make up for everyone.",
-                "Travel between villages, fight monsters, and make people like you. The higher reputation you have the more things you can do.",
-                "Your goal is to gain a maximal reputation in at least one village. Help people survive and help them.",
-                "Good luck, Warrior! You'll need it.",
+                "Welcome to some bulshit game.",
+                "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+                "The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here',",
+                "making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,",
+                "and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years,",
+                "sometimes by accident, sometimes on purpose (injected humour and the like).",
                 breakLine,
                 "Press X to start"
             };

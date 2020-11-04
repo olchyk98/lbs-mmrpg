@@ -6,7 +6,7 @@ namespace lbs_rpg.classes.instances.monsters
     {
         public override int TicksPerMove { get; } = 4;
         public static string FightDifficulty = "A-";
-        public override float MaxHealth { get; } = 50;
+        public override float MaxHealth { get; } = 30;
         public static string Name { get; } = "Onyx";
         public override float HeadPrice { get; } = 8000;
         public override float AttackDamage { get; } = 30f;
