@@ -44,7 +44,7 @@ namespace lbs_rpg.classes.gui.templates.menus
             // Not enough health to travel message
             if (nearestVillages.Count == 0)
             {
-                menuItems.Add("You cannot travel anywhere, because you are low", Display);
+                menuItems.Add("You cannot travel anywhere. Sleep to open more villages", Display);
             }
 
             // Add "back to menu" button

@@ -2,6 +2,6 @@ Help {0} to finish the house
 Fix few low-damage weapons for {0}
 Help {0} with Gendromes in house
 Tell {0} about what's going on in the dungeons
-Give secret's shop location to {0}
+Give secret shop's location to {0}
 Teach {0} to use anvil
 Polish sword for {0}

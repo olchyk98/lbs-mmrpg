@@ -7,9 +7,9 @@ namespace lbs_rpg.classes.instances.items
     public class Katana : ISword
     {
         public int Amount { get; set; }
-        public double Price { get; } = 4000;
-        public string Name { get; } = "Fire Katana";
-        public float Damage { get; } = 40;
-        public int AttackRange { get; } = 30;
+        public double Price { get; } = 16000;
+        public string Name { get; } = "Katana";
+        public float Damage { get; } = 15;
+        public int AttackRange { get; } = 4;
     }
 }
