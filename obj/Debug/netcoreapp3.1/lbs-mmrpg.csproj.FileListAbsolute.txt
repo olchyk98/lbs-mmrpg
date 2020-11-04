@@ -11,3 +11,16 @@
 /home/oles/Documents/Coding/htdocs/lbs-mmrpg/bin/Debug/netcoreapp3.1/lbs-rpg.pdb
 /home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-rpg.dll
 /home/oles/Documents/Coding/htdocs/lbs-mmrpg/obj/Debug/netcoreapp3.1/lbs-rpg.pdb
+/home/oles/Documents/Coding/htdocs/lbs-rpg/bin/Debug/netcoreapp3.1/lbs-rpg
+/home/oles/Documents/Coding/htdocs/lbs-rpg/bin/Debug/netcoreapp3.1/lbs-rpg.deps.json
+/home/oles/Documents/Coding/htdocs/lbs-rpg/bin/Debug/netcoreapp3.1/lbs-rpg.runtimeconfig.json
+/home/oles/Documents/Coding/htdocs/lbs-rpg/bin/Debug/netcoreapp3.1/lbs-rpg.runtimeconfig.dev.json
+/home/oles/Documents/Coding/htdocs/lbs-rpg/bin/Debug/netcoreapp3.1/lbs-rpg.dll
+/home/oles/Documents/Coding/htdocs/lbs-rpg/bin/Debug/netcoreapp3.1/lbs-rpg.pdb
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.csprojAssemblyReference.cache
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.AssemblyInfoInputs.cache
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.AssemblyInfo.cs
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.csproj.CoreCompileInputs.cache
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-rpg.dll
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-rpg.pdb
+/home/oles/Documents/Coding/htdocs/lbs-rpg/obj/Debug/netcoreapp3.1/lbs-mmrpg.genruntimeconfig.cache

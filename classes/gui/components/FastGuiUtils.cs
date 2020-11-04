@@ -23,7 +23,6 @@ namespace lbs_rpg.classes.gui.components
             // Iterate through all characters in the array.
             for (var ma = 0; ma < text.Length; ++ma)
             {
-                // TODO [completed]: All ANSI characters should be removed from the XString, since they are not visible.
                 string line = text[ma];
                 // Calculate X and Y axis for the character
                 int x = (windowDimensions[0] / 2 - line.Decolorize().Length / 2);

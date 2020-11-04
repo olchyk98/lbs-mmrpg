@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.2/resharper-host/local/Transient/Rider/v202/SolutionCaches/_.19.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
+      <e p="Program.cs" t="Include" />
+      <e p="README.md" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="classes" t="Include">
+        <e p="gui" t="Include">
+          <e p="components" t="Include">
+            <e p="ConstantProgress.cs" t="Include" />
+            <e p="FastGuiUtils.cs" t="Include" />
+            <e p="FastGuiUtilsAnimatedPrint.cs" t="Include" />
+            <e p="PlayerStatsBar.cs" t="Include" />
+            <e p="ResolutionHandler.cs" t="Include" />
+            <e p="colorize" t="Include">
+              <e p="Colorize.cs" t="Include" />
+              <e p="ColorizeColor.cs" t="Include" />
+              <e p="SupportOS.cs" t="Include" />
+            </e>
+            <e p="dungeonengine" t="Include">
+              <e p="DungeonEngine.cs" t="Include" />
+              <e p="DungeonEngineDraw.cs" t="Include" />
+              <e p="DungeonEngineMonsters.cs" t="Include" />
+              <e p="DungeonEnginePlayer.cs" t="Include" />
+              <e p="DungeonEngineUpdate.cs" t="Include" />
+              <e p="DungeonInputEvent.cs" t="Include" />
+            </e>
+            <e p="menu" t="Include">
+              <e p="Menu.cs" t="Include" />
+              <e p="MenuKeyboardEvent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="templates" t="Include">
+            <e p="menus" t="Include">
+              <e p="ActionGroupsMenu.cs" t="Include" />
+              <e p="DungeonsSelectMenu.cs" t="Include" />
+              <e p="PlayerInventoryMenu.cs" t="Include" />
+              <e p="ShopMenu.cs" t="Include" />
+              <e p="TravelToVillageMenu.cs" t="Include" />
+              <e p="VillageReputationTasksMenu.cs" t="Include" />
+            </e>
+            <e p="messages" t="Include">
+              <e p="WelcomeMessage.cs" t="Include" />
+            </e>
+            <e p="progress" t="Include">
+              <e p="PlayerDoTaskProgress.cs" t="Include" />
+              <e p="PlayerSleepProgress.cs" t="Include" />
+              <e p="PlayerTravelProgress.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="instances" t="Include">
+          <e p="items" t="Include">
+            <e p="CrazyHealthBooster.cs" t="Include" />
+            <e p="FireBoots.cs" t="Include" />
+            <e p="Firebone.cs" t="Include" />
+            <e p="Katana.cs" t="Include" />
+            <e p="LaserSword.cs" t="Include" />
+            <e p="Machete.cs" t="Include" />
+            <e p="NagaArmor.cs" t="Include" />
+            <e p="RainbowBoots.cs" t="Include" />
+            <e p="SortHealthBooster.cs" t="Include" />
+            <e p="TravelBoots.cs" t="Include" />
+            <e p="UnknownSword.cs" t="Include" />
+          </e>
+          <e p="monsters" t="Include">
+            <e p="Cobra.cs" t="Include" />
+            <e p="Onyx.cs" t="Include" />
+            <e p="Spider.cs" t="Include" />
+            <e p="Zombie.cs" t="Include" />
+          </e>
+          <e p="player" t="Include">
+            <e p="DungeonPlayer.cs" t="Include" />
+            <e p="Object2DRotation.cs" t="Include" />
+            <e p="Player.cs" t="Include" />
+            <e p="PlayerAttackLine.cs" t="Include" />
+            <e p="PlayerInventory.cs" t="Include" />
+            <e p="PlayerMoney.cs" t="Include" />
+            <e p="PlayerStats.cs" t="Include" />
+            <e p="PlayerVillage.cs" t="Include" />
+          </e>
+          <e p="villages" t="Include">
+            <e p="ActionReputation.cs" t="Include" />
+            <e p="GameVillages.cs" t="Include" />
+            <e p="Village.cs" t="Include" />
+            <e p="VillageShop.cs" t="Include" />
+            <e p="VillageTask.cs" t="Include" />
+            <e p="VillageTasks.cs" t="Include" />
+          </e>
+        </e>
+        <e p="utils" t="Include">
+          <e p="FSTools.cs" t="Include" />
+          <e p="FastExtensions.cs" t="Include" />
+          <e p="NumberConvertor.cs" t="Include" />
+        </e>
+      </e>
+      <e p="contracts" t="Include">
+        <e p="entity" t="Include">
+          <e p="AMonster.cs" t="Include" />
+          <e p="IEntity.cs" t="Include" />
+        </e>
+        <e p="gui" t="Include">
+          <e p="IMenu.cs" t="Include" />
+          <e p="IObject2D.cs" t="Include" />
+          <e p="IRenderable.cs" t="Include" />
+        </e>
+        <e p="items" t="Include">
+          <e p="IArmor.cs" t="Include" />
+          <e p="IBoots.cs" t="Include" />
+          <e p="IEquipable.cs" t="Include" />
+          <e p="IItem.cs" t="Include" />
+          <e p="ISword.cs" t="Include" />
+          <e p="IUseable.cs" t="Include" />
+        </e>
+      </e>
+      <e p="lbs-mmrpg.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="netcoreapp3.1" t="Include">
+            <e p="lbs-mmrpg.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="resources" t="Include">
+        <e p="villages" t="Include">
+          <e p="names.txt" t="Include" />
+          <e p="tasks.txt" t="Include" />
+          <e p="villager_names.txt" t="Include" />
+        </e>
+      </e>
+      <e p="start.sh" t="Include" />
+    </e>
+  </component>
+</project>

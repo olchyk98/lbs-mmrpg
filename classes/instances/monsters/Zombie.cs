@@ -5,7 +5,7 @@ namespace lbs_rpg.classes.instances.monsters
     public class Zombie : AMonster
     {
         public override int TicksPerMove { get; } = 8;
-        public override float MaxHealth { get; } = 30;
+        public override float MaxHealth { get; } = 5;
         public static string FightDifficulty = "D";
         public static string Name { get; } = "Zombie";
         public override float HeadPrice { get; } = 400;

@@ -1,14 +1,4 @@
-﻿// TODO [LP]: Debug to file
-    // IF ACCEPTED: Name class "Debugger" -> *Static
-// TODO [LP]: Refactor -> Split DungeonEngine (partials) into classes ;; Create subclasses for the dungeon engine
-//     (renderer, updater, collector, keyboard controller) -> With ref to the parent instance
-
-// TODO: Fill welcome message
-// TODO: Add items
-// TODO: Balance Game
-// TODO: Check language
-
-/*
+﻿/*
  * Player should get good reputation in a village to win.
  * He can gain reputation by buying stuff from the shop, fighting monsters to protect the village or
  * socializing.
@@ -27,7 +17,6 @@
  *
  * Health represents both the energy and the health itself.
  * So when player's traveling the health decreases.
- * TODO: Declare Player.WalkingStamina, the bigger the value is the less health it takes per 1km
  *
  * Player can play fast, choose a village and just help them with everything,
  * or he can go from village to village and find new artifacts, stuff and monsters.
@@ -38,6 +27,7 @@ using System;
 using System.Collections.Generic;
 using lbs_rpg.classes.gui.components;
 using lbs_rpg.classes.gui.templates.menus;
+using lbs_rpg.classes.gui.templates.messages;
 using lbs_rpg.classes.instances.player;
 using lbs_rpg.classes.instances.villages;
 using lbs_rpg.contracts.gui;
@@ -73,7 +63,7 @@ namespace lbs_rpg
             RenderPipeline.Add(new PlayerStatsBar());
 
             // Display the welcome message (game instructions)
-            // WelcomeScreen.Display();
+            WelcomeScreen.Display();
 
             // Display the main menu
             while (true)
