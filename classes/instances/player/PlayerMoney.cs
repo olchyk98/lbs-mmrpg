@@ -14,11 +14,11 @@ namespace lbs_rpg.classes.instances.player
         #region Constructor
         public PlayerMoney(Player player)
         {
-            Money = 1e8;
+            Money = 5 * 1000;
             Player = player;
         }
         #endregion
-        
+
         #region Methods
         /// <summary>
         /// Increases money value
@@ -32,11 +32,11 @@ namespace lbs_rpg.classes.instances.player
             {
                 throw new ArgumentException("Amount value cannot be less than zero!");
             }
-            
+
             // Update money value
             Money += amount;
         }
-        
+
         /// <summary>
         /// Takes money from the balance
         /// </summary>
@@ -48,14 +48,14 @@ namespace lbs_rpg.classes.instances.player
         {
             // Check if player has enough money
             if (Money - amount < 0) return false;
-            
+
             // Update money value
             Money -= amount;
-            
+
             // Return success
             return true;
         }
-        
+
         /// <summary>
         /// Check if player has enough money.
         /// </summary>
@@ -69,7 +69,7 @@ namespace lbs_rpg.classes.instances.player
         {
             // balance: 1000, need: 250; 250-1000=-750
             double moneyDifference = price - Money;
-            
+
             return (moneyDifference > 0) ? moneyDifference : 0;
         }
         #endregion

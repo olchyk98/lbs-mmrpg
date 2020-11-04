@@ -27,7 +27,6 @@
         <option value="$PROJECT_DIR$/classes/instances/items/Katana.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/Firebone.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/Machete.cs" />
-        <option value="$PROJECT_DIR$/classes/instances/player/PlayerMoney.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/ConstantProgress.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/FastGuiUtils.cs" />
         <option value="$PROJECT_DIR$/classes/instances/monsters/Zombie.cs" />
@@ -36,8 +35,11 @@
         <option value="$PROJECT_DIR$/classes/instances/monsters/Cobra.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/LaserSword.cs" />
         <option value="$PROJECT_DIR$/classes/instances/items/UnknownSword.cs" />
-        <option value="$PROJECT_DIR$/Program.cs" />
         <option value="$PROJECT_DIR$/classes/gui/components/PlayerStatsBar.cs" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/Program.cs" />
+        <option value="$PROJECT_DIR$/classes/gui/templates/messages/WelcomeMessage.cs" />
+        <option value="$PROJECT_DIR$/classes/instances/player/PlayerMoney.cs" />
       </list>
     </option>
   </component>
@@ -74,9 +76,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1604490294145">
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup" timestamp="1604568842743">
       <screen x="72" y="27" width="1368" height="873" />
     </state>
-    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1604490294145" />
+    <state x="419" y="214" width="672" height="678" key="search.everywhere.popup/72.27.1368.873@72.27.1368.873" timestamp="1604568842743" />
   </component>
 </project>
