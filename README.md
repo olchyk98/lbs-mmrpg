@@ -20,6 +20,6 @@ Det finns många grejer som man kan lägga till och det är lätt att göra då 
 Som sagt, UI och UX är bra. Det är mina favoritdelar av spelet för det bevisar att man kan skapa vackra saker även med dåliga instrument.
 
 ## Credits
-Oles Odynets
-September 2020
-15 Hours of Development
+- Oles Odynets
+- September 2020
+- 15 Hours of Development
